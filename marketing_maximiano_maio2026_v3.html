@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maximiano Advogados — Marketing 2026</title>
+<style>
+/* =============================================
+   PALETA MARKETING
+   Base: navy escuro da marca
+   Acento principal: #00D4FF (cyan elétrico)
+   Acento secundário: #FF2D78 (magenta/rosa)
+   Acento terciário: #7B61FF (violeta)
+   Dourado da marca mantido em destaques
+   Sensação: inovação, digital, ideias, movimento
+============================================= */
+:root{
+  --dk:#05090F;--nv:#080F1E;--nv2:#0C1428;--nv3:#111E38;
+  --gd:#F5A623;--gd2:#FFD080;
+  --mk:#00D4FF;--mk2:#7BE8FF;--mk3:rgba(0,212,255,.12);
+  --mg:#FF2D78;--mg2:#FF7AAA;--mg3:rgba(255,45,120,.10);
+  --vt:#7B61FF;--vt2:#AFA3FF;--vt3:rgba(123,97,255,.10);
+  --wh:#FFFFFF;--muted:#6A7FA5;--card:#0A1320;
+  --border:rgba(0,212,255,.18);--border2:rgba(255,255,255,.07);
+  --green2:#5FCF8A;--red2:#FF7070;--amber2:#FFB84A;--r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--wh);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem;background:rgba(5,9,15,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,255,.15)}
+.nav-brand{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:.12em;color:var(--mk);text-transform:uppercase}
+.nav-brand span{color:rgba(255,255,255,.3);margin:0 .4rem}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{padding:.4rem .8rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;border-radius:6px;transition:all .2s;cursor:pointer;font-weight:600}
+.nav-links a:hover,.nav-links a.active{color:var(--mk);background:rgba(0,212,255,.08)}
+.nav-pill{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(0,212,255,.2);padding:.18rem .7rem;border-radius:20px}
+@media(max-width:960px){.nav-links{display:none}.nav-pill{display:none}}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:60px;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,100,160,.25) 0%,transparent 70%),radial-gradient(ellipse 35% 35% at 90% 60%,rgba(123,97,255,.12) 0%,transparent 60%),radial-gradient(ellipse 25% 30% at 10% 80%,rgba(255,45,120,.08) 0%,transparent 60%),var(--dk);position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.3);border-radius:20px;padding:.35rem 1rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mk);margin-bottom:1.5rem;font-weight:700}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--mk);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.hero-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(3rem,6.5vw,5.8rem);line-height:.9;color:var(--wh)}
+.hero-title em{color:var(--mk);font-style:normal}
+.hero-sub{margin-top:.8rem;font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);max-width:460px;line-height:1.7}
+.hero-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:2rem;background:rgba(0,212,255,.1);border-radius:10px;overflow:hidden;border:1px solid rgba(0,212,255,.15)}
+.hkpi{background:rgba(8,15,30,.7);padding:1.1rem 1.4rem;transition:background .2s}
+.hkpi:hover{background:rgba(0,212,255,.06)}
+.hkpi-val{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.8rem;color:var(--mk);line-height:1}
+.hkpi-val.mg{color:var(--mg)}
+.hkpi-val.vt{color:var(--vt2)}
+.hkpi-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+/* Hero Visual */
+.hero-vis{position:relative;display:flex;align-items:center;justify-content:center}
+.vis-ring-wrap{position:relative;width:320px;height:320px;margin:0 auto}
+.vis-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(0,212,255,.2);animation:spin 35s linear infinite}
+.vis-ring2{position:absolute;inset:28px;border-radius:50%;border:1px dashed rgba(123,97,255,.25);animation:spin 22s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vis-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,rgba(0,80,120,.8),rgba(8,15,30,.9));border:1px solid rgba(0,212,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(0,212,255,.2)}
+.vis-core-v{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2.2rem;color:var(--mk)}
+.vis-core-l{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.vis-dot{position:absolute;width:42px;height:42px;border-radius:50%;background:var(--card);border:1px solid rgba(0,212,255,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:spin 35s linear infinite reverse;font-size:.52rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mk);font-weight:700;text-align:center;line-height:1.2}
+.vd1{top:-21px;left:calc(50% - 21px)}.vd2{bottom:-21px;left:calc(50% - 21px)}
+.vd3{left:-21px;top:calc(50% - 21px)}.vd4{right:-21px;top:calc(50% - 21px)}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-vis{display:none}}
+
+/* LAYOUT */
+section{position:relative;padding:5.5rem 0}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.15),transparent)}
+.sec-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mk);font-weight:700;margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem}
+.sec-label::before{content:'';width:18px;height:2px;background:var(--mk);border-radius:1px}
+.sec-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1}
+.sec-title em{color:var(--mk);font-style:normal}
+.sec-title em.mg{color:var(--mg)}
+.sec-title em.vt{color:var(--vt2)}
+.sec-body{margin-top:.8rem;color:rgba(255,255,255,.52);max-width:580px;font-size:.92rem;line-height:1.75}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* ===== S1: VISÃO GERAL / TIMELINE ===== */
+#s-visao{background:var(--nv)}
+.tl-wrap{position:relative;margin-top:3rem}
+.tl-track{position:absolute;top:44px;left:11%;right:11%;height:2px;background:linear-gradient(90deg,var(--mg),var(--mk),var(--green2));opacity:.4}
+.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.tl-item{display:flex;flex-direction:column;align-items:center;text-align:center}
+.tl-node{width:88px;height:88px;border-radius:50%;border:2px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:1.25rem;position:relative;z-index:2;transition:transform .3s,box-shadow .3s;cursor:default}
+.tl-node:hover{transform:scale(1.1)}
+.tl-node.n-mg{border-color:var(--mg);background:var(--mg3);color:var(--mg)}
+.tl-node.n-mg:hover{box-shadow:0 0 28px rgba(255,45,120,.4)}
+.tl-node.n-amber{border-color:var(--amber2);background:rgba(255,184,74,.1);color:var(--amber2)}
+.tl-node.n-amber:hover{box-shadow:0 0 28px rgba(255,184,74,.4)}
+.tl-node.n-mk{border-color:var(--mk);background:var(--mk3);color:var(--mk)}
+.tl-node.n-mk:hover{box-shadow:0 0 28px rgba(0,212,255,.4)}
+.tl-node.n-green{border-color:var(--green2);background:rgba(95,207,138,.1);color:var(--green2)}
+.tl-node.n-green:hover{box-shadow:0 0 28px rgba(95,207,138,.4)}
+.tl-n-icon{font-size:1.5rem;margin-bottom:2px}
+.tl-n-month{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.9rem;letter-spacing:.06em}
+.tl-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1rem;color:var(--wh);margin-bottom:.4rem}
+.tl-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
+.tl-tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .7rem;border-radius:20px;margin-top:.65rem}
+.tl-tag.mg{background:var(--mg3);color:var(--mg);border:.5px solid rgba(255,45,120,.3)}
+.tl-tag.amber{background:rgba(255,184,74,.1);color:var(--amber2);border:.5px solid rgba(255,184,74,.3)}
+.tl-tag.mk{background:var(--mk3);color:var(--mk);border:.5px solid rgba(0,212,255,.3)}
+.tl-tag.green{background:rgba(95,207,138,.1);color:var(--green2);border:.5px solid rgba(95,207,138,.3)}
+@media(max-width:700px){.tl-grid{grid-template-columns:1fr 1fr;gap:2rem}.tl-track{display:none}}
+
+/* ===== S2: TRÁFEGO PAGO ===== */
+#s-trafego{background:var(--dk)}
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.15);border-radius:10px;overflow:hidden;margin:2.2rem 0}
+.kpi{background:rgba(8,15,30,.8);padding:1.3rem 1rem;text-align:center;transition:background .2s}
+.kpi:hover{background:rgba(0,212,255,.07)}
+.kval{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.75rem;color:var(--mk);line-height:1}
+.kval.mg{color:var(--mg)}
+.kval.vt{color:var(--vt2)}
+.kval.green{color:var(--green2)}
+.klabel{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+@media(max-width:700px){.kpi-strip{grid-template-columns:repeat(2,1fr)}}
+
+/* TABLE */
+.trafego-table-wrap{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;overflow-x:auto}
+.trafego-table{width:100%;border-collapse:collapse;min-width:700px}
+.trafego-table thead tr{background:rgba(8,15,30,.9)}
+.trafego-table th{padding:.85rem 1rem;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mk);font-weight:700;text-align:left;border-bottom:1px solid rgba(0,212,255,.15)}
+.trafego-table tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s}
+.trafego-table tbody tr:hover{background:rgba(0,212,255,.04)}
+.trafego-table tbody tr.crisis{opacity:.6}
+.trafego-table tbody tr.destaque{background:rgba(0,212,255,.04)}
+.trafego-table td{padding:.85rem 1rem;font-size:.86rem;color:rgba(255,255,255,.8)}
+.trafego-table td.mes{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.95rem;color:var(--mk)}
+.trafego-table td.mes.crisis{color:var(--mg)}
+.badge-crisis{background:var(--mg3);color:var(--mg);border:.5px solid rgba(255,45,120,.3);font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:.15rem .65rem;border-radius:20px}
+.badge-ok{background:rgba(95,207,138,.1);color:var(--green2);border:.5px solid rgba(95,207,138,.3);font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:.15rem .65rem;border-radius:20px}
+.badge-rec{background:var(--mk3);color:var(--mk);border:.5px solid rgba(0,212,255,.3);font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:.15rem .65rem;border-radius:20px}
+.table-note{font-size:.72rem;color:var(--muted);margin:.65rem 0 2rem;padding-left:.5rem}
+
+/* HIGHLIGHT CARDS */
+.hcards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.hcard{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.3rem 1.4rem;display:flex;gap:.9rem;align-items:flex-start;transition:border-color .2s,transform .2s}
+.hcard:hover{border-color:rgba(0,212,255,.3);transform:translateY(-3px)}
+.hcard-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.hcard-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--mk);margin-bottom:.3rem}
+.hcard-label.mg{color:var(--mg)}
+.hcard-text{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.55}
+@media(max-width:700px){.hcards{grid-template-columns:1fr}}
+
+/* ===== S3: INSTAGRAM ===== */
+#s-instagram{background:var(--nv)}
+.ig-mega{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.15);border-radius:10px;overflow:hidden;margin-bottom:2.5rem}
+.ig-item{background:rgba(8,15,30,.8);padding:1.75rem 1.25rem;text-align:center;transition:background .2s;cursor:default}
+.ig-item:hover{background:rgba(0,212,255,.06)}
+.ig-val{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2.4rem;line-height:1;color:var(--mk)}
+.ig-val.mg{color:var(--mg)}
+.ig-val.vt{color:var(--vt2)}
+.ig-val.green{color:var(--green2)}
+.ig-label{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.35rem}
+.ig-tag{font-size:.72rem;color:var(--green2);font-weight:600;margin-top:.3rem}
+@media(max-width:700px){.ig-mega{grid-template-columns:repeat(2,1fr)}}
+
+/* FORMAT BARS */
+.format-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem}
+.fcard{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.4rem;transition:border-color .2s,transform .2s}
+.fcard:hover{border-color:rgba(0,212,255,.25);transform:translateY(-3px)}
+.fcard-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.9rem}
+.fcard-name{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.15rem;color:var(--wh)}
+.fcard-pct{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.5rem;color:var(--mk)}
+.fcard-pct.mg{color:var(--mg)}
+.fcard-pct.vt{color:var(--vt2)}
+.fbar-track{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:.75rem}
+.fbar-fill{height:100%;border-radius:3px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.fb-mk{background:linear-gradient(90deg,var(--mk),var(--mk2))}
+.fb-vt{background:linear-gradient(90deg,var(--vt),var(--vt2))}
+.fb-mg{background:linear-gradient(90deg,var(--mg),var(--mg2))}
+.fcard-note{font-size:.79rem;color:var(--muted);line-height:1.5}
+@media(max-width:700px){.format-grid{grid-template-columns:1fr}}
+
+.ig-callout{background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.2);border-radius:var(--r);padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;margin-top:.5rem}
+.ig-callout-icon{font-size:1.6rem;flex-shrink:0}
+.ig-callout-text{font-size:.87rem;color:rgba(255,255,255,.7);line-height:1.55}
+.ig-callout-text strong{color:var(--mk)}
+
+/* ===== S4: ENDOMARKETING ===== */
+#s-endo{background:var(--dk)}
+.endo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
+.endo-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.4rem 1.5rem;display:flex;gap:1.1rem;align-items:flex-start;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.endo-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--mk);opacity:.5;transition:opacity .3s}
+.endo-card:hover::before{opacity:1}
+.endo-card:hover{border-color:rgba(0,212,255,.2);transform:translateY(-3px)}
+.endo-emoji{width:46px;height:46px;background:var(--mk3);border:1px solid rgba(0,212,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.endo-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.1rem;color:var(--wh);margin-bottom:.3rem}
+.endo-desc{font-size:.81rem;color:var(--muted);line-height:1.55}
+.endo-status{margin-top:.65rem}
+.pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .75rem;border-radius:20px}
+.pill-done{background:rgba(95,207,138,.12);color:var(--green2);border:.5px solid rgba(95,207,138,.3)}
+.pill-active{background:var(--mk3);color:var(--mk);border:.5px solid rgba(0,212,255,.3)}
+.pill-cont{background:var(--vt3);color:var(--vt2);border:.5px solid rgba(123,97,255,.3)}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
+@media(max-width:700px){.endo-grid{grid-template-columns:1fr}}
+
+/* ===== S5: CONTEÚDO ===== */
+#s-conteudo{background:var(--nv)}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+.cc{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;transition:border-color .2s,transform .2s}
+.cc:hover{border-color:rgba(0,212,255,.25);transform:translateY(-3px)}
+.cc-head{padding:1.1rem 1.4rem;border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between}
+.cc-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.15rem;color:var(--wh)}
+.cc-body{padding:1.2rem 1.4rem}
+.cc-desc{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.65}
+@media(max-width:700px){.content-grid{grid-template-columns:1fr}}
+
+/* ===== S6: KIT EMBAIXADOR ===== */
+#s-kit{background:var(--dk)}
+.kit-hero{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,97,255,.06));border:1px solid rgba(0,212,255,.25);border-radius:16px;padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;position:relative;overflow:hidden;margin-bottom:2rem}
+.kit-hero::before{content:'KIT';position:absolute;right:-1rem;bottom:-1.5rem;font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:12rem;color:rgba(0,212,255,.04);line-height:1;pointer-events:none}
+.kit-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.3);border-radius:20px;padding:.3rem .9rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mk);font-weight:700;margin-bottom:1rem}
+.kit-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--amber2);animation:pulse 1.5s infinite}
+.kit-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(1.7rem,3vw,2.5rem);color:var(--wh);line-height:1.05;margin-bottom:.75rem}
+.kit-title em{color:var(--mk);font-style:normal}
+.kit-desc{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:480px}
+.kit-collab{margin-top:1.25rem;display:flex;align-items:flex-start;gap:.75rem;padding:.85rem 1.1rem;background:rgba(255,45,120,.07);border:1px solid rgba(255,45,120,.2);border-radius:10px;width:fit-content}
+.kit-collab-icon{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+.kit-collab-text{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.5}
+.kit-collab-text strong{color:var(--mg);display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.kit-status{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);border-radius:12px;padding:1.4rem 1.8rem;text-align:center;min-width:150px;flex-shrink:0}
+.kit-status-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,212,255,.55);font-weight:700;margin-bottom:.4rem}
+.kit-status-val{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;color:var(--mk)}
+.kit-status-note{font-size:.72rem;color:var(--muted);margin-top:.5rem;line-height:1.4}
+.kit-comps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.kcomp{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.3rem;transition:border-color .2s,transform .2s}
+.kcomp:hover{border-color:rgba(0,212,255,.25);transform:translateY(-3px)}
+.kcomp-icon{font-size:1.4rem;margin-bottom:.7rem}
+.kcomp-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.95rem;color:var(--wh);margin-bottom:.35rem}
+.kcomp-desc{font-size:.79rem;color:var(--muted);line-height:1.5}
+@media(max-width:700px){.kit-hero{grid-template-columns:1fr}.kit-status{display:none}.kit-comps{grid-template-columns:1fr}}
+
+/* ===== S7: MAXDRIVE ===== */
+#s-maxdrive{background:var(--nv);position:relative;overflow:hidden}
+#s-maxdrive::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,212,255,.04),transparent);pointer-events:none}
+.maxdrive-header{text-align:center;margin-bottom:3rem}
+.md-logo{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(3rem,7vw,5.5rem);letter-spacing:-.02em;color:var(--mk);line-height:1;position:relative;display:inline-block}
+.md-logo em{color:var(--mg);font-style:normal}
+.md-tagline{margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.45);font-weight:300;letter-spacing:.06em}
+.md-desc{margin-top:.8rem;font-size:.88rem;color:rgba(255,255,255,.42);max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* FLOW */
+.flow-wrap{display:flex;align-items:center;gap:0;margin:0 auto;max-width:920px}
+.flow-step{flex:1;background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.8rem 1.4rem;text-align:center;transition:border-color .2s,transform .2s;cursor:default}
+.flow-step:hover{border-color:rgba(0,212,255,.3);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.flow-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--mk),rgba(0,212,255,.5));color:var(--dk);font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem}
+.flow-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--mk);margin-bottom:.5rem}
+.flow-desc{font-size:.81rem;color:var(--muted);line-height:1.55}
+.flow-arrow{flex-shrink:0;width:44px;display:flex;align-items:center;justify-content:center}
+.fa-line{width:100%;height:2px;background:linear-gradient(90deg,rgba(0,212,255,.3),rgba(0,212,255,.7),rgba(0,212,255,.3));position:relative}
+.fa-line::after{content:'▶';position:absolute;right:-5px;top:50%;transform:translateY(-50%);color:var(--mk);font-size:.55rem}
+@media(max-width:800px){.flow-wrap{flex-direction:column;gap:1rem}.flow-arrow{transform:rotate(90deg);width:auto;height:30px}}
+
+/* CHANNELS */
+.channels{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:2rem 0 0;padding:1.2rem;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:var(--r)}
+.channels-label{width:100%;text-align:center;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,212,255,.4);font-weight:700;margin-bottom:.65rem}
+.ch-pill{background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:20px;padding:.3rem .9rem;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;transition:all .2s}
+.ch-pill:hover{border-color:rgba(0,212,255,.3);color:var(--mk);background:var(--mk3)}
+
+/* PRÓXIMOS PASSOS */
+.pp-sec-label{margin-top:3.5rem}
+.pp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem}
+.pp-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.4rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.pp-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--mk),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.pp-card:hover::after{transform:scaleX(1)}
+.pp-card:hover{border-color:rgba(0,212,255,.2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.pp-icon{font-size:1.8rem;margin-bottom:.85rem;display:block}
+.pp-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;color:var(--wh);margin-bottom:.4rem}
+.pp-desc{font-size:.8rem;color:var(--muted);line-height:1.55}
+.pp-tag{display:inline-block;margin-top:.75rem;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .65rem;border-radius:20px;background:var(--mk3);color:var(--mk);border:.5px solid rgba(0,212,255,.25)}
+.pp-tag.mg{background:var(--mg3);color:var(--mg);border-color:rgba(255,45,120,.25)}
+@media(max-width:700px){.pp-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.pp-grid{grid-template-columns:1fr}}
+
+/* LEGENDA KPI */
+.kpi-leg{font-size:.6rem;color:rgba(255,255,255,.35);letter-spacing:.04em;margin-top:.3rem;font-style:italic}
+
+/* ===== S-ALINHAMENTO ===== */
+#s-alinhamento{background:var(--dk)}
+.align-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-top:2.5rem;border-radius:var(--r);overflow:hidden;border:1px solid var(--border2)}
+.align-col{padding:2rem}
+.align-col.mkt{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(0,212,255,.04));border-right:1px solid var(--border2)}
+.align-col.uni{background:linear-gradient(135deg,rgba(255,45,120,.06),rgba(255,45,120,.03))}
+.align-mid{width:56px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);flex-shrink:0;position:relative}
+.align-mid-icon{font-size:1.6rem;position:relative;z-index:1}
+.align-mid::before{content:'';position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.1),transparent)}
+.align-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
+.align-head-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.ah-mk{background:var(--mk3);border:1px solid rgba(0,212,255,.25)}
+.ah-mg{background:var(--mg3);border:1px solid rgba(255,45,120,.25)}
+.align-head-label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:.15rem}
+.al-mk{color:var(--mk)}.al-mg{color:var(--mg)}
+.align-head-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.15rem;color:var(--wh)}
+.align-items{display:flex;flex-direction:column;gap:.65rem}
+.align-item{display:flex;gap:.65rem;font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.5;align-items:flex-start}
+.align-item::before{content:'→';font-size:.8rem;flex-shrink:0;margin-top:.1rem}
+.ai-mk::before{color:var(--mk)}.ai-mg::before{color:var(--mg)}
+.align-callout{margin-top:2rem;background:linear-gradient(135deg,rgba(245,166,35,.08),rgba(245,166,35,.04));border:1px solid rgba(245,166,35,.25);border-radius:var(--r);padding:1.4rem 1.6rem;display:flex;gap:1.1rem;align-items:flex-start}
+.ac-icon{font-size:1.8rem;flex-shrink:0}
+.ac-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.1rem;color:var(--gd);margin-bottom:.4rem}
+.ac-text{font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.65}
+.ac-text strong{color:var(--gd2)}
+@media(max-width:700px){.align-wrap{grid-template-columns:1fr}.align-col.mkt{border-right:none;border-bottom:1px solid var(--border2)}.align-mid{display:none}}
+
+/* ===== GLOSSÁRIO ===== */
+#s-glossario{background:var(--nv);padding:4rem 0}
+.glos-intro{font-size:.82rem;color:rgba(255,255,255,.45);margin-top:.5rem;margin-bottom:2.5rem;max-width:560px;line-height:1.65}
+.glos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.gcard{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.3rem 1.4rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.gcard::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px}
+.gcard.c-mk::before{background:linear-gradient(90deg,var(--mk),transparent)}
+.gcard.c-mg::before{background:linear-gradient(90deg,var(--mg),transparent)}
+.gcard.c-vt::before{background:linear-gradient(90deg,var(--vt2),transparent)}
+.gcard.c-green::before{background:linear-gradient(90deg,var(--green2),transparent)}
+.gcard.c-amber::before{background:linear-gradient(90deg,var(--amber2),transparent)}
+.gcard:hover{border-color:rgba(0,212,255,.2);transform:translateY(-3px)}
+.gcard-term{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.25rem;color:var(--wh);margin-bottom:.15rem}
+.gcard-pt{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin-bottom:.7rem}
+.gc-mk{color:var(--mk)}.gc-mg{color:var(--mg)}.gc-vt{color:var(--vt2)}.gc-green{color:var(--green2)}.gc-amber{color:var(--amber2)}
+.gcard-def{font-size:.81rem;color:rgba(255,255,255,.55);line-height:1.6}
+@media(max-width:700px){.glos-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.glos-grid{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--dk);border-top:1px solid rgba(0,212,255,.1);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted)}
+footer span{color:var(--mk)}
+@media(max-width:700px){footer{flex-direction:column;gap:.5rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Maximiano<span>·</span>Marketing</div>
+  <ul class="nav-links">
+    <li><a onclick="goTo('s-visao')">Visão Geral</a></li>
+    <li><a onclick="goTo('s-trafego')">Tráfego Pago</a></li>
+    <li><a onclick="goTo('s-instagram')">Instagram</a></li>
+    <li><a onclick="goTo('s-endo')">Endomkt</a></li>
+    <li><a onclick="goTo('s-kit')">Kit Embaixador</a></li>
+    <li><a onclick="goTo('s-alinhamento')">Alinhamento</a></li>
+    <li><a onclick="goTo('s-maxdrive')">MAXDRIVE</a></li>
+    <li><a onclick="goTo('s-glossario')">Glossário</a></li>
+  </ul>
+  <div class="nav-pill">Bloco 02 · 14H00</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><div class="badge-dot"></div>Reunião Estratégica de Líderes · Maio 2026</div>
+      <h1 class="hero-title">Marketing<br><em>em Números</em></h1>
+      <p class="hero-sub">Janeiro a Abril 2025 — resultados, contexto operacional e próximos passos do departamento de Marketing.</p>
+      <div class="hero-kpis">
+        <div class="hkpi">
+          <div class="hkpi-val">1.860</div>
+          <div class="hkpi-label">Leads MQL Gerados</div>
+          <div class="kpi-leg">(contatos qualificados)</div>
+        </div>
+        <div class="hkpi">
+          <div class="hkpi-val mg">R$ 157.208</div>
+          <div class="hkpi-label">Faturamento Canal Digital</div>
+          <div class="kpi-leg">(marketing + comercial)</div>
+        </div>
+        <div class="hkpi">
+          <div class="hkpi-val vt">R$ 2,41</div>
+          <div class="hkpi-label">Melhor CPL (Março)</div>
+          <div class="kpi-leg">(custo por lead)</div>
+        </div>
+        <div class="hkpi">
+          <div class="hkpi-val" style="color:var(--green2)">+212%</div>
+          <div class="hkpi-label">Contas Alcançadas IG</div>
+          <div class="kpi-leg">(novos perfis atingidos)</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="vis-ring-wrap">
+        <div class="vis-ring"></div>
+        <div class="vis-ring2"></div>
+        <div class="vis-core">
+          <div class="vis-core-v">1.860</div>
+          <div class="vis-core-l">MQLs<br>Gerados</div>
+        </div>
+        <div class="vis-dot vd1">Meta<br>Ads</div>
+        <div class="vis-dot vd2">Receita<br>R$157k</div>
+        <div class="vis-dot vd3">Leads<br>MQL</div>
+        <div class="vis-dot vd4">+212%<br>IG</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S1: VISÃO GERAL -->
+<section id="s-visao">
+  <div class="container">
+    <div class="sec-label rv">01 — Visão Geral do Período</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Um período de contexto e <em>recuperação acelerada</em></h2>
+    <p class="sec-body rv" style="transition-delay:.15s">O 1º quadrimestre foi marcado por uma decisão estratégica de diversificação e um bloqueio operacional externo — seguidos de recuperação rápida e consistente.</p>
+
+    <div class="tl-wrap">
+      <div class="tl-track"></div>
+      <div class="tl-grid">
+        <div class="tl-item rv" style="transition-delay:.1s">
+          <div class="tl-node n-amber">
+            <div class="tl-n-icon">📉</div>
+            <div class="tl-n-month">JAN</div>
+          </div>
+          <div class="tl-title">Investimento Reduzido</div>
+          <div class="tl-desc">Decisão estratégica de avaliar diversificação para novo segmento. Previdenciário tem ciclo longo de retorno.</div>
+          <span class="tl-tag amber">Estratégico</span>
+        </div>
+        <div class="tl-item rv" style="transition-delay:.18s">
+          <div class="tl-node n-mg">
+            <div class="tl-n-icon">🔒</div>
+            <div class="tl-n-month">FEV</div>
+          </div>
+          <div class="tl-title">BM Bloqueada</div>
+          <div class="tl-desc">Business Manager bloqueada pela Meta. Situação externa ao controle do marketing — recuperação iniciada imediatamente.</div>
+          <span class="tl-tag mg">Externo</span>
+        </div>
+        <div class="tl-item rv" style="transition-delay:.26s">
+          <div class="tl-node n-mk">
+            <div class="tl-n-icon">🔄</div>
+            <div class="tl-n-month">MAR</div>
+          </div>
+          <div class="tl-title">Reativação Rápida</div>
+          <div class="tl-desc">Nova BM criada. Campanhas retomadas com velocidade — 727 leads gerados em poucos dias de campanha ativa.</div>
+          <span class="tl-tag mk">Reativação</span>
+        </div>
+        <div class="tl-item rv" style="transition-delay:.34s">
+          <div class="tl-node n-green">
+            <div class="tl-n-icon">📈</div>
+            <div class="tl-n-month">ABR</div>
+          </div>
+          <div class="tl-title">Tendência Crescente</div>
+          <div class="tl-desc">697 leads e 156.133 impressões — confirmação da tendência com CPL abaixo da média histórica.</div>
+          <span class="tl-tag green">Em Alta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S2: TRÁFEGO PAGO -->
+<section id="s-trafego">
+  <div class="container">
+    <div class="sec-label rv">02 — Tráfego Pago</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Meta Ads — <em>Resultado</em> mês a mês</h2>
+    <p class="sec-body rv" style="transition-delay:.15s">Os dados abaixo refletem a operação de tráfego pago via Meta Ads. Fevereiro deve ser lido com o contexto do bloqueio da BM.</p>
+
+    <div class="kpi-strip rv" style="transition-delay:.2s">
+      <div class="kpi"><div class="kval">R$ 4.556</div><div class="klabel">Total Investido em Tráfego</div></div>
+      <div class="kpi"><div class="kval mg">1.860</div><div class="klabel">Leads MQL</div><div class="kpi-leg">(contatos qualificados)</div></div>
+      <div class="kpi"><div class="kval vt">R$ 157.208</div><div class="klabel">Faturamento Canal Digital</div><div class="kpi-leg">(marketing + comercial)</div></div>
+      <div class="kpi"><div class="kval green">26</div><div class="klabel">Vendas no Período</div></div>
+    </div>
+    <div style="background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:.75rem 1.1rem;font-size:.8rem;color:rgba(245,166,35,.8);margin-bottom:1.5rem;display:flex;align-items:flex-start;gap:.65rem;line-height:1.55"><span style="flex-shrink:0">★</span><span>O <strong>Faturamento Canal Digital</strong> representa o resultado conjunto de Marketing + Comercial: o Marketing gerou os leads via tráfego pago, o Comercial converteu em contratos nas unidades. Esses valores constam no relatório Comercial como <strong>Canal Digital</strong> — nenhuma área entrega esse número sozinha.</span></div>
+
+    <div class="trafego-table-wrap rv" style="transition-delay:.25s">
+      <table class="trafego-table">
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th>Investimento</th>
+            <th>Impressões</th>
+            <th>Cliques</th>
+            <th>Leads MQL <span style="font-weight:400;opacity:.6">(qualif.)</span></th>
+            <th>Vendas</th>
+            <th>Fat. Canal Digital</th>
+            <th>CPL <span style="font-weight:400;opacity:.6">(custo/lead)</span></th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mes">Janeiro</td>
+            <td>R$ 518</td><td>36.860</td><td>1.023</td><td>341</td><td>9</td>
+            <td>R$ 50.148</td><td>R$ 6,50</td>
+            <td><span class="badge-rec">Estratégico</span></td>
+          </tr>
+          <tr class="crisis">
+            <td class="mes crisis">Fevereiro</td>
+            <td>R$ 28</td><td>1.634</td><td>62</td><td>91</td><td>4</td>
+            <td>R$ 22.768</td><td>R$ 0,31*</td>
+            <td><span class="badge-crisis">BM Bloqueada</span></td>
+          </tr>
+          <tr class="destaque">
+            <td class="mes">Março</td>
+            <td>R$ 1.755</td><td>139.058</td><td>4.144</td><td>727</td><td>4</td>
+            <td>R$ 25.936</td><td>R$ 2,41</td>
+            <td><span class="badge-ok">Reativação</span></td>
+          </tr>
+          <tr class="destaque">
+            <td class="mes">Abril</td>
+            <td>R$ 2.255</td><td>156.133</td><td>4.106</td><td>697</td><td>9</td>
+            <td>R$ 58.356</td><td>R$ 2,80</td>
+            <td><span class="badge-ok">Crescimento</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">* CPL de fevereiro distorcido pelo volume mínimo de investimento (BM bloqueada). · Recuperação da BM original junto à Meta segue em andamento.</p>
+
+    <div class="hcards">
+      <div class="hcard rv" style="transition-delay:.1s">
+        <div class="hcard-icon">✅</div>
+        <div><div class="hcard-label">Recuperação Veloz</div><div class="hcard-text">Março retomou com 727 leads em poucos dias de campanha ativa após criação da nova BM.</div></div>
+      </div>
+      <div class="hcard rv" style="transition-delay:.18s">
+        <div class="hcard-icon">✅</div>
+        <div><div class="hcard-label">CPL Abaixo da Média</div><div class="hcard-text">CPL de março (R$2,41) e abril (R$2,80) abaixo da média histórica — campanhas mais eficientes.</div></div>
+      </div>
+      <div class="hcard rv" style="transition-delay:.26s">
+        <div class="hcard-icon">⚙️</div>
+        <div><div class="hcard-label mg">Em Andamento</div><div class="hcard-text">Recuperação da BM original junto à Meta em andamento. Quando concluída, ampliará a capacidade de veiculação.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S3: INSTAGRAM -->
+<section id="s-instagram">
+  <div class="container">
+    <div class="sec-label rv">03 — Instagram</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Presença orgânica <em class="mg">em expansão</em></h2>
+    <p class="sec-body rv" style="transition-delay:.15s">Últimos 90 dias — 5 de fevereiro a 5 de maio de 2025. Crescimento expressivo de alcance e engajamento.</p>
+
+    <div class="ig-mega rv" style="transition-delay:.2s">
+      <div class="ig-item">
+        <div class="ig-val">385.683</div>
+        <div class="ig-label">Visualizações Totais</div>
+      </div>
+      <div class="ig-item">
+        <div class="ig-val mg">128.698</div>
+        <div class="ig-label">Contas Alcançadas</div>
+        <div class="ig-tag">+212,4% 🚀</div>
+      </div>
+      <div class="ig-item">
+        <div class="ig-val vt">78%</div>
+        <div class="ig-label">Não Seguidores Alcançados</div>
+        <div class="ig-tag" style="color:var(--vt2)">Expansão de Público</div>
+      </div>
+      <div class="ig-item">
+        <div class="ig-val green">2.472</div>
+        <div class="ig-label">Visitas ao Perfil</div>
+      </div>
+    </div>
+
+    <div class="format-grid">
+      <div class="fcard rv" style="transition-delay:.1s">
+        <div class="fcard-top"><div class="fcard-name">Stories</div><div class="fcard-pct">59%</div></div>
+        <div class="fbar-track"><div class="fbar-fill fb-mk" data-w="59%"></div></div>
+        <div class="fcard-note">Principal formato de visualização — maior alcance e consumo diário da audiência.</div>
+      </div>
+      <div class="fcard rv" style="transition-delay:.18s">
+        <div class="fcard-top"><div class="fcard-name">Reels</div><div class="fcard-pct vt">26,9%</div></div>
+        <div class="fbar-track"><div class="fbar-fill fb-vt" data-w="26.9%"></div></div>
+        <div class="fcard-note">Forte canal de alcance para não seguidores — motor de descoberta de novos públicos.</div>
+      </div>
+      <div class="fcard rv" style="transition-delay:.26s">
+        <div class="fcard-top"><div class="fcard-name">Posts</div><div class="fcard-pct mg">14,1%</div></div>
+        <div class="fbar-track"><div class="fbar-fill fb-mg" data-w="14.1%"></div></div>
+        <div class="fcard-note">Complementar — fixação de conteúdo no feed e referência para novos visitantes do perfil.</div>
+      </div>
+    </div>
+
+    <div class="ig-callout rv" style="transition-delay:.3s">
+      <div class="ig-callout-icon">⚡</div>
+      <div class="ig-callout-text"><strong>59,7% das visualizações</strong> foram originadas de anúncios pagos — forte sinergia entre tráfego e crescimento orgânico. Tráfego pago e orgânico se alimentam mutuamente.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S4: ENDOMARKETING -->
+<section id="s-endo">
+  <div class="container">
+    <div class="sec-label rv">04 — Endomarketing</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Apoio ao RH &amp; <em class="vt">cultura interna</em></h2>
+    <p class="sec-body rv" style="transition-delay:.15s">Marketing atuou como parceiro do RH em ações internas, produzindo materiais visuais, textos e coordenando comunicação para todas as unidades.</p>
+
+    <div class="endo-grid">
+      <div class="endo-card rv" style="transition-delay:.1s">
+        <div class="endo-emoji">💜</div>
+        <div>
+          <div class="endo-title">Dia Internacional da Mulher</div>
+          <div class="endo-desc">Arte e comunicação interna comemorativa criada e distribuída para todas as unidades. Criação visual, textos e coordenação de comunicação interna.</div>
+          <div class="endo-status"><span class="pill pill-done">✓ Concluído</span></div>
+        </div>
+      </div>
+      <div class="endo-card rv" style="transition-delay:.16s">
+        <div class="endo-emoji">🌸</div>
+        <div>
+          <div class="endo-title">Dia das Mães</div>
+          <div class="endo-desc">Peças visuais e mensagem institucional de celebração produzidas e enviadas para todas as unidades da firma.</div>
+          <div class="endo-status"><span class="pill pill-done">✓ Concluído</span></div>
+        </div>
+      </div>
+      <div class="endo-card rv" style="transition-delay:.22s">
+        <div class="endo-emoji">🎂</div>
+        <div>
+          <div class="endo-title">Voucher de Aniversário</div>
+          <div class="endo-desc">Criação de peças e fluxo de comunicação para aniversariantes. Ação ativa e recorrente, reforçando o vínculo da empresa com os colaboradores.</div>
+          <div class="endo-status"><span class="pill pill-active"><span class="pill-dot"></span> Ativo</span></div>
+        </div>
+      </div>
+      <div class="endo-card rv" style="transition-delay:.28s">
+        <div class="endo-emoji">🔄</div>
+        <div>
+          <div class="endo-title">Suporte Contínuo ao RH</div>
+          <div class="endo-desc">Parceria contínua com a equipe de RH para criação de materiais em datas comemorativas e campanhas internas conforme demanda das unidades.</div>
+          <div class="endo-status"><span class="pill pill-cont"><span class="pill-dot"></span> Contínuo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S5: CONTEÚDO -->
+<section id="s-conteudo">
+  <div class="container">
+    <div class="sec-label rv">05 — Produção de Conteúdo</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Direito Previdenciário<br><em>para todo mundo</em></h2>
+    <p class="sec-body rv" style="transition-delay:.15s">Estratégia de produção de conteúdo para o Instagram com foco em acessibilidade jurídica e representação de todas as unidades.</p>
+    <div class="content-grid">
+      <div class="cc rv" style="transition-delay:.18s">
+        <div class="cc-head">
+          <div class="cc-title">🎥 Gravações com Advogados</div>
+          <span class="pill pill-cont" style="font-size:.6rem"><span class="pill-dot"></span> Contínuo</span>
+        </div>
+        <div class="cc-body">
+          <div class="cc-desc">Gravação de conteúdos para o Instagram com advogados de todas as unidades, abordando temas do Direito Previdenciário de forma acessível ao público. Ação essencial para humanizar a marca e fortalecer a autoridade local de cada profissional.</div>
+        </div>
+      </div>
+      <div class="cc rv" style="transition-delay:.24s">
+        <div class="cc-head">
+          <div class="cc-title">📲 Alimentação do Instagram</div>
+          <span class="pill pill-active" style="font-size:.6rem"><span class="pill-dot"></span> Ativo</span>
+        </div>
+        <div class="cc-body">
+          <div class="cc-desc">Publicação regular de conteúdos sobre Direito Previdenciário: benefícios, dicas, esclarecimentos e atualidades. Calendário editorial ativo para manter engajamento e crescimento orgânico consistente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S6: KIT EMBAIXADOR -->
+<section id="s-kit">
+  <div class="container">
+    <div class="sec-label rv">06 — Serviços Gráficos</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Kit <em>Embaixador</em> da Marca</h2>
+    <p class="sec-body rv" style="transition-delay:.15s">Material completo destinado aos futuros embaixadores da marca nas unidades.</p>
+
+    <div class="kit-hero rv" style="transition-delay:.2s">
+      <div>
+        <div class="kit-badge"><div class="kit-badge-dot"></div>Em Desenvolvimento</div>
+        <h3 class="kit-title">Kit <em>Embaixador</em><br>da Marca</h3>
+        <p class="kit-desc">Material completo que reúne identidade visual, diretrizes de comunicação e peças de apoio para representação padronizada e profissional em todas as unidades.</p>
+        <div class="kit-collab">
+          <div class="kit-collab-icon">🤝</div>
+          <div class="kit-collab-text">
+            <strong>Projeto em Colaboração · Marketing + Comercial</strong>
+            Esta iniciativa é desenvolvida conjuntamente com a área Comercial. O Kit Embaixador também está presente na apresentação do Comercial — resultado de alinhamento estratégico entre as duas áreas.
+          </div>
+        </div>
+      </div>
+      <div class="kit-status">
+        <div class="kit-status-label">Status</div>
+        <div class="kit-status-val">Em Andamento</div>
+        <div class="kit-status-note">Próximo passo:<br>definir embaixadores<br>por unidade</div>
+      </div>
+    </div>
+
+    <div class="kit-comps">
+      <div class="kcomp rv" style="transition-delay:.1s">
+        <div class="kcomp-icon">🎨</div>
+        <div class="kcomp-title">Identidade Visual</div>
+        <div class="kcomp-desc">Material para o embaixador usar na sua comunidade — peças prontas com a marca da Maximiano para compartilhar nas redes sociais e grupos ao indicar o escritório.</div>
+      </div>
+      <div class="kcomp rv" style="transition-delay:.18s">
+        <div class="kcomp-icon">📋</div>
+        <div class="kcomp-title">Diretrizes de Comunicação</div>
+        <div class="kcomp-desc">Roteiro simples de como o embaixador fala da Maximiano na sua comunidade — o que dizer, como indicar e como responder dúvidas básicas de quem recebe a indicação.</div>
+      </div>
+      <div class="kcomp rv" style="transition-delay:.26s">
+        <div class="kcomp-icon">📦</div>
+        <div class="kcomp-title">Peças de Apoio</div>
+        <div class="kcomp-desc">Templates de mensagem, cards e conteúdos prontos para o embaixador compartilhar com sua rede — facilitando a indicação de forma padronizada e profissional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S-ALINHAMENTO -->
+<section id="s-alinhamento">
+  <div class="container">
+    <div class="sec-label rv">06b — Alinhamento de Expectativas</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">O que o <em>Marketing entrega</em><br>e o que a <em class="mg">Unidade faz</em></h2>
+    <p class="sec-body rv" style="transition-delay:.15s">Para o marketing funcionar, duas engrenagens precisam girar juntas. Cada uma tem seu papel — e nenhuma funciona sem a outra.</p>
+
+    <div class="align-wrap rv" style="transition-delay:.2s">
+      <div class="align-col mkt">
+        <div class="align-head">
+          <div class="align-head-icon ah-mk">🚀</div>
+          <div>
+            <div class="align-head-label al-mk">Marketing entrega</div>
+            <div class="align-head-title">O Combustível</div>
+          </div>
+        </div>
+        <div class="align-items">
+          <div class="align-item ai-mk">Visibilidade — a marca aparece para quem precisa do serviço</div>
+          <div class="align-item ai-mk">Contatos qualificados (leads) — pessoas com interesse real, já aquecidas</div>
+          <div class="align-item ai-mk">Autoridade da marca — conteúdo que posiciona a Maximiano como referência</div>
+          <div class="align-item ai-mk">Campanhas ativas e investimento gerido para maximizar retorno</div>
+        </div>
+      </div>
+      <div class="align-mid"><div class="align-mid-icon">⚡</div></div>
+      <div class="align-col uni">
+        <div class="align-head">
+          <div class="align-head-icon ah-mg">🏎️</div>
+          <div>
+            <div class="align-head-label al-mg">Unidade entrega</div>
+            <div class="align-head-title">O Motor</div>
+          </div>
+        </div>
+        <div class="align-items">
+          <div class="align-item ai-mg">Agilidade no primeiro contato — lead respondido rápido é lead quente</div>
+          <div class="align-item ai-mg">Acolhimento — o cliente sentiu o marketing, a unidade precisa confirmar a expectativa</div>
+          <div class="align-item ai-mg">Fechamento do contrato — converter o interesse em receita real</div>
+          <div class="align-item ai-mg">Feedback ao marketing — o que funcionou, o que o cliente perguntou</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="align-callout rv" style="transition-delay:.3s">
+      <div class="ac-icon">⛽</div>
+      <div>
+        <div class="ac-title">Combustível sem motor não move nada — motor sem combustível também não.</div>
+        <div class="ac-text">Cada real investido em tráfego gera um lead. Se a unidade demora para atender, esse lead esfria — e o dinheiro foi embora. <strong>A velocidade do primeiro contato é o fator mais crítico entre o investimento e a receita.</strong> Marketing abastece. Unidade acelera. Juntos, chegamos mais longe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- S7: MAXDRIVE -->
+<section id="s-maxdrive">
+  <div class="container">
+    <div class="sec-label rv">07 — Próximos Passos</div>
+
+    <div class="maxdrive-header rv" style="transition-delay:.08s">
+      <div class="md-logo">MAX<em>DRIVE</em></div>
+      <div class="md-tagline">Máquina de Crescimento Jurídico · Ciclo Quinzenal Fixo</div>
+      <p class="md-desc">Sistema que transforma decisões jurídicas reais em campanhas, leads e receita — operando em ciclo quinzenal fixo entre Marketing, Comercial e os Líderes das Unidades.</p>
+    </div>
+
+    <div class="flow-wrap rv" style="transition-delay:.18s">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-title">IDENTIFICAR</div>
+        <div class="flow-desc">Leitura quinzenal do Brevis — radar jurídico. Líderes filtram decisões relevantes para cada carteira e trazem insumos para a reunião de decisão.</div>
+      </div>
+      <div class="flow-arrow"><div class="fa-line"></div></div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-title">DECIDIR</div>
+        <div class="flow-desc">Reunião a cada 15 dias — equipe define os Big Bets do ciclo em até 45 minutos. Saída: campanhas com responsável definido para as próximas duas semanas.</div>
+      </div>
+      <div class="flow-arrow"><div class="fa-line"></div></div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-title">CONVERTER</div>
+        <div class="flow-desc">Marketing produz as peças. Comercial usa a tese jurídica como argumento de autoridade. Resultado: leads e novos contratos.</div>
+      </div>
+    </div>
+
+    <div class="channels rv" style="transition-delay:.28s">
+      <div class="channels-label">Canais de Distribuição</div>
+      <span class="ch-pill">Instagram</span>
+      <span class="ch-pill">WhatsApp · Lista de Transmissão</span>
+      <span class="ch-pill">Mídia Indoor</span>
+      <span class="ch-pill">Tráfego Meta</span>
+      <span class="ch-pill">Blog / Site</span>
+      <span class="ch-pill">Newsletter Brevis</span>
+    </div>
+
+    <div class="sec-label pp-sec-label rv" style="transition-delay:.08s">Iniciativas em Pipeline</div>
+    <h3 class="sec-title rv" style="font-size:clamp(1.5rem,3vw,2.2rem);transition-delay:.14s">O que vem por aí</h3>
+
+    <div class="pp-grid">
+      <div class="pp-card rv" style="transition-delay:.08s">
+        <span class="pp-icon">📱</span>
+        <div class="pp-title">Tráfego Direito Civil</div>
+        <div class="pp-desc">Expansão do tráfego pago para a área de Direito Civil. Em paralelo, impulsionamento de publicações dos advogados nas unidades — fortalece imagem local e autoridade.</div>
+        <span class="pp-tag">Próxima Ação</span>
+      </div>
+      <div class="pp-card rv" style="transition-delay:.14s">
+        <span class="pp-icon">📷</span>
+        <div class="pp-title">Banco de Fotos</div>
+        <div class="pp-desc">Dia de fotografia profissional para criar banco de imagens dos advogados de todas as unidades — essencial para conteúdo, peças gráficas e Kit Embaixador.</div>
+        <span class="pp-tag">Agendamento</span>
+      </div>
+      <div class="pp-card rv" style="transition-delay:.2s">
+        <span class="pp-icon">📣</span>
+        <div class="pp-title">MaxNew</div>
+        <div class="pp-desc">Boletim interno para manter todas as unidades alinhadas sobre novidades, ações e resultados. Amplifica o endomarketing e o alinhamento entre equipes.</div>
+        <span class="pp-tag">Criação</span>
+      </div>
+      <div class="pp-card rv" style="transition-delay:.26s">
+        <span class="pp-icon">📺</span>
+        <div class="pp-title">Mídia Indoor</div>
+        <div class="pp-desc">Instalação de TVs em cada unidade para exibição de conteúdos exclusivos — canal próprio para comunicação com clientes no ambiente físico e veiculação do MAXDRIVE.</div>
+        <span class="pp-tag">Instalação</span>
+      </div>
+      <div class="pp-card rv" style="transition-delay:.32s">
+        <span class="pp-icon">🎯</span>
+        <div class="pp-title">Agenda de Gravações</div>
+        <div class="pp-desc">Calendário estruturado para rodar todas as unidades. Hoje nem todos os advogados têm conteúdo publicado — isso muda com a agenda estruturada.</div>
+        <span class="pp-tag">Calendário</span>
+      </div>
+      <div class="pp-card rv" style="transition-delay:.38s">
+        <span class="pp-icon">📦</span>
+        <div class="pp-title">Conclusão do Kit</div>
+        <div class="pp-desc">Finalizar o Kit Embaixador e definir os primeiros embaixadores da marca por unidade. Projeto conjunto com o Comercial.</div>
+        <span class="pp-tag mg">Em Colaboração</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GLOSSÁRIO -->
+<section id="s-glossario">
+  <div class="container">
+    <div class="sec-label rv">Aprendendo Mais</div>
+    <h2 class="sec-title rv" style="transition-delay:.08s">Glossário de <em>Marketing Digital</em></h2>
+    <p class="glos-intro rv" style="transition-delay:.14s">Termos do dia a dia do marketing que todo líder deve conhecer. Saber o que cada indicador significa é o primeiro passo para cobrar e apoiar com propriedade.</p>
+
+    <div class="glos-grid">
+      <div class="gcard c-mk rv" style="transition-delay:.08s">
+        <div class="gcard-term">Lead</div>
+        <div class="gcard-pt gc-mk">Contato / Oportunidade</div>
+        <div class="gcard-def">Pessoa que demonstrou interesse no serviço — deixou nome, telefone ou mensagem. É o início do processo comercial. Nem todo lead vira cliente, mas sem lead não há venda.</div>
+      </div>
+      <div class="gcard c-mg rv" style="transition-delay:.13s">
+        <div class="gcard-term">MQL</div>
+        <div class="gcard-pt gc-mg">Lead Qualificado pelo Marketing</div>
+        <div class="gcard-def">Lead que passou por um filtro mínimo de qualidade — respondeu ao anúncio certo, tem o perfil do público-alvo. É um contato com maior chance de virar contrato do que um lead aleatório.</div>
+      </div>
+      <div class="gcard c-vt rv" style="transition-delay:.18s">
+        <div class="gcard-term">CPL</div>
+        <div class="gcard-pt gc-vt">Custo por Lead</div>
+        <div class="gcard-def">Quanto custa gerar um único lead. Divide o valor investido em anúncios pelo número de leads gerados. Quanto menor, mais eficiente a campanha. Exemplo: R$ 2.255 investidos ÷ 697 leads = R$ 2,80 por lead.</div>
+      </div>
+      <div class="gcard c-mk rv" style="transition-delay:.23s">
+        <div class="gcard-term">Tráfego Pago</div>
+        <div class="gcard-pt gc-mk">Anúncios Pagos (Meta Ads)</div>
+        <div class="gcard-def">Investimento em anúncios no Instagram e Facebook para aparecer para pessoas que ainda não conhecem a Maximiano. É o principal canal de geração de leads — você paga para alcançar quem precisa do serviço.</div>
+      </div>
+      <div class="gcard c-green rv" style="transition-delay:.28s">
+        <div class="gcard-term">Impressões</div>
+        <div class="gcard-pt gc-green">Visualizações do Anúncio</div>
+        <div class="gcard-def">Quantas vezes o anúncio foi exibido nas telas das pessoas. Não significa que alguém clicou ou virou lead — é apenas a quantidade de vezes que o conteúdo apareceu. Volume de exposição da marca.</div>
+      </div>
+      <div class="gcard c-amber rv" style="transition-delay:.33s">
+        <div class="gcard-term">BM</div>
+        <div class="gcard-pt gc-amber">Business Manager</div>
+        <div class="gcard-def">Conta gerenciadora de anúncios da Meta (Facebook/Instagram). É como uma "carteira" onde ficam as campanhas, os créditos e as permissões. Se bloqueada, todos os anúncios param — como ocorreu em fevereiro.</div>
+      </div>
+      <div class="gcard c-mg rv" style="transition-delay:.38s">
+        <div class="gcard-term">Alcance</div>
+        <div class="gcard-pt gc-mg">Pessoas Únicas Atingidas</div>
+        <div class="gcard-def">Número de pessoas diferentes que viram o conteúdo — diferente de impressões, que contam múltiplas visualizações da mesma pessoa. Alcance de 128 mil significa que 128 mil pessoas distintas viram algo da Maximiano.</div>
+      </div>
+      <div class="gcard c-vt rv" style="transition-delay:.43s">
+        <div class="gcard-term">Endomarketing</div>
+        <div class="gcard-pt gc-vt">Marketing Interno</div>
+        <div class="gcard-def">Ações de marketing voltadas para dentro da empresa — comunicação com colaboradores, campanhas internas, datas comemorativas. O objetivo é engajamento, pertencimento e cultura organizacional.</div>
+      </div>
+      <div class="gcard c-mk rv" style="transition-delay:.48s">
+        <div class="gcard-term">Funil de Vendas</div>
+        <div class="gcard-pt gc-mk">Jornada do Cliente</div>
+        <div class="gcard-def">O caminho que o cliente percorre: começa com o anúncio (topo), passa pelo contato com a unidade (meio) e termina no contrato assinado (fundo). Marketing cuida do topo; a unidade cuida do meio e fundo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© Maximiano Advogados</span>
+  <span>Reunião Estratégica de Líderes · Maio 2026</span>
+  <span>Marketing move o negócio.</span>
+</footer>
+
+<script>
+// Smooth scroll
+function goTo(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}) }
+
+// Nav active on scroll
+const secs = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if(window.scrollY >= s.offsetTop - 120) cur = s.id });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('onclick') && a.getAttribute('onclick').includes(cur));
+  });
+});
+
+// Intersection Observer — reveal + bars
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      e.target.querySelectorAll('[data-w]').forEach(bar => {
+        setTimeout(() => { bar.style.width = bar.dataset.w; }, 250);
+      });
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+// Bars already in view on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('[data-w]').forEach(bar => {
+    const r = bar.getBoundingClientRect();
+    if(r.top < window.innerHeight) setTimeout(() => { bar.style.width = bar.dataset.w; }, 400);
+  });
+});
+</script>
+</body>
+</html>
