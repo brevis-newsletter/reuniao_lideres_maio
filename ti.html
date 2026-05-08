@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TI — Sistemas & Infraestrutura · Maximiano Advogados 2026</title>
+<style>
+:root{
+  --dk:#06101E;--nv:#0D1B3E;--nv2:#112252;--nv3:#1A3060;
+  --gd:#F5A623;--gd2:#FFD080;--gd3:rgba(245,166,35,.12);
+  --wh:#FFFFFF;--muted:#7A8FB5;--card:#0F1F45;
+  --border:rgba(245,166,35,.18);--border2:rgba(255,255,255,.07);
+  --green2:#5FCF8A;--red2:#FF7070;--amber2:#FFB84A;--teal:#0D9488;
+  --blue2:#4F8EF7;--r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--wh);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
+
+/* GRID BG */
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(245,166,35,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.03) 1px,transparent 1px);background-size:72px 72px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2.5rem;background:rgba(6,16,30,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-brand{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:.12em;color:var(--gd);text-transform:uppercase}
+.nav-brand span{color:rgba(255,255,255,.35);margin:0 .4rem}
+.nav-back{display:flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.4rem .9rem;border:1px solid var(--border2);border-radius:6px;transition:all .2s}
+.nav-back:hover{color:var(--gd);border-color:var(--border)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.nav-pill{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:.2rem .7rem;border-radius:20px}
+
+/* HERO */
+#hero{min-height:60vh;display:flex;align-items:center;padding-top:70px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 65% 55% at 50% 0%,rgba(245,166,35,.09),transparent 65%),
+             radial-gradient(ellipse 35% 30% at 90% 80%,rgba(13,148,136,.07),transparent 60%),var(--dk)}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(245,166,35,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem;width:100%;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.28);border-radius:20px;padding:.35rem 1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);margin-bottom:1.5rem;font-weight:700}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gd);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.hero-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(2.8rem,5.5vw,4.8rem);line-height:.92;color:var(--wh)}
+.hero-title em{color:var(--gd);font-style:normal;display:block}
+.hero-sub{margin-top:1.25rem;font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);max-width:580px;line-height:1.75}
+
+/* KPI STRIP */
+.hero-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:2.5rem;max-width:800px}
+@media(max-width:700px){.hero-kpis{grid-template-columns:repeat(3,1fr)}}
+.hkpi{background:rgba(13,27,62,.7);padding:1rem .8rem;text-align:center}
+.hkpi-val{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.55rem;line-height:1}
+.hkpi-val.gd{color:var(--gd)}.hkpi-val.gr{color:var(--green2)}.hkpi-val.am{color:var(--amber2)}.hkpi-val.rd{color:var(--red2)}.hkpi-val.tl{color:var(--teal)}
+.hkpi-label{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+
+/* CONTEXT ALERT */
+.ctx-alert{margin:2rem auto 0;max-width:800px;background:rgba(255,112,112,.06);border:1px solid rgba(255,112,112,.2);border-left:3px solid var(--red2);border-radius:var(--r);padding:1.2rem 1.5rem}
+.ctx-alert-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red2);margin-bottom:.35rem}
+.ctx-alert-text{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.6}
+
+/* SECTIONS */
+section{position:relative;padding:5rem 0;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);position:relative;z-index:1}
+.sec-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);font-weight:700;margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem}
+.sec-label::before{content:'';width:20px;height:2px;background:var(--gd);border-radius:1px}
+.sec-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1}
+.sec-title em{color:var(--gd);font-style:normal}
+.sec-body{margin-top:.75rem;color:rgba(255,255,255,.5);max-width:640px;font-size:.88rem;line-height:1.75}
+
+/* BLOCO HEADER */
+.bloco-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.bloco-tag{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.3rem .9rem;border-radius:20px;border:1px solid}
+.bt-priority{background:rgba(255,112,112,.08);border-color:rgba(255,112,112,.3);color:var(--red2)}
+.bt-secondary{background:rgba(79,142,247,.08);border-color:rgba(79,142,247,.3);color:var(--blue2)}
+
+/* ACCORDION PRINCIPAL */
+.acc-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem}
+.acc-item{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.acc-item.open{border-color:rgba(245,166,35,.3)}
+
+.acc-trigger{display:flex;align-items:center;gap:1.25rem;padding:1.4rem 1.75rem;cursor:pointer;user-select:none;transition:background .15s}
+.acc-trigger:hover{background:rgba(255,255,255,.025)}
+
+.acc-icon{width:40px;height:40px;border-radius:50%;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;transition:all .2s}
+.acc-item.open .acc-icon{background:rgba(245,166,35,.18);border-color:rgba(245,166,35,.45)}
+
+.acc-trigger-text{flex:1;min-width:0}
+.acc-name{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--wh);letter-spacing:.04em}
+.acc-tagline{font-size:.73rem;color:var(--muted);margin-top:.1rem}
+
+.acc-meta{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+.acc-pct-badge{font-family:'Arial Narrow','Arial',sans-serif;font-size:.85rem;font-weight:900;padding:.2rem .8rem;border-radius:20px;white-space:nowrap}
+.apb-gr{background:rgba(95,207,138,.12);color:var(--green2);border:1px solid rgba(95,207,138,.25)}
+.apb-am{background:rgba(255,184,74,.12);color:var(--amber2);border:1px solid rgba(255,184,74,.25)}
+.apb-rd{background:rgba(255,112,112,.12);color:var(--red2);border:1px solid rgba(255,112,112,.25)}
+.apb-bl{background:rgba(79,142,247,.12);color:var(--blue2);border:1px solid rgba(79,142,247,.25)}
+
+.acc-arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s;flex-shrink:0}
+.acc-item.open .acc-arrow{transform:rotate(180deg);background:rgba(245,166,35,.1);border-color:rgba(245,166,35,.3)}
+.acc-arrow svg{width:12px;height:12px}
+
+.acc-bar-wrap{height:3px;background:rgba(255,255,255,.06);margin:0 1.75rem}
+.acc-bar-fill{height:100%;border-radius:3px;transition:width .8s ease}
+
+.acc-body{display:none;padding:0 1.75rem 1.75rem}
+.acc-item.open .acc-body{display:block}
+
+/* CONTEXT BOX */
+.ctx-box{background:rgba(255,255,255,.03);border-left:2px solid rgba(245,166,35,.35);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.5rem}
+.ctx-box-label{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gd);margin-bottom:.4rem}
+.ctx-box-text{font-size:.82rem;color:rgba(255,255,255,.68);line-height:1.65}
+
+/* PHASE BLOCKS aninhados */
+.phases-wrap{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem}
+.phase-item{border-radius:8px;overflow:hidden;border:1px solid}
+.pi-green{border-color:rgba(95,207,138,.2);background:rgba(95,207,138,.04)}
+.pi-amber{border-color:rgba(255,184,74,.18);background:rgba(255,184,74,.03)}
+.pi-blue{border-color:rgba(79,142,247,.18);background:rgba(79,142,247,.03)}
+
+.phase-head{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;cursor:pointer;user-select:none}
+.phase-head:hover{background:rgba(255,255,255,.025)}
+.ph-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.phd-gr{background:var(--green2)}.phd-am{background:var(--amber2)}.phd-bl{background:var(--blue2)}
+.ph-name{font-size:.82rem;font-weight:600;flex:1;color:var(--wh)}
+.ph-period{font-size:.7rem;color:var(--muted);font-family:monospace;margin-right:.5rem}
+.ph-pct{font-size:.78rem;font-weight:700}
+.ph-pct.gr{color:var(--green2)}.ph-pct.am{color:var(--amber2)}.ph-pct.bl{color:var(--blue2)}
+.ph-bar-row{height:3px;margin:0 1rem 0;background:rgba(255,255,255,.07)}
+.ph-bar-fill{height:100%;border-radius:2px;transition:width .6s ease}
+.ph-chevron{font-size:.7rem;color:var(--muted);transition:transform .25s}
+.phase-item.popen .ph-chevron{transform:rotate(180deg)}
+
+.phase-body{display:none;padding:.25rem .75rem .75rem}
+.phase-item.popen .phase-body{display:block}
+
+/* TASK TABLE */
+.task-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.task-table thead th{text-align:left;padding:.5rem .75rem;font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+.task-table tbody tr{border-bottom:.5px solid rgba(255,255,255,.04);transition:background .15s}
+.task-table tbody tr:hover{background:rgba(255,255,255,.03)}
+.task-table tbody td{padding:.55rem .75rem;color:rgba(255,255,255,.75);vertical-align:middle}
+.task-table tbody td:first-child{color:var(--muted);font-size:.65rem;font-family:monospace}
+.task-name{color:var(--wh)!important;font-weight:400}
+.t-badge{font-size:.65rem;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.tb-done{background:rgba(95,207,138,.1);color:var(--green2)}
+.tb-80{background:rgba(255,184,74,.1);color:var(--amber2)}
+.tb-pend{background:rgba(79,142,247,.1);color:var(--blue2)}
+.t-date{font-size:.68rem;color:var(--muted);font-family:monospace;white-space:nowrap}
+.t-date.soon{color:var(--amber2);font-weight:600}
+.t-date.urgent{color:var(--red2);font-weight:700}
+
+/* MODULES BITRIX */
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;margin-bottom:1.5rem}
+.mod-card{background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:10px;padding:1.1rem 1.25rem;cursor:pointer;transition:all .2s}
+.mod-card:hover{background:rgba(255,255,255,.05);border-color:rgba(245,166,35,.2)}
+.mod-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+.mod-name{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.95rem;color:var(--wh);letter-spacing:.04em}
+.mod-pct-badge{font-size:.7rem;font-weight:700;padding:.15rem .6rem;border-radius:12px}
+.mod-bar-bg{height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;margin-bottom:.6rem}
+.mod-bar-fill{height:100%;border-radius:2px;transition:width .8s ease}
+.mod-stats{display:flex;gap:1rem}
+.ms-item{font-size:.65rem;color:var(--muted);display:flex;align-items:center;gap:.3rem}
+.ms-dot{width:5px;height:5px;border-radius:50%}
+
+/* UNIDADES TABLE */
+.unidades-wrap{margin-top:1.25rem}
+.unidades-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.unidades-table thead th{text-align:left;padding:.6rem 1rem;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2);background:rgba(13,27,62,.4)}
+.unidades-table tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s}
+.unidades-table tbody tr:hover{background:rgba(255,255,255,.03)}
+.unidades-table tbody td{padding:.7rem 1rem;color:rgba(255,255,255,.7);vertical-align:middle}
+.unidades-table tbody td:first-child{font-weight:600;color:var(--wh)}
+.u-num-placeholder{display:inline-block;background:rgba(245,166,35,.06);border:1px dashed rgba(245,166,35,.25);border-radius:6px;padding:.2rem .75rem;color:rgba(245,166,35,.4);font-size:.72rem;font-style:italic;cursor:pointer;transition:all .2s}
+.u-num-placeholder:hover{background:rgba(245,166,35,.12);color:var(--gd);border-color:var(--border)}
+.u-input{display:none;width:70px;padding:.2rem .5rem;background:rgba(255,255,255,.06);border:1px solid rgba(245,166,35,.3);border-radius:6px;color:var(--wh);font-size:.8rem;outline:none}
+.u-input:focus{border-color:var(--gd)}
+.u-status-ok{display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--amber2)}
+.u-status-ok::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* SECONDARY PROJECTS */
+.sec-proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.75rem;margin-top:1.5rem}
+.sp-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.25rem 1.4rem;transition:all .2s;cursor:default}
+.sp-card:hover{border-color:rgba(79,142,247,.2)}
+.sp-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:.75rem}
+.sp-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.85rem;color:rgba(245,166,35,.35);flex-shrink:0;margin-top:.1rem}
+.sp-name{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.98rem;color:var(--wh);letter-spacing:.02em;flex:1}
+.sp-status-badge{font-size:.6rem;font-weight:700;padding:.2rem .65rem;border-radius:12px;white-space:nowrap;flex-shrink:0}
+.ssb-pause{background:rgba(255,184,74,.1);color:var(--amber2);border:1px solid rgba(255,184,74,.25)}
+.ssb-on{background:rgba(95,207,138,.1);color:var(--green2);border:1px solid rgba(95,207,138,.25)}
+.sp-bar-bg{height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;margin-bottom:.65rem}
+.sp-bar-fill{height:100%;border-radius:2px}
+.sp-desc{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.55;margin-bottom:.75rem}
+.sp-footer{display:flex;align-items:center;justify-content:space-between}
+.sp-owner{font-size:.65rem;color:var(--muted);display:flex;align-items:center;gap:.35rem}
+.sp-owner::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(245,166,35,.4)}
+.sp-deadline{font-size:.65rem;color:var(--muted);font-family:monospace}
+.sp-deadline.urg{color:var(--amber2)}
+
+/* PAUSE NOTE */
+.pause-note{background:rgba(255,184,74,.06);border:1px solid rgba(255,184,74,.2);border-radius:var(--r);padding:1.1rem 1.4rem;margin-top:1.5rem;display:flex;align-items:flex-start;gap:.9rem}
+.pn-icon{font-size:1.2rem;flex-shrink:0;margin-top:.05rem}
+.pn-text{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.65}
+.pn-text strong{color:var(--amber2);font-weight:600}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.05s}.rv.d2{transition-delay:.12s}.rv.d3{transition-delay:.18s}.rv.d4{transition-delay:.24s}
+
+/* FOOTER */
+footer{position:relative;z-index:1;text-align:center;padding:28px 24px 40px;border-top:1px solid var(--border2)}
+footer p{font-size:.62rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;line-height:2;opacity:.55}
+
+@media(max-width:600px){
+  .hero-kpis{grid-template-columns:repeat(3,1fr)}
+  nav{padding:.75rem 1rem}
+  .acc-trigger{padding:1rem 1.1rem}
+  .acc-body{padding:0 1.1rem 1.1rem}
+  .acc-meta .acc-pct-badge{display:none}
+  .container{padding:0 1rem}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="nav-brand">Maximiano <span>·</span> Advogados</div>
+  <div class="nav-right">
+    <span class="nav-pill">TI — Mai/2026</span>
+    <a href="index_socios.html" class="nav-back">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M6 2L3 5L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      Painel
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-badge rv"><span class="badge-dot"></span> TI — Sistemas &amp; Infraestrutura</div>
+    <h1 class="hero-title rv d1">
+      SISTEMAS &amp;<br>
+      <em>INFRAESTRUTURA</em>
+    </h1>
+    <p class="hero-sub rv d2">
+      Visão consolidada dos projetos de tecnologia da Maximiano —
+      prioridades, status, prazos e próximos passos.<br>
+      <strong style="color:rgba(255,255,255,.8)">Reunião estratégica · 08 de Maio de 2026</strong>
+    </p>
+
+    <div class="hero-kpis rv d3">
+      <div class="hkpi">
+        <div class="hkpi-val gd">2</div>
+        <div class="hkpi-label">Projetos<br>Prioritários</div>
+      </div>
+      <div class="hkpi">
+        <div class="hkpi-val am">30%</div>
+        <div class="hkpi-label">ERP<br>Financeiro</div>
+      </div>
+      <div class="hkpi">
+        <div class="hkpi-val gr">~87%</div>
+        <div class="hkpi-label">Bitrix<br>Advogado</div>
+      </div>
+      <div class="hkpi">
+        <div class="hkpi-val rd">846</div>
+        <div class="hkpi-label">Tarefas<br>Vencidas</div>
+      </div>
+      <div class="hkpi">
+        <div class="hkpi-val" style="color:var(--gd)">29/06</div>
+        <div class="hkpi-label">Virada<br>Sistema</div>
+      </div>
+    </div>
+
+    <div class="ctx-alert rv d4">
+      <div class="ctx-alert-label">⚠ Contexto estratégico — Pesquisa de Clima · Abril 2026</div>
+      <div class="ctx-alert-text">
+        Na pesquisa de clima realizada com 15 colaboradores, dois temas dominaram as críticas:
+        <strong style="color:var(--wh)">Sistemas &amp; Ferramentas</strong> — citado por 8 de 15 pessoas, com relatos de instabilidade no Bitrix, ausência de suporte técnico dedicado e interrupções frequentes no fluxo de trabalho —
+        e <strong style="color:var(--wh)">Comunicação Interna</strong> — o tema mais citado (13 de 15), com ruídos, cancelamentos de última hora e falta de devolutivas comprometendo a operação diária.
+        Os projetos desta apresentação são a <strong style="color:var(--wh)">resposta direta</strong> a esses dois diagnósticos:
+        estruturar os sistemas é a base para que a comunicação e a operação fluam corretamente.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ BLOCO PRIORITÁRIO 1: ERP FINANCEIRO ═══════════════════ -->
+<section id="s-financeiro">
+  <div class="container">
+    <div class="rv">
+      <div style="display:flex;align-items:center;gap:.9rem;margin-bottom:.5rem">
+        <div class="sec-label" style="margin:0">BLOCO PRIORITÁRIO 01</div>
+        <span class="bloco-tag bt-priority">Alta Prioridade</span>
+      </div>
+      <h2 class="sec-title">ERP <em>FINANCEIRO</em></h2>
+      <p class="sec-body">
+        A Maximiano não possuía sistema financeiro estruturado. Este projeto implementa o <strong style="color:var(--wh)">Omie integrado ao Bitrix</strong>,
+        com gestão de processos de compras, reembolso, alvará, faturamento e participação de advogados.
+        Glauco coordena o lado financeiro; Rodrigo é responsável pelo desenvolvimento técnico.
+      </p>
+    </div>
+
+    <div class="acc-list rv d1" id="erp-phases">
+
+      <!-- FASE 1 -->
+      <div class="acc-item open" id="erp-f1">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f1')">
+          <div class="acc-icon">✅</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 1 — Diagnóstico e Configuração Inicial</div>
+            <div class="acc-tagline">Levantamento · Bitrix · Omie · Formulário financeiro</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-gr">100%</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:100%;background:var(--green2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box">
+            <div class="ctx-box-label">Sobre esta fase</div>
+            <div class="ctx-box-text">Fase de entendimento inicial: levantamento de necessidades, conhecimento das ferramentas (Bitrix e Omie), alinhamento de programação e montagem do formulário financeiro base. <strong style="color:var(--green2)">Concluída integralmente.</strong></div>
+          </div>
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="task-name">Levantamento das necessidades</td><td>Financeiro + Consultoria</td><td><span class="t-badge tb-done">100%</span></td></tr>
+              <tr><td>2</td><td class="task-name">Conhecendo o Bitrix</td><td>Financeiro + Consultoria</td><td><span class="t-badge tb-done">100%</span></td></tr>
+              <tr><td>3</td><td class="task-name">Conhecendo o Omie</td><td>Financeiro + Consultoria</td><td><span class="t-badge tb-done">100%</span></td></tr>
+              <tr><td>4</td><td class="task-name">Reunião e entendimento da programação Bitrix</td><td>TI + Consultoria</td><td><span class="t-badge tb-done">100%</span></td></tr>
+              <tr><td>5</td><td class="task-name">Reunião e entendimento da programação Omie</td><td>Fin + Cons + Lucro+</td><td><span class="t-badge tb-done">100%</span></td></tr>
+              <tr><td>6</td><td class="task-name">Elaboração do fluxo de recebimentos dos processos</td><td>Financeiro + Consultoria</td><td><span class="t-badge tb-done">100%</span></td></tr>
+              <tr><td>7</td><td class="task-name">Montagem do formulário financeiro no Bitrix</td><td>TI + Consultoria</td><td><span class="t-badge tb-done">100%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="acc-item" id="erp-f2">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f2')">
+          <div class="acc-icon">🔶</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 2 — Processos e Módulos Internos</div>
+            <div class="acc-tagline">Compras · Reembolso · Alvará · Limpeza de inadimplência</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-am">75%</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:75%;background:var(--amber2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box">
+            <div class="ctx-box-label">Sobre esta fase</div>
+            <div class="ctx-box-text">Estruturação dos processos operacionais de compras, reembolso e alvará/RPV. 5 de 7 tarefas concluídas. Pendências: limpeza da inadimplência e organização dos estimados, ambas com Glauco, prazo <strong style="color:var(--amber2)">20/05</strong>.</div>
+          </div>
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Status</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>8</td><td class="task-name">Limpeza de sistema: inadimplência para importação</td><td>Financeiro</td><td><span class="t-badge tb-80">80%</span></td><td class="t-date soon">20/05/2026</td></tr>
+              <tr><td>9</td><td class="task-name">Organização dos estimados</td><td>Financeiro</td><td><span class="t-badge tb-80">80%</span></td><td class="t-date soon">20/05/2026</td></tr>
+              <tr><td>10</td><td class="task-name">Montagem do processo de compras</td><td>Fin + Dir + Consultoria</td><td><span class="t-badge tb-done">100%</span></td><td class="t-date">OK</td></tr>
+              <tr><td>11</td><td class="task-name">Montagem do processo de reembolso</td><td>Fin + Dir + Consultoria</td><td><span class="t-badge tb-done">100%</span></td><td class="t-date">OK</td></tr>
+              <tr><td>12</td><td class="task-name">Montagem do processo alvará e RPV</td><td>Fin + ADV + Consultoria</td><td><span class="t-badge tb-done">100%</span></td><td class="t-date">OK</td></tr>
+              <tr><td>19</td><td class="task-name">Lista de serviços prestados</td><td>Advogados</td><td><span class="t-badge tb-done">100%</span></td><td class="t-date">OK</td></tr>
+              <tr><td>21</td><td class="task-name">Contratação dos módulos do Omie</td><td>Fin + Consultoria</td><td><span class="t-badge tb-done">100%</span></td><td class="t-date">OK</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="acc-item" id="erp-f3">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f3')">
+          <div class="acc-icon">🔴</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 3 — Desenvolvimento dos Funis e Formulários</div>
+            <div class="acc-tagline">⚡ Em desenvolvimento · Prazo: 12–14/05/2026</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-rd">0% → dev</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:5%;background:var(--red2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box" style="border-left-color:rgba(255,112,112,.5)">
+            <div class="ctx-box-label" style="color:var(--red2)">⚡ Fase crítica — em desenvolvimento agora</div>
+            <div class="ctx-box-text">Esta é a fase mais urgente. Rodrigo está desenvolvendo os formulários (prazo <strong style="color:var(--red2)">12/05 — em 4 dias</strong>) e os funis de compras, reembolso e alvará/RPV (prazo <strong style="color:var(--red2)">14/05</strong>). São o pré-requisito para tudo que vem depois.</div>
+          </div>
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Status</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>16</td><td class="task-name">Desenvolvimento do formulário de compras</td><td>TI + Consultoria</td><td><span class="t-badge tb-pend">Em dev.</span></td><td class="t-date urgent">12/05/2026</td></tr>
+              <tr><td>17</td><td class="task-name">Desenvolvimento do formulário de reembolso</td><td>TI + Consultoria</td><td><span class="t-badge tb-pend">Em dev.</span></td><td class="t-date urgent">12/05/2026</td></tr>
+              <tr><td>13</td><td class="task-name">Desenvolvimento do funil de compras</td><td>TI + Consultoria</td><td><span class="t-badge tb-pend">Em dev.</span></td><td class="t-date urgent">14/05/2026</td></tr>
+              <tr><td>14</td><td class="task-name">Desenvolvimento do funil de reembolso</td><td>TI + Consultoria</td><td><span class="t-badge tb-pend">Em dev.</span></td><td class="t-date urgent">14/05/2026</td></tr>
+              <tr><td>15</td><td class="task-name">Desenvolvimento do funil de alvará/RPV</td><td>TI + Consultoria</td><td><span class="t-badge tb-pend">Em dev.</span></td><td class="t-date urgent">14/05/2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 4 -->
+      <div class="acc-item" id="erp-f4">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f4')">
+          <div class="acc-icon">📋</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 4 — Cadastros, Faturamento e Fornecedores</div>
+            <div class="acc-tagline">Plano de contas · Fornecedores · Faturamento por empresa</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-bl">20–27/Mai</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:0%;background:var(--blue2)"></div></div>
+        <div class="acc-body">
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>18</td><td class="task-name">Plano de contas: Omie + Legal One + Planilha</td><td>Financeiro</td><td class="t-date">20/05/2026</td></tr>
+              <tr><td>20</td><td class="task-name">Separação dos serviços por empresa de faturamento</td><td>Financeiro</td><td class="t-date">20/05/2026</td></tr>
+              <tr><td>22</td><td class="task-name">Desenvolver formulário de serviço para faturamento</td><td>TI</td><td class="t-date">21/05/2026</td></tr>
+              <tr><td>23</td><td class="task-name">Organização dos cadastros de fornecedores</td><td>Financeiro</td><td class="t-date">22/05/2026</td></tr>
+              <tr><td>24</td><td class="task-name">Importação dos fornecedores para Omie</td><td>TI</td><td class="t-date">25/05/2026</td></tr>
+              <tr><td>25</td><td class="task-name">Verificar participação dos advogados/regras</td><td>Financeiro</td><td class="t-date">27/05/2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 5 -->
+      <div class="acc-item" id="erp-f5">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f5')">
+          <div class="acc-icon">🧪</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 5 — Regras, Advogados e Testes</div>
+            <div class="acc-tagline">Regras de participação · Testes gerais de formulários e funis</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-bl">28/Mai–02/Jun</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:0%;background:var(--blue2)"></div></div>
+        <div class="acc-body">
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>26</td><td class="task-name">Cadastrar regras e condições dos advogados no Omie</td><td>Fin + TI + Cons.</td><td class="t-date">28/05/2026</td></tr>
+              <tr><td>27</td><td class="task-name">Desenvolver leitura da participação dos advogados (a pagar)</td><td>TI</td><td class="t-date">28/05/2026</td></tr>
+              <tr><td>28</td><td class="task-name">Testes dos formulários</td><td>Fin + TI + Cons.</td><td class="t-date">02/06/2026</td></tr>
+              <tr><td>29</td><td class="task-name">Testes do funil financeiro</td><td>Fin + TI + Cons.</td><td class="t-date">02/06/2026</td></tr>
+              <tr><td>30</td><td class="task-name">Testes do funil compras e reembolso</td><td>Fin + TI + Cons.</td><td class="t-date">02/06/2026</td></tr>
+              <tr><td>31</td><td class="task-name">Testes das informações do funil financeiro para Omie</td><td>Fin + TI + Cons.</td><td class="t-date">02/06/2026</td></tr>
+              <tr><td>32</td><td class="task-name">Testes de contas a pagar e a receber</td><td>Fin + TI + Cons.</td><td class="t-date">02/06/2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 6 -->
+      <div class="acc-item" id="erp-f6">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f6')">
+          <div class="acc-icon">🧾</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 6 — Configuração Tributária e NF</div>
+            <div class="acc-tagline">Tributos por empresa · NF automatizadas · Migração Legal One</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-bl">08–15/Jun</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:0%;background:var(--blue2)"></div></div>
+        <div class="acc-body">
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>33</td><td class="task-name">Configuração dos tributos por empresa no Omie</td><td>Fin + Consultoria</td><td class="t-date">08/06/2026</td></tr>
+              <tr><td>34</td><td class="task-name">Configuração das NF automatizadas Omie</td><td>Fin + TI + Cons.</td><td class="t-date">08/06/2026</td></tr>
+              <tr><td>35</td><td class="task-name">Teste de migração de base Legal One para Omie</td><td>Fin + TI + Cons.</td><td class="t-date">15/06/2026</td></tr>
+              <tr><td>36</td><td class="task-name">Teste de migração de planilhas para Omie</td><td>Fin + TI + Cons.</td><td class="t-date">15/06/2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 7 -->
+      <div class="acc-item" id="erp-f7">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f7')">
+          <div class="acc-icon">🎓</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 7 — Treinamento e Virada de Sistema</div>
+            <div class="acc-tagline">Treinamentos · Migração geral · VIRADA: 29/06/2026</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-bl">18–29/Jun</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:0%;background:var(--blue2)"></div></div>
+        <div class="acc-body">
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>37</td><td class="task-name">Montagem de treinamentos</td><td>Fin + Consultoria</td><td class="t-date">18/06/2026</td></tr>
+              <tr><td>38</td><td class="task-name">Treinamentos</td><td>Fin + Consultoria</td><td class="t-date">25/06/2026</td></tr>
+              <tr><td>39</td><td class="task-name">Migração geral de dados</td><td>TI</td><td class="t-date">26/06/2026</td></tr>
+              <tr><td>40</td><td class="task-name" style="color:var(--gd);font-weight:600">⚡ VIRADA DE SISTEMA</td><td>Fin + TI + Cons.</td><td class="t-date" style="color:var(--gd);font-weight:700">29/06/2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 8 -->
+      <div class="acc-item" id="erp-f8">
+        <div class="acc-trigger" onclick="toggleAcc('erp-f8')">
+          <div class="acc-icon">🔧</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FASE 8 — Pós-implantação e Melhorias</div>
+            <div class="acc-tagline">Mapeamento de funções · Melhorias · Ajustes finais</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-bl">09–14/Jul</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:0%;background:var(--blue2)"></div></div>
+        <div class="acc-body">
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Equipe</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>41</td><td class="task-name">Mapeamento das funções do dia a dia para o sistema</td><td>Fin + Consultoria</td><td class="t-date">09/07/2026</td></tr>
+              <tr><td>42</td><td class="task-name">Melhorias de todo o fluxo</td><td>Fin + Consultoria</td><td class="t-date">14/07/2026</td></tr>
+              <tr><td>43</td><td class="task-name">Ajustes de fluxos e programações</td><td>Fin + Cons. + TI</td><td class="t-date">14/07/2026</td></tr>
+              <tr><td>44</td><td class="task-name">Desenho das funções/demandas e fluxos não mapeados</td><td>Fin + Consultoria</td><td class="t-date">14/07/2026</td></tr>
+              <tr><td>45</td><td class="task-name" style="color:var(--amber2)">Régua de cobrança — Projeto Inadimplência Omie</td><td>Fin + TI + Cons.</td><td class="t-date">09/07/2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /erp-phases -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ BLOCO PRIORITÁRIO 2: BITRIX DO ADVOGADO ═══════════════════ -->
+<section id="s-bitrix">
+  <div class="container">
+    <div class="rv">
+      <div style="display:flex;align-items:center;gap:.9rem;margin-bottom:.5rem">
+        <div class="sec-label" style="margin:0">BLOCO PRIORITÁRIO 02</div>
+        <span class="bloco-tag bt-priority">Alta Prioridade</span>
+      </div>
+      <h2 class="sec-title">BITRIX DO <em>ADVOGADO</em></h2>
+      <p class="sec-body">
+        Para atender, acompanhar e gerenciar todos os processos, o advogado precisa fazer isso pelo Bitrix.
+        Sem os funis e filtros de trabalho completos, <strong style="color:var(--wh)">a operação diária não flui</strong> e a empresa perde a capacidade de enxergar os dados.
+        É por meio do sistema que conseguimos avaliar o BSC, acompanhar os KPIs individuais dos colaboradores e ter visibilidade real sobre o que acontece em cada unidade —
+        por isso a conclusão do Bitrix do Advogado é <strong style="color:var(--wh)">inegociável para a gestão funcionar</strong>.
+      </p>
+    </div>
+
+    <!-- MÓDULOS OVERVIEW -->
+    <div class="modules-grid rv d1">
+      <div class="mod-card" onclick="toggleAcc('bit-recepcao')">
+        <div class="mod-card-head">
+          <span class="mod-name">FUNIL RECEPÇÃO</span>
+          <span class="mod-pct-badge" style="background:rgba(95,207,138,.12);color:var(--green2);border:1px solid rgba(95,207,138,.25)">98%</span>
+        </div>
+        <div class="mod-bar-bg"><div class="mod-bar-fill" style="width:98%;background:var(--green2)"></div></div>
+        <div class="mod-stats">
+          <div class="ms-item"><div class="ms-dot" style="background:var(--green2)"></div>16 concluídas</div>
+          <div class="ms-item"><div class="ms-dot" style="background:var(--amber2)"></div>2 em andamento</div>
+          <div class="ms-item"><div class="ms-dot" style="background:var(--red2)"></div>1 pendente</div>
+        </div>
+      </div>
+      <div class="mod-card" onclick="toggleAcc('bit-servicos')">
+        <div class="mod-card-head">
+          <span class="mod-name">FUNIL SERVIÇOS</span>
+          <span class="mod-pct-badge" style="background:rgba(255,184,74,.12);color:var(--amber2);border:1px solid rgba(255,184,74,.25)">93%</span>
+        </div>
+        <div class="mod-bar-bg"><div class="mod-bar-fill" style="width:93%;background:var(--amber2)"></div></div>
+        <div class="mod-stats">
+          <div class="ms-item"><div class="ms-dot" style="background:var(--green2)"></div>14 concluídas</div>
+          <div class="ms-item"><div class="ms-dot" style="background:var(--amber2)"></div>1 em andamento</div>
+          <div class="ms-item"><div class="ms-dot" style="background:var(--red2)"></div>1 pendente</div>
+        </div>
+      </div>
+      <div class="mod-card" onclick="toggleAcc('bit-contato')">
+        <div class="mod-card-head">
+          <span class="mod-name">CONTATO CLIENTE</span>
+          <span class="mod-pct-badge" style="background:rgba(255,184,74,.12);color:var(--amber2);border:1px solid rgba(255,184,74,.25)">96%</span>
+        </div>
+        <div class="mod-bar-bg"><div class="mod-bar-fill" style="width:96%;background:var(--amber2)"></div></div>
+        <div class="mod-stats">
+          <div class="ms-item"><div class="ms-dot" style="background:var(--green2)"></div>35 concluídas</div>
+          <div class="ms-item"><div class="ms-dot" style="background:var(--amber2)"></div>3 parciais</div>
+          <div class="ms-item"><div class="ms-dot" style="background:var(--red2)"></div>0 a retomar</div>
+        </div>
+      </div>
+      <div class="mod-card" onclick="toggleAcc('bit-advogados')">
+        <div class="mod-card-head">
+          <span class="mod-name">FUNIL ADVOGADOS</span>
+          <span class="mod-pct-badge" style="background:rgba(255,184,74,.12);color:var(--amber2);border:1px solid rgba(255,184,74,.25)">79%</span>
+        </div>
+        <div class="mod-bar-bg"><div class="mod-bar-fill" style="width:79%;background:var(--amber2)"></div></div>
+        <div class="mod-stats">
+          <div class="ms-item"><div class="ms-dot" style="background:var(--amber2)"></div>Aguardando entregas financeiro + contrato</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDIONS MÓDULOS -->
+    <div class="acc-list rv d2">
+
+      <!-- RECEPÇÃO -->
+      <div class="acc-item" id="bit-recepcao">
+        <div class="acc-trigger" onclick="toggleAcc('bit-recepcao')">
+          <div class="acc-icon">📞</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FUNIL RECEPÇÃO</div>
+            <div class="acc-tagline">Novos clientes · Agendamento · Recompra · 19 tarefas</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-gr">98%</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:98%;background:var(--green2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box">
+            <div class="ctx-box-label">Situação</div>
+            <div class="ctx-box-text">Funil praticamente pronto. Pendência principal: espelhar dados do contato no card (teste com TI, prazo <strong style="color:var(--amber2)">20/05</strong>). Projeto de indicação de clientes em andamento com a área Comercial.</div>
+          </div>
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Status</th><th>Pendência</th></tr></thead>
+            <tbody>
+              <tr><td>1–14</td><td class="task-name">Fluxo completo de recepção, agendamento e qualificação</td><td><span class="t-badge tb-done">100%</span></td><td style="color:var(--muted);font-size:.72rem">—</td></tr>
+              <tr><td>15</td><td class="task-name">Espelhar dados principais do contato no card</td><td><span class="t-badge tb-80">90%</span></td><td style="font-size:.72rem;color:var(--amber2)">Fazer novos testes com TI</td></tr>
+              <tr><td>16</td><td class="task-name">Montar treinamento funil recepção</td><td><span class="t-badge tb-done">100%</span></td><td style="color:var(--muted);font-size:.72rem">—</td></tr>
+              <tr><td>17–18</td><td class="task-name">Perguntas-chave revisadas + treinamento realizado (13/03)</td><td><span class="t-badge tb-done">100%</span></td><td style="color:var(--muted);font-size:.72rem">—</td></tr>
+              <tr><td>19</td><td class="task-name">Indicação de clientes — Projeto Retomada</td><td><span class="t-badge tb-80">80%</span></td><td style="font-size:.72rem;color:var(--amber2)">Melhorias no projeto de comissão</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SERVIÇOS -->
+      <div class="acc-item" id="bit-servicos">
+        <div class="acc-trigger" onclick="toggleAcc('bit-servicos')">
+          <div class="acc-icon">⚖️</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FUNIL SERVIÇOS</div>
+            <div class="acc-tagline">Serviços prestados · Fases · Manutenção · 16 tarefas</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-am">93%</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:93%;background:var(--amber2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box">
+            <div class="ctx-box-label">Situação</div>
+            <div class="ctx-box-text">14 de 16 tarefas concluídas. Pendência crítica: cadastro de serviços e preços está <strong style="color:var(--amber2)">aguardando o financeiro cadastrar a empresa de faturamento</strong> (prazo 20/05). Auditoria do funil retomada com a chegada da Natália.</div>
+          </div>
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Status</th><th>Pendência</th></tr></thead>
+            <tbody>
+              <tr><td>1–14</td><td class="task-name">Estrutura completa do funil, fases, testes e treinamento</td><td><span class="t-badge tb-done">100%</span></td><td style="color:var(--muted);font-size:.72rem">—</td></tr>
+              <tr><td>15</td><td class="task-name">Alinhamento da auditoria do funil — Serviços</td><td><span class="t-badge tb-80">80%</span></td><td style="font-size:.72rem;color:var(--amber2)">Retomada com a vinda da Natália</td></tr>
+              <tr><td>16</td><td class="task-name">Cadastrar os serviços e preços</td><td><span class="t-badge tb-pend">0%</span></td><td style="font-size:.72rem;color:var(--red2)">Aguardando empresa de faturamento</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CONTATO CLIENTE -->
+      <div class="acc-item" id="bit-contato">
+        <div class="acc-trigger" onclick="toggleAcc('bit-contato')">
+          <div class="acc-icon">👤</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">CONTATO CLIENTE</div>
+            <div class="acc-tagline">Cadastro · Campos · Foto · Documentos · 38 tarefas</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-am">96%</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:96%;background:var(--amber2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box">
+            <div class="ctx-box-label">Situação</div>
+            <div class="ctx-box-text">33 de 38 tarefas concluídas — toda a estrutura de campos, ocultar/mostrar, dados pessoais e treinamentos feitos. 3 itens parciais a retomar: número de confiança (Fernanda), material de uso de campos e campos obrigatórios para recepção (aguarda funis prontos).</div>
+          </div>
+          <table class="task-table">
+            <thead><tr><th>#</th><th>Tarefa</th><th>Status</th><th>Pendência</th></tr></thead>
+            <tbody>
+              <tr><td>1–35</td><td class="task-name">Estrutura completa de cadastro, campos e treinamentos</td><td><span class="t-badge tb-done">100%</span></td><td style="color:var(--muted);font-size:.72rem">—</td></tr>
+              <tr><td>36</td><td class="task-name">Número e nome de confiança — retomar (Fernanda)</td><td><span class="t-badge tb-80">50%</span></td><td style="font-size:.72rem;color:var(--amber2)">Retomar ou descartar</td></tr>
+              <tr><td>37</td><td class="task-name">Material sobre preenchimento de todos os campos</td><td><span class="t-badge tb-80">50%</span></td><td style="font-size:.72rem;color:var(--amber2)">Documentar o uso</td></tr>
+              <tr><td>38</td><td class="task-name">Dados obrigatórios na recepção</td><td><span class="t-badge tb-80">50%</span></td><td style="font-size:.72rem;color:var(--amber2)">Terminar mapeamento + bloqueio</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FUNIL ADVOGADOS -->
+      <div class="acc-item" id="bit-advogados">
+        <div class="acc-trigger" onclick="toggleAcc('bit-advogados')">
+          <div class="acc-icon">🔴</div>
+          <div class="acc-trigger-text">
+            <div class="acc-name">FUNIL ADVOGADOS</div>
+            <div class="acc-tagline">⚡ Principal gargalo — bloqueado por dependências externas</div>
+          </div>
+          <div class="acc-meta">
+            <span class="acc-pct-badge apb-am">79%</span>
+            <div class="acc-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#7A8FB5" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:79%;background:var(--amber2)"></div></div>
+        <div class="acc-body">
+          <div class="ctx-box" style="border-left-color:rgba(255,112,112,.5)">
+            <div class="ctx-box-label" style="color:var(--red2)">⚡ Gargalo principal</div>
+            <div class="ctx-box-text">
+              Este é o módulo mais crítico para a operação dos advogados. Está bloqueado por duas dependências:
+              <br><br>
+              <strong style="color:var(--wh)">1. Projeto Financeiro</strong> — a leitura de participação e regras dos advogados no Omie precisa estar pronta antes.<br>
+              <strong style="color:var(--wh)">2. Projeto Contratos</strong> — a automação e integração ZapSign precisam ser definidas.<br>
+              <br>
+              A conclusão do ERP Financeiro (Fase 5, até 28/05) é o desbloqueio direto para este funil avançar.
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:8px;padding:1rem 1.25rem">
+            <div style="font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Outros funis Bitrix — status geral</div>
+            <table class="task-table">
+              <thead><tr><th>Funil</th><th>Status</th><th>Observação</th></tr></thead>
+              <tbody>
+                <tr><td style="color:var(--wh)">Digital/Previdenciário</td><td><span class="t-badge tb-done">99%</span></td><td style="font-size:.72rem;color:var(--muted)">API de assinatura pendente</td></tr>
+                <tr><td style="color:var(--wh)">Digital/Cível</td><td><span class="t-badge tb-80">83%</span></td><td style="font-size:.72rem;color:var(--amber2)">Direcionamento + campanha + skill</td></tr>
+                <tr><td style="color:var(--wh)">Trabalhista</td><td><span class="t-badge tb-80">54%</span></td><td style="font-size:.72rem;color:var(--amber2)">Em desenvolvimento — TI · ainda tem usuários sem tratar</td></tr>
+                <tr><td style="color:var(--wh)">Telefonia</td><td><span class="t-badge tb-80">79%</span></td><td style="font-size:.72rem;color:var(--amber2)">Áudio URA + BI — Raphaela</td></tr>
+                <tr><td style="color:var(--wh)">RPV/Alvará</td><td><span class="t-badge tb-pend">33%</span></td><td style="font-size:.72rem;color:var(--red2)">Desenvolvimento + liderança — TI</td></tr>
+                <tr><td style="color:var(--wh)">Adm./Judicial/Cível/Criminal</td><td><span class="t-badge tb-pend">0%</span></td><td style="font-size:.72rem;color:var(--muted)">Não iniciados</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /acc-list bitrix -->
+
+    <!-- TAREFAS PENDENTES POR UNIDADE -->
+    <div class="rv d3" style="margin-top:2.5rem">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gd)">Tarefas Pendentes por Unidade</div>
+        <span style="font-size:.6rem;background:rgba(95,207,138,.08);border:1px solid rgba(95,207,138,.25);color:var(--green2);padding:.15rem .6rem;border-radius:12px">Dados de 08/05/2026</span>
+      </div>
+      <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-bottom:1rem;line-height:1.6">
+        A conclusão das tarefas vencidas pelos colaboradores de cada unidade é <strong style="color:rgba(255,255,255,.7)">pré-requisito</strong> para avançarmos com a finalização do sistema.
+        Total geral: <strong style="color:var(--wh)">1.752 tarefas · 846 vencidas (48,3%)</strong>
+      </div>
+      <div class="unidades-wrap">
+        <table class="unidades-table">
+          <thead>
+            <tr>
+              <th>Unidade</th>
+              <th>Total</th>
+              <th>Conformes</th>
+              <th>Vencidas</th>
+              <th>% Vencidas</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Poços de Caldas</td>
+              <td style="color:var(--muted);font-size:.8rem">800</td>
+              <td style="color:var(--green2);font-size:.8rem">236</td>
+              <td style="color:var(--red2);font-weight:700">564</td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:700;color:var(--red2)">70,5%</span></td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--red2);font-weight:700"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>Crítico — atenção urgente</span></td>
+            </tr>
+            <tr>
+              <td>Cabo Verde</td>
+              <td style="color:var(--muted);font-size:.8rem">335</td>
+              <td style="color:var(--green2);font-size:.8rem">223</td>
+              <td style="color:var(--amber2);font-weight:700">112</td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:700;color:var(--amber2)">33,4%</span></td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--amber2)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>Atenção necessária</span></td>
+            </tr>
+            <tr>
+              <td>Botelhos</td>
+              <td style="color:var(--muted);font-size:.8rem">611</td>
+              <td style="color:var(--green2);font-size:.8rem">441</td>
+              <td style="color:var(--amber2);font-weight:700">170</td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:700;color:var(--amber2)">27,8%</span></td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--amber2)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>Atenção necessária</span></td>
+            </tr>
+            <tr>
+              <td>Nova Resende</td>
+              <td style="color:var(--muted);font-size:.8rem">6</td>
+              <td style="color:var(--green2);font-size:.8rem">6</td>
+              <td style="color:var(--green2);font-weight:700">0</td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:700;color:var(--green2)">0%</span></td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--green2)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>Em dia ✓</span></td>
+            </tr>
+            <tr>
+              <td>Inside Sales</td>
+              <td style="color:var(--muted);font-size:.8rem">—</td>
+              <td style="color:var(--muted);font-size:.8rem">—</td>
+              <td style="color:var(--muted)">—</td>
+              <td><span style="font-size:.72rem;color:var(--muted)">—</span></td>
+              <td><span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--muted)"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>Sem dados</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:1rem;background:rgba(255,112,112,.06);border:1px solid rgba(255,112,112,.18);border-left:3px solid var(--red2);border-radius:8px;padding:.9rem 1.2rem;font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6">
+        <strong style="color:var(--red2)">⚠ Poços de Caldas — ação imediata:</strong> 564 tarefas vencidas representam 70,5% do total da unidade.
+        Os colaboradores com maior volume: <strong style="color:var(--wh)">Rafael (280 vencidas)</strong> e <strong style="color:var(--wh)">Augusto (278 vencidas)</strong>.
+        A normalização dessas tarefas é condição para avançar na configuração final dos funis.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ BLOCO SECUNDÁRIO ═══════════════════ -->
+<section id="s-secundario">
+  <div class="container">
+    <div class="rv">
+      <div style="display:flex;align-items:center;gap:.9rem;margin-bottom:.5rem">
+        <div class="sec-label" style="margin:0">BLOCO SECUNDÁRIO</div>
+        <span class="bloco-tag bt-secondary">Em Paralelo</span>
+      </div>
+      <h2 class="sec-title">PROJETOS <em>EM PARALELO</em></h2>
+      <p class="sec-body">
+        Projetos que seguem avançando com menor prioridade, aguardando a conclusão dos blocos prioritários para ganhar velocidade máxima.
+      </p>
+    </div>
+
+    <div class="pause-note rv d1">
+      <div class="pn-icon">⏸</div>
+      <div class="pn-text">
+        <strong>Decisão estratégica:</strong> os projetos abaixo estão <strong>pausados ou em ritmo reduzido</strong> para que toda a energia de TI e Consultoria fique concentrada na conclusão do Bitrix do Advogado e do ERP Financeiro.
+        Após a virada de sistema <strong>(29/06)</strong>, esses projetos entram em velocidade total.
+      </div>
+    </div>
+
+    <div class="sec-proj-grid rv d2">
+
+      <div class="sp-card">
+        <div class="sp-card-head">
+          <span class="sp-num">01</span>
+          <span class="sp-name">DASHBOARD COMERCIAL & OPERACIONAL</span>
+          <span class="sp-status-badge ssb-pause">Pausado</span>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" style="width:15%;background:var(--blue2)"></div></div>
+        <div class="sp-desc">
+          Painel para acompanhar números e resultados por unidade: vendas, protocolos, atuações e KPIs comerciais. Essencial para gestão à distância das 5 unidades.
+        </div>
+        <div class="sp-footer">
+          <span class="sp-owner">TI + Comercial</span>
+          <span class="sp-deadline">Após 29/06</span>
+        </div>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-head">
+          <span class="sp-num">02</span>
+          <span class="sp-name">PDI PARA RH</span>
+          <span class="sp-status-badge ssb-pause">Pausado</span>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" style="width:10%;background:var(--blue2)"></div></div>
+        <div class="sp-desc">
+          Implementação do Plano de Desenvolvimento Individual no Bitrix, integrado ao ciclo de avaliação 2026 e ao BARS. Colabora diretamente com a área de RH.
+        </div>
+        <div class="sp-footer">
+          <span class="sp-owner">TI + RH · Elisa</span>
+          <span class="sp-deadline">Após 29/06</span>
+        </div>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-head">
+          <span class="sp-num">03</span>
+          <span class="sp-name">CONTRATOS + ZAPSIGN</span>
+          <span class="sp-status-badge ssb-pause">Pausado</span>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" style="width:20%;background:var(--blue2)"></div></div>
+        <div class="sp-desc">
+          Automatização dos contratos gerados e integração da assinatura digital ZapSign com o Bitrix. Desbloqueador direto do Funil Advogados — dependência mapeada.
+        </div>
+        <div class="sp-footer">
+          <span class="sp-owner">TI + William</span>
+          <span class="sp-deadline">A definir</span>
+        </div>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-head">
+          <span class="sp-num">04</span>
+          <span class="sp-name">SKILL HUB</span>
+          <span class="sp-status-badge ssb-on">Em andamento</span>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" style="width:55%;background:var(--teal)"></div></div>
+        <div class="sp-desc">
+          Único projeto secundário que continua em andamento ativo. Sendo acompanhado também pela área Comercial. Prazo definido: 30 de junho de 2026.
+        </div>
+        <div class="sp-footer">
+          <span class="sp-owner">TI + Comercial</span>
+          <span class="sp-deadline urg">30/06/2026</span>
+        </div>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-head">
+          <span class="sp-num">05</span>
+          <span class="sp-name">MÓDULO DE RH — BITRIX</span>
+          <span class="sp-status-badge ssb-pause">Projeto Futuro</span>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" style="width:5%;background:var(--muted)"></div></div>
+        <div class="sp-desc">
+          A TLJ (fornecedora do Bitrix) habilitou o módulo de RH para a Maximiano. O módulo está disponível mas precisa ser integralmente adaptado à realidade da firma: estrutura de cargos, fluxos de gestão de pessoas e integração com o ciclo de PDI e avaliação de desempenho.
+        </div>
+        <div class="sp-footer">
+          <span class="sp-owner">TI + RH · Elisa</span>
+          <span class="sp-deadline">Após 29/06</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<footer>
+  <p>© Maximiano Advogados · Reunião Estratégica de Líderes · Maio 2026 · Rodrigo &amp; Jean — TI</p>
+  <p style="margin-top:.3rem">Material de uso interno e restrito à diretoria e lideranças.</p>
+</footer>
+
+<script>
+// ── ACCORDIONS ────────────────────────────────────────
+function toggleAcc(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const isOpen = el.classList.contains('open');
+  // fecha tudo no mesmo grupo pai
+  const parent = el.closest('.acc-list');
+  if(parent){
+    parent.querySelectorAll('.acc-item.open').forEach(i => {
+      if(i !== el) i.classList.remove('open');
+    });
+  }
+  el.classList.toggle('open', !isOpen);
+}
+
+// ── CELLS EDITÁVEIS ───────────────────────────────────
+function editCell(span){
+  const input = span.nextElementSibling;
+  span.style.display = 'none';
+  input.style.display = 'inline-block';
+  input.focus();
+}
+
+function saveCell(input){
+  const span = input.previousElementSibling;
+  const val = input.value.trim();
+  if(val !== ''){
+    span.textContent = val + ' tarefas';
+    span.style.background = 'rgba(95,207,138,.08)';
+    span.style.borderColor = 'rgba(95,207,138,.3)';
+    span.style.color = 'var(--green2)';
+    span.style.fontStyle = 'normal';
+    span.style.cursor = 'default';
+    span.onclick = null;
+    // atualiza status
+    const statusCell = input.closest('tr').querySelector('td:last-child');
+    if(statusCell){
+      const n = parseInt(val);
+      if(n === 0){
+        statusCell.innerHTML = '<span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--green2)"><span style="width:5px;height:5px;border-radius:50%;background:currentColor;display:inline-block"></span>Sem pendências</span>';
+      } else {
+        statusCell.innerHTML = `<span style="display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;color:var(--amber2)"><span style="width:5px;height:5px;border-radius:50%;background:currentColor;display:inline-block"></span>${n} tarefa${n>1?'s':''} em aberto</span>`;
+      }
+    }
+  } else {
+    span.style.display = 'inline-block';
+  }
+  input.style.display = 'none';
+}
+
+// ── REVEAL ANIMATION ──────────────────────────────────
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+// Abre fase 3 (urgente) por padrão ao carregar
+setTimeout(() => {
+  const f3 = document.getElementById('erp-f3');
+  if(f3) f3.classList.add('open');
+}, 600);
+</script>
+</body>
+</html>
