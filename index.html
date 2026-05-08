@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maximiano Advogados — Reunião Estratégica de Líderes · Maio 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dk:#06101E;--nv:#0D1B3E;--nv2:#112252;--nv3:#1A3060;
+  --gd:#F5A623;--gd2:#FFD080;
+  --wh:#FFFFFF;--muted:#7A8FB5;--card:#0F1F45;
+  --border:rgba(245,166,35,.18);--border2:rgba(255,255,255,.07);
+  --green2:#5FCF8A;--red2:#FF7070;--amber2:#FFB84A;--r:12px;
+  --teal:#0D9488;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--wh);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
+
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(245,166,35,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.03) 1px,transparent 1px);background-size:72px 72px}
+#ptc{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.pt{position:absolute;width:2px;height:2px;background:var(--gd);border-radius:50%;opacity:0;animation:flt linear infinite}
+@keyframes flt{0%{transform:translateY(100vh);opacity:0}10%{opacity:.28}90%{opacity:.1}100%{transform:translateY(-10vh);opacity:0}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem;background:rgba(6,16,30,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-brand{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:.12em;color:var(--gd);text-transform:uppercase}
+.nav-brand span{color:rgba(255,255,255,.3);margin:0 .5rem}
+.nav-pill{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.18rem .7rem;border-radius:20px}
+
+/* ── HERO ── */
+#hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;
+  background:radial-gradient(ellipse 80% 55% at 50% 40%,rgba(245,166,35,.07),transparent 68%),
+             radial-gradient(ellipse 40% 35% at 85% 75%,rgba(13,148,136,.07),transparent 60%),var(--dk);overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(245,166,35,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.04) 1px,transparent 1px);background-size:60px 60px}
+#hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+
+.hero-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.5em;color:var(--muted);text-transform:uppercase;margin-bottom:18px;opacity:0;animation:fu .8s .2s forwards;position:relative;z-index:1}
+.hero-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(52px,9vw,108px);line-height:.88;letter-spacing:.02em;color:var(--wh);margin-bottom:12px;opacity:0;animation:fu .9s .35s forwards;position:relative;z-index:1}
+.hero-title em{display:block;font-style:normal;color:var(--gd)}
+.hero-rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:20px 0;opacity:0;animation:fu .8s .55s forwards;position:relative;z-index:1}
+.hr-line{width:80px;height:.5px;background:var(--border)}
+.hr-diamond{width:7px;height:7px;background:var(--gd);transform:rotate(45deg);flex-shrink:0}
+.hero-headline{font-size:clamp(13px,1.6vw,17px);font-weight:300;color:var(--muted);max-width:560px;line-height:1.75;margin-bottom:10px;opacity:0;animation:fu .8s .68s forwards;position:relative;z-index:1}
+.hero-headline strong{font-weight:600;color:rgba(255,255,255,.85)}
+
+/* ── COUNTDOWN ── */
+.countdown-wrap{opacity:0;animation:fu .8s .82s forwards;position:relative;z-index:1;margin:28px 0 8px}
+.countdown-label{font-size:.6rem;font-weight:700;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
+.countdown{display:flex;align-items:flex-end;gap:4px;justify-content:center}
+.cd-block{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cd-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(2.8rem,6vw,4.5rem);color:var(--wh);line-height:1;background:rgba(13,27,62,.7);border:1px solid var(--border);border-top:2px solid var(--gd);border-radius:8px;min-width:clamp(64px,9vw,96px);padding:.6rem .5rem .4rem;text-align:center;font-variant-numeric:tabular-nums;transition:color .3s}
+.cd-num.pulse{color:var(--gd)}
+.cd-unit{font-size:.52rem;font-weight:700;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.cd-sep{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.5rem);color:rgba(245,166,35,.35);padding-bottom:20px;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:.5}50%{opacity:.1}}
+
+/* ── MOMENTO ÉPICO ── */
+#epic-moment{display:none;position:relative;z-index:1;text-align:center;padding:0 20px;animation:epicIn 1.8s forwards}
+@keyframes epicIn{
+  0%{opacity:0;transform:scale(.88)}
+  40%{opacity:1;transform:scale(1.02)}
+  100%{opacity:1;transform:scale(1)}
+}
+.epic-diamond{width:16px;height:16px;background:var(--gd);transform:rotate(45deg);margin:0 auto 28px;box-shadow:0 0 40px rgba(245,166,35,.6)}
+.epic-pre{font-size:.62rem;font-weight:700;letter-spacing:.6em;color:var(--gd);text-transform:uppercase;margin-bottom:20px;opacity:.8}
+.epic-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,4.2rem);line-height:1;color:var(--wh);margin-bottom:18px;letter-spacing:.04em}
+.epic-title em{color:var(--gd);font-style:normal;display:block}
+.epic-rule{display:flex;align-items:center;gap:16px;justify-content:center;margin:20px 0}
+.epic-line{flex:1;max-width:120px;height:.5px;background:linear-gradient(90deg,transparent,var(--border))}
+.epic-diamond-sm{width:7px;height:7px;background:var(--gd);transform:rotate(45deg);flex-shrink:0}
+.epic-phrase{font-size:clamp(.9rem,2vw,1.2rem);font-weight:300;color:rgba(255,255,255,.75);max-width:580px;margin:0 auto;line-height:1.8;font-style:italic}
+.epic-phrase strong{color:var(--gd);font-style:normal;font-weight:700}
+.epic-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.1);border:1px solid var(--border);border-radius:30px;padding:.5rem 1.4rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;color:var(--gd);margin-top:28px;text-transform:uppercase}
+.epic-dot{width:6px;height:6px;border-radius:50%;background:var(--gd);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.5);opacity:.3}}
+
+.hero-note{font-size:.72rem;color:rgba(245,166,35,.55);letter-spacing:.05em;margin-bottom:44px;opacity:0;animation:fu .8s .9s forwards;position:relative;z-index:1}
+.hero-scroll{opacity:0;animation:fu .8s 1.1s forwards;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.58rem;letter-spacing:.3em;color:rgba(255,255,255,.18);position:relative;z-index:1}
+.scroll-arrow{width:16px;height:16px;border-right:1.5px solid rgba(255,255,255,.18);border-bottom:1.5px solid rgba(255,255,255,.18);transform:rotate(45deg);animation:bnc 2s ease-in-out infinite}
+@keyframes bnc{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+
+/* ── MAIN ── */
+.main{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:72px 2rem 100px}
+.sec-header{text-align:center;margin-bottom:48px}
+.sec-tag{font-size:.62rem;font-weight:700;letter-spacing:.4em;color:var(--gd);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.sec-tag::before,.sec-tag::after{content:'';width:22px;height:1.5px;background:var(--gd);opacity:.4;border-radius:1px}
+.sec-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(24px,4vw,40px);letter-spacing:.06em;color:var(--wh)}
+.sec-title em{color:var(--gd);font-style:normal}
+.sec-sub{font-size:.8rem;color:var(--muted);margin-top:8px;line-height:1.7}
+
+/* ── CARDS ── */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden}
+@media(max-width:860px){.cards-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.cards-grid{grid-template-columns:1fr}}
+
+.card{background:var(--card);padding:26px 22px 52px;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:background .25s}
+.card:hover{background:var(--nv3)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gd),transparent);transform:scaleX(0);transform-origin:center;transition:transform .4s}
+.card:hover::before{transform:scaleX(1)}
+.card-glow{position:absolute;inset:0;background:radial-gradient(circle at 25% 10%,rgba(245,166,35,.05),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none}
+.card:hover .card-glow{opacity:1}
+
+.card-num{font-size:.6rem;font-weight:700;letter-spacing:.25em;color:rgba(245,166,35,.3);margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+.card-badge{font-size:.56rem;font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:20px}
+.badge-live{background:rgba(245,166,35,.12);color:var(--gd);border:.5px solid rgba(245,166,35,.28)}
+.badge-soon{background:rgba(255,255,255,.05);color:var(--muted);border:.5px solid var(--border2)}
+
+.card-icon{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:rgba(245,166,35,.07);display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0;position:relative;z-index:1}
+.card-icon svg{width:19px;height:19px}
+.card-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:.07em;text-transform:uppercase;color:var(--wh);margin-bottom:2px;position:relative;z-index:1}
+.card-role{font-size:.6rem;font-weight:700;letter-spacing:.16em;color:var(--gd);text-transform:uppercase;margin-bottom:12px;position:relative;z-index:1}
+.card-topics{list-style:none;border-top:1px solid var(--border2);padding-top:11px;position:relative;z-index:1;flex:1}
+.card-topics li{font-size:.74rem;color:var(--muted);padding:2.5px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.card-topics li::before{content:'';width:3px;height:3px;border-radius:50%;background:rgba(245,166,35,.38);margin-top:5px;flex-shrink:0}
+.card-time{font-size:.6rem;font-weight:700;letter-spacing:.15em;color:rgba(245,166,35,.4);margin-top:14px;padding-top:10px;border-top:1px solid var(--border2);position:relative;z-index:1}
+.card-arrow{position:absolute;bottom:18px;right:18px;width:28px;height:28px;border-radius:50%;background:rgba(245,166,35,.07);border:.5px solid var(--border);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:1}
+.card:hover .card-arrow{background:var(--gd);transform:translate(2px,-2px)}
+
+/* card cronograma full width */
+.card-chrono{grid-column:1/-1;flex-direction:row;align-items:center;gap:22px;padding:20px 28px;background:rgba(26,48,96,.35);border-top:1px solid var(--border2)}
+.card-chrono:hover{background:rgba(26,48,96,.65)}
+.card-chrono .card-topics{display:flex;flex-wrap:wrap;gap:5px;border:none;padding-top:5px}
+.card-chrono .card-topics li{background:rgba(245,166,35,.06);border:.5px solid rgba(245,166,35,.14);border-radius:20px;padding:3px 10px;font-size:.63rem;gap:0}
+.card-chrono .card-topics li::before{display:none}
+.card-chrono .card-body{flex:1}
+@media(max-width:700px){.card-chrono{flex-direction:column;align-items:flex-start}}
+
+footer{position:relative;z-index:1;text-align:center;padding:28px 24px 40px;border-top:1px solid var(--border2)}
+footer p{font-size:.62rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;line-height:2;opacity:.55}
+
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .62s,transform .62s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.2s}.d4{transition-delay:.26s}.d5{transition-delay:.32s}.d6{transition-delay:.38s}.d7{transition-delay:.44s}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div id="ptc"></div>
+
+<nav>
+  <div class="nav-brand">Maximiano<span>|</span>Advogados</div>
+  <div class="nav-pill">Reunião de Líderes · Maio 2026</div>
+</nav>
+
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+
+  <div class="hero-eyebrow">Equipe de Liderança · Maio 2026</div>
+  <h1 class="hero-title">REUNIÃO<br><em>ESTRATÉGICA</em></h1>
+  <div class="hero-rule"><div class="hr-line"></div><div class="hr-diamond"></div><div class="hr-line"></div></div>
+  <p class="hero-headline">Sexta-feira · <strong>08 de Maio de 2026 · 13H00</strong><br>Botelhos — MG</p>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-wrap" id="countdown-wrap">
+    <div class="countdown-label">Início do evento em</div>
+    <div class="countdown">
+      <div class="cd-block">
+        <div class="cd-num" id="cd-d">00</div>
+        <div class="cd-unit">Dias</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-h">00</div>
+        <div class="cd-unit">Horas</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-m">00</div>
+        <div class="cd-unit">Min</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-s">00</div>
+        <div class="cd-unit">Seg</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOMENTO ÉPICO — aparece quando zera -->
+  <div id="epic-moment">
+    <div class="epic-diamond"></div>
+    <div class="epic-pre">Maximiano Advogados · Maio 2026</div>
+    <h2 class="epic-title">O MOMENTO<em>CHEGOU.</em></h2>
+    <div class="epic-rule">
+      <div class="epic-line"></div>
+      <div class="epic-diamond-sm"></div>
+      <div class="epic-line"></div>
+    </div>
+    <p class="epic-phrase">
+      Cada processo, cada cliente, cada decisão difícil —<br>
+      tudo isso nos trouxe até aqui.<br>
+      <strong>Hoje não é só uma reunião.</strong><br>
+      É o dia em que decidimos juntos<br>
+      quem a Maximiano vai ser amanhã.
+    </p>
+    <div class="epic-badge"><div class="epic-dot"></div>A reunião começa agora</div>
+  </div>
+
+  <div class="hero-note" id="hero-note">08 de Maio de 2026 · Reunião Estratégica de Líderes · Sede Administrativa</div>
+  <div class="hero-scroll" id="hero-scroll">VER PROGRAMAÇÃO<div class="scroll-arrow"></div></div>
+</section>
+
+<main class="main">
+  <div class="sec-header rv">
+    <div class="sec-tag">Programação do Evento</div>
+    <h2 class="sec-title">ÁREAS EM <em>DESTAQUE</em></h2>
+    <p class="sec-sub">Selecione um bloco para ver a programação detalhada.</p>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- COMERCIAL -->
+    <a href="Maximiano_Relatorio_2026_v3.html" class="card rv d1">
+      <div class="card-glow"></div>
+      <div class="card-num">01 <span class="card-badge badge-live">DISPONÍVEL</span></div>
+      <div class="card-icon">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 3l2 4h5l-4 3 1.5 5L10 12l-4.5 3L7 10 3 7h5z" stroke="#F5A623" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="card-title">COMERCIAL</div>
+      <div class="card-role">Resultados e Estratégia · Geovani</div>
+      <ul class="card-topics">
+        <li>Metas e resultados Jan–Abr 2026</li>
+        <li>Programa Indico Ganhou &amp; Kit Embaixador da Marca</li>
+        <li>Roleta Comercial — gamificação nas unidades</li>
+        <li>Agenda de visitas nas unidades</li>
+        <li>Próximos passos comerciais</li>
+      </ul>
+      <div class="card-time">13H30 – 14H00</div>
+      <div class="card-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- MARKETING -->
+    <a href="marketing_maximiano_maio2026_v3.html" class="card rv d2">
+      <div class="card-glow"></div>
+      <div class="card-num">02 <span class="card-badge badge-live">DISPONÍVEL</span></div>
+      <div class="card-icon">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10c0-3.9 3.1-7 7-7s7 3.1 7 7-3.1 7-7 7" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round"/><path d="M3 10h7V3" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="card-title">MARKETING</div>
+      <div class="card-role">Estratégia Digital · Débora</div>
+      <ul class="card-topics">
+        <li>Tráfego pago e resultados de redes sociais</li>
+        <li>Meta Ads — campanhas e conversões</li>
+        <li>Crescimento orgânico e alcance</li>
+        <li>Endomarketing e Kit Embaixador da Marca</li>
+        <li>Projeto MAXDRIVE e próximas iniciativas</li>
+      </ul>
+      <div class="card-time">14H00 – 14H30</div>
+      <div class="card-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- FINANCEIRO -->
+    <a href="DRE_Financeiro_Board_Jan_Abr_2026.html" class="card rv d3">
+      <div class="card-glow"></div>
+      <div class="card-num">03 <span class="card-badge badge-live">DISPONÍVEL</span></div>
+      <div class="card-icon">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 3-5 4 4" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17h14" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="card-title">FINANCEIRO</div>
+      <div class="card-role">DRE Board Jan–Abr 2026 · Glauco</div>
+      <ul class="card-topics">
+        <li>Receita e metas do quadrimestre</li>
+        <li>Resultado e desempenho por unidade</li>
+        <li>Gestão de inadimplência — plano de cobrança</li>
+        <li>Implantação do sistema Omie</li>
+        <li>Metas e projeções para o 2º semestre</li>
+      </ul>
+      <div class="card-time">14H30 – 14H50</div>
+      <div class="card-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- TI -->
+    <a href="ti.html" class="card rv d4">
+      <div class="card-glow"></div>
+      <div class="card-num">04 <span class="card-badge badge-live">DISPONÍVEL</span></div>
+      <div class="card-icon">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="11" rx="2" stroke="#F5A623" stroke-width="1.3"/><path d="M7 18h6M10 15v3" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="card-title">TI</div>
+      <div class="card-role">Sistemas &amp; Infraestrutura · Rodrigo</div>
+      <ul class="card-topics">
+        <li>ERP Financeiro — fases e cronograma de entrega</li>
+        <li>Bitrix do Advogado — status por módulo</li>
+        <li>Projetos paralelos em andamento</li>
+        <li>Tarefas pendentes por unidade</li>
+        <li>Próximos marcos e prazos</li>
+      </ul>
+      <div class="card-time">15H05 – 15H20</div>
+      <div class="card-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- RH -->
+    <a href="rh.html" class="card rv d5">
+      <div class="card-glow"></div>
+      <div class="card-num">05 <span class="card-badge badge-live">DISPONÍVEL</span></div>
+      <div class="card-icon">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3" stroke="#F5A623" stroke-width="1.3"/><path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="card-title">RH</div>
+      <div class="card-role">Pessoas &amp; Desenvolvimento · Elisa</div>
+      <ul class="card-topics">
+        <li>Organograma atualizado — nova estrutura Mai/2026</li>
+        <li>Pesquisa de clima — resultados e plano de ação</li>
+        <li>PDI 2026 — lançamento oficial</li>
+        <li>Sistema BARS de avaliação</li>
+        <li>Espaço aberto aos líderes</li>
+      </ul>
+      <div class="card-time">15H20 – 16H40</div>
+      <div class="card-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- PDI SISTEMA -->
+    <a href="pdi-sistema.html" class="card rv d6">
+      <div class="card-glow"></div>
+      <div class="card-num">06 <span class="card-badge badge-live">DISPONÍVEL</span></div>
+      <div class="card-icon">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="#F5A623" stroke-width="1.3"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="#F5A623" stroke-width="1.3"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="#F5A623" stroke-width="1.3"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="#F5A623" stroke-width="1.3"/></svg>
+      </div>
+      <div class="card-title">PDI SISTEMA</div>
+      <div class="card-role">Plano de Desenvolvimento Integrado · TI</div>
+      <ul class="card-topics">
+        <li>Dashboard de colaboradores — Ciclo 2026</li>
+        <li>KPIs técnicos e comportamentais por cargo</li>
+        <li>Ações de desenvolvimento com status</li>
+        <li>Evidências e registro de acompanhamento</li>
+      </ul>
+      <div class="card-time">15H20 – 16H40</div>
+      <div class="card-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- CRONOGRAMA -->
+    <a href="cronograma_preview.html" class="card card-chrono rv d7">
+      <div class="card-glow"></div>
+      <div class="card-icon" style="flex-shrink:0">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="14" rx="2" stroke="#F5A623" stroke-width="1.3"/><path d="M7 2v4M13 2v4M2 9h16" stroke="#F5A623" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-num">00 — PROGRAMAÇÃO &nbsp;<span class="card-badge badge-live">DISPONÍVEL</span></div>
+        <div class="card-title">CRONOGRAMA DA REUNIÃO</div>
+        <div class="card-role">08 de Maio de 2026 · 13H00 · Sede Administrativa</div>
+        <ul class="card-topics">
+          <li>13H00 — Recepção</li><li>13H20 — Abertura (Jean)</li><li>13H30 — Comercial</li>
+          <li>14H00 — Marketing</li><li>14H30 — Financeiro</li><li>14H50 — Intervalo</li>
+          <li>15H05 — TI</li><li>15H20 — RH &amp; PDI</li><li>16H40 — Encerramento</li>
+        </ul>
+      </div>
+      <div class="card-arrow" style="position:relative;bottom:auto;right:auto;flex-shrink:0;align-self:center">
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════
+     PESQUISA DE SATISFAÇÃO
+══════════════════════════════════════ -->
+<section id="s-pesquisa" style="position:relative;z-index:1;padding:80px 24px 90px;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(245,166,35,.06),transparent 70%),var(--dk);border-top:1px solid var(--border2)">
+  <div style="max-width:720px;margin:0 auto;text-align:center">
+
+    <!-- eyebrow -->
+    <div class="sec-tag rv" style="justify-content:center;margin-bottom:14px">APÓS A REUNIÃO</div>
+
+    <!-- título -->
+    <h2 class="sec-title rv" style="font-size:clamp(26px,5vw,52px);margin-bottom:16px">
+      SUA OPINIÃO <em>IMPORTA</em>
+    </h2>
+
+    <!-- divisor ornamental -->
+    <div class="hero-rule rv" style="margin:0 auto 22px">
+      <div class="hr-line"></div>
+      <div class="hr-diamond"></div>
+      <div class="hr-line"></div>
+    </div>
+
+    <!-- subtexto -->
+    <p class="rv" style="font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.8;max-width:520px;margin:0 auto 40px">
+      Dedique <strong style="color:rgba(255,255,255,.85)">2 minutos</strong> para avaliar a reunião de hoje.<br/>
+      Seu feedback é o que nos permite melhorar a cada encontro.
+    </p>
+
+    <!-- card principal -->
+    <div class="rv" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px 36px 44px;position:relative;overflow:hidden">
+
+      <!-- brilho decorativo -->
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gd),transparent)"></div>
+      <div style="position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.08),transparent 70%);pointer-events:none"></div>
+
+      <!-- ícone -->
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(245,166,35,.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 22px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#F5A623" stroke-width="1.4"/>
+          <path d="M8 12h8M8 8h5M8 16h6" stroke="#F5A623" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- texto do card -->
+      <div style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.5rem;letter-spacing:.06em;color:var(--wh);margin-bottom:8px;text-transform:uppercase">
+        Pesquisa de Satisfação
+      </div>
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.2em;color:var(--gd);text-transform:uppercase;margin-bottom:20px">
+        Reunião Estratégica de Líderes · 08 de Maio de 2026
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto 32px">
+        Organização, conteúdo, participação e o que você quer ver nas próximas reuniões — tudo aqui.
+      </div>
+
+      <!-- itens rápidos -->
+      <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:36px">
+        <div style="display:flex;align-items:center;gap:7px;font-size:.72rem;color:rgba(255,255,255,.5)">
+          <div style="width:5px;height:5px;border-radius:50%;background:var(--gd)"></div>
+          Anônima
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:.72rem;color:rgba(255,255,255,.5)">
+          <div style="width:5px;height:5px;border-radius:50%;background:var(--gd)"></div>
+          2 minutos
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:.72rem;color:rgba(255,255,255,.5)">
+          <div style="width:5px;height:5px;border-radius:50%;background:var(--gd)"></div>
+          12 perguntas
+        </div>
+      </div>
+
+      <!-- botão CTA -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgTF8H0QfYOO8PdKPHpFvrfJmhWPZaNbCFijf9oxet-JQZhw/viewform"
+         target="_blank"
+         id="survey-btn"
+         style="display:inline-flex;align-items:center;gap:12px;background:var(--gd);color:var(--dk);font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:17px 44px;border-radius:50px;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 40px rgba(245,166,35,.3);position:relative;overflow:hidden">
+        <span style="position:relative;z-index:1">RESPONDER AGORA</span>
+        <svg style="position:relative;z-index:1" width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 15L15 3M15 3H6M15 3v9" stroke="#06101E" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,rgba(255,255,255,.18) 100%);transform:translateX(-100%);transition:transform .35s" id="btn-shine"></div>
+      </a>
+
+      <p style="margin-top:18px;font-size:.68rem;color:rgba(255,255,255,.22);letter-spacing:.06em">
+        Suas respostas são confidenciais e serão usadas apenas para melhoria interna.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© Maximiano Advogados · Reunião Estratégica de Líderes · Maio 2026</p>
+  <p>Material de uso interno e restrito às lideranças.</p>
+</footer>
+
+<script>
+// Efeito shine no botão
+const btn = document.getElementById('survey-btn');
+const shine = document.getElementById('btn-shine');
+if(btn && shine){
+  btn.addEventListener('mouseenter',()=>{
+    btn.style.transform='translateY(-3px) scale(1.03)';
+    btn.style.boxShadow='0 16px 60px rgba(245,166,35,.5)';
+    shine.style.transform='translateX(100%)';
+  });
+  btn.addEventListener('mouseleave',()=>{
+    btn.style.transform='';
+    btn.style.boxShadow='0 8px 40px rgba(245,166,35,.3)';
+    shine.style.transform='translateX(-100%)';
+  });
+}
+</script>
+
+<script>
+// ── PARTÍCULAS ──
+const ptc=document.getElementById('ptc');
+for(let i=0;i<26;i++){
+  const p=document.createElement('div');p.className='pt';
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(10+Math.random()*14)+'s';
+  p.style.animationDelay=(Math.random()*12)+'s';
+  p.style.width=p.style.height=(Math.random()>.65?3:2)+'px';
+  ptc.appendChild(p);
+}
+
+// ── COUNTDOWN ──
+const TARGET = new Date('2026-05-08T13:00:00-03:00');
+
+function pad(n){return String(n).padStart(2,'0')}
+
+function triggerEpic(){
+  document.getElementById('countdown-wrap').style.display='none';
+  document.getElementById('hero-note').style.display='none';
+  document.getElementById('hero-scroll').style.display='none';
+  const epic = document.getElementById('epic-moment');
+  epic.style.display='block';
+  // Dispara partículas extras
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');p.className='pt';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(4+Math.random()*6)+'s';
+    p.style.animationDelay=(Math.random()*2)+'s';
+    p.style.width=p.style.height='3px';
+    p.style.background='#F5A623';
+    ptc.appendChild(p);
+  }
+}
+
+function updateClock(){
+  const now = new Date();
+  const diff = TARGET - now;
+  if(diff <= 0){
+    triggerEpic();
+    return;
+  }
+  const days  = Math.floor(diff/86400000);
+  const hours = Math.floor((diff%86400000)/3600000);
+  const mins  = Math.floor((diff%3600000)/60000);
+  const secs  = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-d').textContent=pad(days);
+  document.getElementById('cd-h').textContent=pad(hours);
+  document.getElementById('cd-m').textContent=pad(mins);
+  const se=document.getElementById('cd-s');
+  se.textContent=pad(secs);
+  se.classList.add('pulse');
+  setTimeout(()=>se.classList.remove('pulse'),300);
+}
+
+updateClock();
+setInterval(updateClock,1000);
+
+// ── REVEAL ──
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
