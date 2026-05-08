@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maximiano Advogados — Relatório Comercial 2026</title>
+<style>
+:root{
+  --dk:#06101E;--nv:#0D1B3E;--nv2:#112252;--nv3:#1A3060;
+  --gd:#F5A623;--gd2:#FFD080;
+  --wh:#FFFFFF;--muted:#7A8FB5;--card:#0F1F45;
+  --border:rgba(245,166,35,.18);--border2:rgba(255,255,255,.07);
+  --green2:#5FCF8A;--red2:#FF7070;--amber2:#FFB84A;--r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--wh);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem;background:rgba(6,16,30,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-brand{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:.12em;color:var(--gd);text-transform:uppercase}
+.nav-brand span{color:rgba(255,255,255,.35);margin:0 .4rem}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{padding:.4rem .8rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;border-radius:6px;transition:all .2s;cursor:pointer;font-weight:600}
+.nav-links a:hover,.nav-links a.active{color:var(--gd);background:rgba(245,166,35,.08)}
+.nav-pill{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.18rem .7rem;border-radius:20px}
+@media(max-width:960px){.nav-links{display:none}.nav-pill{display:none}}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:60px;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(43,92,175,.3) 0%,transparent 70%),radial-gradient(ellipse 35% 35% at 90% 70%,rgba(245,166,35,.1) 0%,transparent 60%),var(--dk);position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(245,166,35,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);border-radius:20px;padding:.35rem 1rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);margin-bottom:1.5rem;font-weight:700}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gd);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.hero-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(3rem,6.5vw,5.8rem);line-height:.9;color:var(--wh)}
+.hero-title em{color:var(--gd);font-style:normal}
+.hero-note{margin-top:1.2rem;font-size:.8rem;color:rgba(245,166,35,.6);background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:6px;padding:.6rem 1rem;line-height:1.5}
+.hero-sub{margin-top:.8rem;font-size:.95rem;font-weight:300;color:rgba(255,255,255,.55);max-width:460px;line-height:1.7}
+.hero-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:2rem;background:var(--border);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.hkpi{background:rgba(13,27,62,.6);padding:1.1rem 1.4rem}
+.hkpi-val{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.8rem;color:var(--gd);line-height:1}
+.hkpi-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+.hero-vis{position:relative;display:flex;align-items:center;justify-content:center}
+.vis-ring-wrap{position:relative;width:320px;height:320px;margin:0 auto}
+.vis-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(245,166,35,.2);animation:spin 35s linear infinite}
+.vis-ring2{position:absolute;inset:28px;border-radius:50%;border:1px dashed rgba(43,92,175,.3);animation:spin 22s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vis-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,rgba(43,92,175,.8),rgba(13,27,62,.9));border:1px solid rgba(245,166,35,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(43,92,175,.3)}
+.vis-core-v{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2.2rem;color:var(--gd)}
+.vis-core-l{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.vis-dot{position:absolute;width:42px;height:42px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:spin 35s linear infinite reverse;font-size:.52rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gd);font-weight:700;text-align:center;line-height:1.2}
+.vd1{top:-21px;left:calc(50% - 21px)}.vd2{bottom:-21px;left:calc(50% - 21px)}
+.vd3{left:-21px;top:calc(50% - 21px)}.vd4{right:-21px;top:calc(50% - 21px)}
+.vis-corner{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(13,27,62,.8);border:1px solid rgba(245,166,35,.15);display:flex;align-items:center;justify-content:center;font-size:.58rem;color:rgba(255,255,255,.45);text-align:center;font-weight:600;line-height:1.2}
+.vc1{top:28px;right:28px}.vc2{bottom:28px;right:28px}.vc3{top:28px;left:28px}.vc4{bottom:28px;left:28px}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-vis{display:none}}
+
+/* LAYOUT */
+section{position:relative;padding:5.5rem 0}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.sec-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);font-weight:700;margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem}
+.sec-label::before{content:'';width:18px;height:2px;background:var(--gd);border-radius:1px}
+.sec-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1}
+.sec-title em{color:var(--gd);font-style:normal}
+.sec-body{margin-top:.8rem;color:rgba(255,255,255,.52);max-width:580px;font-size:.92rem;line-height:1.75}
+
+/* KPI STRIP */
+#s-panorama{background:var(--nv)}
+.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:2.2rem 0}
+.kpi{background:rgba(13,27,62,.7);padding:1.3rem 1rem;text-align:center;transition:background .2s}
+.kpi:hover{background:rgba(26,48,96,.7)}
+.kval{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.75rem;color:var(--gd);line-height:1}
+.kdelta{display:inline-block;font-size:.68rem;font-weight:700;padding:.12rem .5rem;border-radius:20px;margin:.25rem 0;letter-spacing:.03em}
+.delta-up{background:rgba(95,207,138,.15);color:var(--green2)}
+.delta-dn{background:rgba(255,112,112,.12);color:var(--red2)}
+.klabel{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:900px){.kpi-strip{grid-template-columns:repeat(2,1fr)}.kpi-strip .kpi:last-child{grid-column:span 2}}
+
+/* CHART */
+.chart-box{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.6rem}
+.chart-title{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;font-weight:700}
+.chart2col{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.4rem}
+@media(max-width:700px){.chart2col{grid-template-columns:1fr}}
+
+/* TOGGLE */
+.toggle-row{display:flex;gap:4px;background:rgba(255,255,255,.05);padding:4px;border-radius:8px;width:fit-content;margin-bottom:1.8rem}
+.tbtn{padding:.42rem 1rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:none;background:transparent;border-radius:6px;cursor:pointer;color:var(--muted);transition:all .15s}
+.tbtn.active{background:var(--nv3);color:var(--gd);border:1px solid rgba(245,166,35,.25)}
+
+/* UNIT CARDS */
+.ucards{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:1.2rem}
+.ucard{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.ucard:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.5);border-color:var(--border)}
+.ucard-top{background:var(--nv3);padding:.9rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border2)}
+.ucard-name{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.badge{font-size:.68rem;font-weight:700;padding:.18rem .55rem;border-radius:20px}
+.b-green{background:rgba(95,207,138,.15);color:var(--green2)}.b-red{background:rgba(255,112,112,.12);color:var(--red2)}.b-warn{background:rgba(201,122,26,.15);color:var(--amber2)}
+.ucard-body{padding:1.2rem}
+.ucard-real{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.7rem;color:var(--gd);line-height:1}
+.ucard-meta{font-size:.73rem;color:var(--muted);margin:.25rem 0 .9rem}
+.pbar{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:3px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+.pbar-labels{display:flex;justify-content:space-between;font-size:.65rem;color:var(--muted);margin-top:.35rem}
+.ucard-proj{margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border2);display:flex;justify-content:space-between;font-size:.73rem}
+.ucard-proj .lbl{color:var(--muted)}
+
+/* PROJECAO TABLE */
+#s-projecao{background:var(--nv)}
+.ptable{width:100%;border-collapse:collapse}
+.ptable th{background:rgba(13,27,62,.9);color:var(--gd);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;padding:.85rem .9rem;text-align:left;font-weight:700;border-bottom:1px solid var(--border)}
+.ptable td{padding:.85rem .9rem;font-size:.86rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.ptable tr:last-child td{font-weight:700;background:rgba(13,27,62,.5);border-top:1px solid var(--border)}
+.ptable tr:hover td{background:rgba(245,166,35,.03)}
+.st-ok{background:rgba(95,207,138,.12);color:var(--green2);font-size:.68rem;font-weight:700;padding:.18rem .6rem;border-radius:20px;white-space:nowrap}
+.st-al{background:rgba(255,112,112,.1);color:var(--red2);font-size:.68rem;font-weight:700;padding:.18rem .6rem;border-radius:20px;white-space:nowrap}
+@media(max-width:700px){.ptable{font-size:.76rem}.ptable th,.ptable td{padding:.65rem .55rem}}
+
+/* META ANUAL GRID */
+#s-meta{background:var(--dk)}
+.meta-note{background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:.9rem 1.2rem;font-size:.82rem;color:rgba(245,166,35,.8);margin-bottom:2rem;display:flex;align-items:flex-start;gap:.75rem;line-height:1.55}
+.meta-note::before{content:'★';color:var(--gd);font-size:1rem;flex-shrink:0;margin-top:.05rem}
+.mtable{width:100%;border-collapse:collapse}
+.mtable th{background:rgba(13,27,62,.9);color:var(--gd);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem .9rem;text-align:right;font-weight:700;border-bottom:1px solid var(--border)}
+.mtable th:first-child{text-align:left}
+.mtable td{padding:.8rem .9rem;font-size:.84rem;border-bottom:1px solid rgba(255,255,255,.04);text-align:right}
+.mtable td:first-child{text-align:left;font-weight:600}
+.mtable tr:last-child td{font-weight:700;background:rgba(13,27,62,.5);border-top:1px solid var(--border)}
+.mtable tr:hover td{background:rgba(245,166,35,.02)}
+.mtable .saldo{color:var(--amber2);font-weight:700}
+.mtable .real{color:var(--green2)}
+
+/* PROTOCOLOS */
+#s-protocolos{background:var(--nv)}
+.proto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.proto-box{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden}
+.proto-head{background:var(--nv3);padding:1.1rem 1.4rem;border-bottom:1px solid var(--border)}
+.proto-head h3{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem;color:var(--gd)}
+.proto-head p{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:.15rem}
+.proto-row{display:flex;align-items:center;padding:.75rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.proto-unit{flex:1;font-size:.82rem;font-weight:600}
+.proto-nums{display:flex;gap:1.3rem}
+.pnum .n{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.3rem;color:var(--wh)}
+.pnum .l{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pnum.total .n{color:var(--gd)}
+.proto-foot{background:rgba(13,27,62,.5);padding:.9rem 1.4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.proto-foot-total{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2rem;color:var(--gd)}
+.proto-alert{margin:.65rem 1.4rem;background:rgba(181,48,58,.08);border-left:3px solid var(--red2);padding:.65rem .9rem;border-radius:0 6px 6px 0;font-size:.78rem;color:var(--red2);line-height:1.5}
+.proto-full{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;overflow-x:auto}
+.proto-full table{width:100%;border-collapse:collapse}
+.proto-full th{background:rgba(13,27,62,.9);color:var(--gd);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 1rem;text-align:center;font-weight:700;border-bottom:1px solid var(--border)}
+.proto-full th:first-child{text-align:left}
+.proto-full td{padding:.75rem 1rem;font-size:.84rem;border-bottom:1px solid rgba(255,255,255,.04);text-align:center}
+.proto-full td:first-child{text-align:left;font-weight:600}
+.proto-full tr:last-child td{font-weight:700;background:rgba(13,27,62,.5);border-top:1px solid var(--border)}
+.proto-full td.tot{color:var(--gd);font-weight:700}
+
+/* ACOES */
+#s-acoes{background:var(--dk)}
+.acoes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+@media(max-width:700px){.acoes-grid{grid-template-columns:1fr}}
+.acao-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.5rem;transition:border-color .2s,transform .2s}
+.acao-card:hover{border-color:var(--border);transform:translateY(-3px)}
+.acao-tag{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.18rem .65rem;border-radius:20px;margin-bottom:.85rem;display:inline-block}
+.tag-andamento{background:rgba(95,207,138,.15);color:var(--green2)}
+.tag-finalizando{background:rgba(245,166,35,.15);color:var(--gd2)}
+.acao-icon{font-size:1.5rem;margin-bottom:.65rem}
+.acao-titulo{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.25rem;color:var(--wh);margin-bottom:.5rem}
+.acao-desc{font-size:.84rem;color:rgba(255,255,255,.58);line-height:1.6}
+.acao-bullets{margin-top:.8rem;display:flex;flex-direction:column;gap:.35rem}
+.acao-bullet{display:flex;gap:.6rem;font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.4}
+.acao-bullet::before{content:'→';color:var(--gd);flex-shrink:0;font-size:.8rem}
+.visitas-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:.9rem}
+.visita{background:rgba(13,27,62,.6);padding:.75rem .6rem;text-align:center}
+.visita-data{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1rem;color:var(--gd)}
+.visita-cidade{font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.15rem}
+.proximas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+@media(max-width:700px){.proximas-grid{grid-template-columns:1fr}}
+.prox-card{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:var(--r);padding:1.3rem;transition:background .2s}
+.prox-card:hover{background:rgba(245,166,35,.1)}
+.prox-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2rem;color:rgba(245,166,35,.3);line-height:1;margin-bottom:.4rem}
+.prox-titulo{font-weight:700;font-size:.95rem;color:var(--gd2);margin-bottom:.4rem}
+.prox-desc{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.55}
+
+/* DASHBOARD */
+#s-dashboard{background:var(--nv)}
+.dash-card{background:var(--card);border:1px solid rgba(245,166,35,.3);border-radius:16px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:700px){.dash-card{grid-template-columns:1fr;gap:1.5rem}}
+.dash-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:20px;padding:.3rem .9rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);margin-bottom:1rem;font-weight:700}
+.dash-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--amber2);animation:pulse 1.5s infinite}
+.dash-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.5rem);color:var(--wh);line-height:1.05;margin-bottom:.8rem}
+.dash-title em{color:var(--gd);font-style:normal}
+.dash-desc{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1.5rem}
+.dash-features{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.8rem}
+.dash-feature{display:flex;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.65);align-items:flex-start}
+.dash-feature::before{content:'✦';color:var(--gd);font-size:.65rem;margin-top:.2rem;flex-shrink:0}
+.dash-btn{display:inline-flex;align-items:center;gap:.75rem;background:var(--gd);color:var(--dk);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 1.8rem;border-radius:8px;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+.dash-btn:hover{background:var(--gd2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.3)}
+.dash-btn-arrow{font-size:1.1rem}
+.dash-visual{background:rgba(13,27,62,.6);border:1px solid var(--border2);border-radius:10px;padding:1.5rem;position:relative;overflow:hidden}
+.dash-visual::before{content:'DASHBOARD';position:absolute;right:-1rem;bottom:-1rem;font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:4.5rem;color:rgba(245,166,35,.04);line-height:1;pointer-events:none}
+.dash-kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);border-radius:6px;overflow:hidden;margin-bottom:1rem}
+.dash-kpi{background:rgba(13,27,62,.5);padding:.9rem .7rem;text-align:center}
+.dash-kpi-v{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--gd)}
+.dash-kpi-l{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dash-bar-row{display:flex;flex-direction:column;gap:.5rem}
+.dash-bar-item{display:flex;align-items:center;gap:.7rem;font-size:.72rem;color:rgba(255,255,255,.5)}
+.dash-bar-item span:first-child{min-width:80px}
+.dash-bar-bg{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.dash-bar-fg{height:100%;border-radius:2px;background:var(--gd)}
+.dash-bar-pct{min-width:32px;text-align:right;color:var(--gd);font-weight:700}
+.dash-coming{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--muted);margin-top:1rem;border:1px solid var(--border2);border-radius:20px;padding:.3rem .8rem}
+
+/* CONCLUSAO */
+#s-conclusao{background:var(--dk)}
+.conc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+@media(max-width:700px){.conc-grid{grid-template-columns:1fr}}
+.conc-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.8rem}
+.conc-card h3{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.35rem;color:var(--gd);margin-bottom:1.1rem}
+.conc-item{display:flex;gap:.7rem;margin-bottom:.8rem;font-size:.86rem;color:rgba(255,255,255,.72);line-height:1.55}
+.cdot{width:6px;height:6px;border-radius:50%;background:var(--gd);margin-top:.4rem;flex-shrink:0}
+.cdot-red{background:var(--red2)}
+
+footer{background:var(--dk);border-top:1px solid var(--border);padding:1.8rem;text-align:center}
+footer p{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+.rv-d4{transition-delay:.32s}.rv-d5{transition-delay:.4s}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dk)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Maximiano <span>·</span> Advogados</div>
+  <ul class="nav-links">
+    <li><a onclick="goto('hero')" id="nl-hero" class="active">Início</a></li>
+    <li><a onclick="goto('s-panorama')" id="nl-s-panorama">Panorama</a></li>
+    <li><a onclick="goto('s-unidades')" id="nl-s-unidades">Unidades</a></li>
+    <li><a onclick="goto('s-graficos')" id="nl-s-graficos">Gráficos</a></li>
+    <li><a onclick="goto('s-projecao')" id="nl-s-projecao">Projeção</a></li>
+    <li><a onclick="goto('s-meta')" id="nl-s-meta">Metas</a></li>
+    <li><a onclick="goto('s-protocolos')" id="nl-s-protocolos">Protocolos</a></li>
+    <li><a onclick="goto('s-acoes')" id="nl-s-acoes">Ações</a></li>
+    <li><a onclick="goto('s-dashboard')" id="nl-s-dashboard">Dashboard</a></li>
+    <li><a onclick="goto('s-conclusao')" id="nl-s-conclusao">Conclusão</a></li>
+  </ul>
+  <div class="nav-pill">Jan – Abr 2026</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span>Relatório Interno · Diretoria Executiva</div>
+      <div class="hero-title" style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900">RELATÓRIO<br/><em>COMERCIAL</em><br/>2026</div>
+      <div class="hero-note">⚠ Os valores apresentados são de <strong>metas de vendas</strong>. Dados de faturamento financeiro serão apresentados em relatório específico.</div>
+      <p class="hero-sub">Fechamento Jan–Abr · Atingimento de metas · Projeção anual · Ações comerciais em andamento.</p>
+      <div class="hero-kpis">
+        <div class="hkpi"><div class="hkpi-val" id="cnt-total">R$ 0</div><div class="hkpi-label">Vendas realizadas Jan–Abr</div></div>
+        <div class="hkpi"><div class="hkpi-val">Abril</div><div class="hkpi-label">Melhor mês do período</div></div>
+        <div class="hkpi"><div class="hkpi-val">22,8%</div><div class="hkpi-label">Da meta anual atingida</div></div>
+        <div class="hkpi"><div class="hkpi-val">5 / 5</div><div class="hkpi-label">Unidades acima da meta em Abril</div></div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="vis-ring-wrap">
+        <div class="vis-ring"></div><div class="vis-ring2"></div>
+        <div class="vis-core"><div class="vis-core-v">2026</div><div class="vis-core-l">Maximiano</div></div>
+        <div class="vis-dot vd1">JAN<br/>ABR</div><div class="vis-dot vd2">5<br/>UNIT</div>
+        <div class="vis-dot vd3">R$<br/>3,4M</div><div class="vis-dot vd4">META<br/>OK</div>
+        <div class="vis-corner vc1" style="font-size:.55rem;line-height:1.3">POÇ<br/>CLD</div>
+        <div class="vis-corner vc2" style="font-size:.55rem;line-height:1.3">BOT<br/>LHS</div>
+        <div class="vis-corner vc3" style="font-size:.55rem;line-height:1.3">CAB<br/>VDE</div>
+        <div class="vis-corner vc4" style="font-size:.55rem;line-height:1.3">NVA<br/>RES</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PANORAMA -->
+<section id="s-panorama">
+  <div class="container">
+    <div class="sec-label rv">Visão Geral</div>
+    <h2 class="sec-title rv rv-d1">Panorama <em>Jan–Abr 2026</em></h2>
+    <p class="sec-body rv rv-d2">Quatro meses de execução. Abril encerrou como marco histórico — 100% das unidades acima da meta pela primeira vez na história da rede.</p>
+    <div class="kpi-strip rv rv-d2">
+      <div class="kpi"><div class="kval">R$ 812k</div><div class="kdelta delta-up">+18% da meta</div><div class="klabel">Janeiro</div></div>
+      <div class="kpi"><div class="kval">R$ 662k</div><div class="kdelta delta-dn">−28% da meta</div><div class="klabel">Fevereiro</div></div>
+      <div class="kpi"><div class="kval">R$ 874k</div><div class="kdelta delta-up">+23% da meta</div><div class="klabel">Março</div></div>
+      <div class="kpi"><div class="kval">R$ 1,05M</div><div class="kdelta delta-up">+12% da meta ★</div><div class="klabel">Abril — recorde</div></div>
+      <div class="kpi"><div class="kval">R$ 3,4M</div><div class="kdelta delta-up">22,8% meta anual</div><div class="klabel">Acumulado</div></div>
+    </div>
+    <div class="chart-box rv rv-d3">
+      <div class="chart-title">Vendas realizadas vs meta — evolução mensal (R$ mil)</div>
+      <div style="position:relative;width:100%;height:250px"><canvas id="c-evolucao"></canvas></div>
+      <div id="leg-evolucao" style="display:flex;gap:16px;margin-top:10px;font-size:11px;color:var(--muted)"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- UNIDADES -->
+<section id="s-unidades" style="background:var(--dk)">
+  <div class="container">
+    <div class="sec-label rv">Performance</div>
+    <h2 class="sec-title rv rv-d1">Resultado por <em>Unidade</em></h2>
+    <p class="sec-body rv rv-d2">Selecione o período para comparar o desempenho individual de cada unidade e canal.</p>
+    <div class="toggle-row rv rv-d2" id="mes-toggle">
+      <button class="tbtn" data-m="0">Jan</button>
+      <button class="tbtn" data-m="1">Fev</button>
+      <button class="tbtn" data-m="2">Mar</button>
+      <button class="tbtn active" data-m="3">Abr</button>
+      <button class="tbtn" data-m="acc">Acumulado</button>
+    </div>
+    <div class="ucards" id="ucards"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GRAFICOS -->
+<section id="s-graficos" style="background:var(--nv)">
+  <div class="container">
+    <div class="sec-label rv">Análise Visual</div>
+    <h2 class="sec-title rv rv-d1">Gráficos <em>Comparativos</em></h2>
+    <div class="chart2col">
+      <div class="chart-box rv rv-d1">
+        <div class="chart-title">% atingimento por mês — todas as unidades</div>
+        <div style="position:relative;height:270px"><canvas id="c-ating"></canvas></div>
+        <div id="leg-ating" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)"></div>
+      </div>
+      <div class="chart-box rv rv-d2">
+        <div class="chart-title">Participação no resultado acumulado Jan–Abr</div>
+        <div style="position:relative;height:270px"><canvas id="c-pie"></canvas></div>
+        <div id="leg-pie" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)"></div>
+      </div>
+      <div class="chart-box rv rv-d3">
+        <div class="chart-title">Ritmo atual vs meta necessária mai–dez (R$ k/mês)</div>
+        <div id="hbar-wrap" style="position:relative"><canvas id="c-neces"></canvas></div>
+        <div id="leg-neces" style="display:flex;gap:16px;margin-top:10px;font-size:11px;color:var(--muted)"></div>
+      </div>
+      <div class="chart-box rv rv-d4">
+        <div class="chart-title">Projeção de fechamento anual (R$ M)</div>
+        <div style="position:relative;height:270px"><canvas id="c-proj"></canvas></div>
+        <div id="leg-proj" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECAO -->
+<section id="s-projecao">
+  <div class="container">
+    <div class="sec-label rv">Inteligência Comercial</div>
+    <h2 class="sec-title rv rv-d1">Projeção de <em>Fechamento</em></h2>
+    <p class="sec-body rv rv-d2">Baseada na média mensal de Jan–Abr extrapolada para os 8 meses restantes. No ritmo atual, todas as unidades precisam acelerar para fechar a meta anual.</p>
+    <div class="chart-box rv rv-d2" style="overflow-x:auto;margin-top:2rem">
+      <table class="ptable"><thead><tr>
+        <th>Unidade</th><th>Meta Anual</th><th>Realizado Jan–Abr</th>
+        <th>Projeção*</th><th>Gap vs Meta</th><th>Meta Nec./mês</th><th>Status</th>
+      </tr></thead><tbody id="ptbody"></tbody></table>
+      <p style="font-size:.7rem;color:var(--muted);margin-top:.85rem">* Projeção = realizado + (média mensal × 8 meses). Valores referem-se a metas de vendas.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- META ANUAL DETALHADA -->
+<section id="s-meta">
+  <div class="container">
+    <div class="sec-label rv">Metas 2026</div>
+    <h2 class="sec-title rv rv-d1">Metas Anuais — <em>Produção por Mês</em></h2>
+    <p class="sec-body rv rv-d2">Quadro completo de metas mensais, resultado acumulado Jan–Abr e saldo restante para Mai–Dez 2026.</p>
+    <div class="meta-note rv rv-d2">Os valores abaixo são <strong>metas de vendas</strong> — contratos assinados no período. Não representam faturamento ou valores recebidos em caixa.</div>
+    <div class="chart-box rv rv-d3" style="overflow-x:auto">
+      <table class="mtable" id="mtable">
+        <thead><tr>
+          <th style="text-align:left">Unidade</th>
+          <th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th>
+          <th>Mai</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Set</th><th>Out</th><th>Nov</th><th>Dez</th>
+          <th>Realizado Jan–Abr</th><th>Saldo Mai–Dez</th><th>Meta Anual</th>
+        </tr></thead>
+        <tbody id="mtbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROTOCOLOS -->
+<section id="s-protocolos">
+  <div class="container">
+    <div class="sec-label rv">Operacional</div>
+    <h2 class="sec-title rv rv-d1">Protocolos <em>Lançados</em></h2>
+    <p class="sec-body rv rv-d2">Histórico completo Jan–Abr 2026 — 417 protocolos no quadrimestre.</p>
+
+    <div class="chart-box rv rv-d2" style="margin-top:2rem">
+      <div class="chart-title">Consolidado Jan–Abr por unidade</div>
+      <div class="proto-full">
+        <table>
+          <thead><tr><th style="text-align:left">Unidade</th><th>Jan</th><th>Fev</th><th>Mar</th><th>Abr</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Botelhos</td><td>29</td><td>39</td><td>58</td><td>38</td><td class="tot">164</td></tr>
+            <tr><td>Cabo Verde</td><td>16</td><td>33</td><td>42</td><td>26</td><td class="tot">117</td></tr>
+            <tr><td>Poços de Caldas</td><td>19</td><td>37</td><td>35</td><td>38</td><td class="tot">129</td></tr>
+            <tr><td>Nova Resende</td><td>1</td><td>1</td><td>5</td><td>0</td><td class="tot">7</td></tr>
+            <tr><td>Total por mês</td><td>65</td><td>110</td><td>140</td><td>102</td><td class="tot">417</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="proto-grid rv rv-d2" style="margin-top:1.5rem">
+      <div class="proto-box">
+        <div class="proto-head"><h3>Março 2026</h3><p>140 protocolos · Melhor mês operacional do quadrimestre</p></div>
+        <div class="proto-row"><span class="proto-unit">Botelhos</span><div class="proto-nums"><div class="pnum"><div class="n">23</div><div class="l">Adm</div></div><div class="pnum"><div class="n">35</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">58</div><div class="l">Total</div></div></div></div>
+        <div class="proto-row"><span class="proto-unit">Cabo Verde</span><div class="proto-nums"><div class="pnum"><div class="n">26</div><div class="l">Adm</div></div><div class="pnum"><div class="n">16</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">42</div><div class="l">Total</div></div></div></div>
+        <div class="proto-row"><span class="proto-unit">Poços de Caldas</span><div class="proto-nums"><div class="pnum"><div class="n">24</div><div class="l">Adm</div></div><div class="pnum"><div class="n">11</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">35</div><div class="l">Total</div></div></div></div>
+        <div class="proto-row"><span class="proto-unit">Nova Resende</span><div class="proto-nums"><div class="pnum"><div class="n">3</div><div class="l">Adm</div></div><div class="pnum"><div class="n">1</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">5</div><div class="l">Total</div></div></div></div>
+        <div class="proto-foot"><span style="font-size:.72rem;color:var(--muted)">Total geral março</span><span class="proto-foot-total">140</span></div>
+      </div>
+      <div class="proto-box">
+        <div class="proto-head"><h3>Abril 2026</h3><p>102 protocolos · 100% das unidades acima da meta de vendas</p></div>
+        <div class="proto-row"><span class="proto-unit">Botelhos</span><div class="proto-nums"><div class="pnum"><div class="n">27</div><div class="l">Adm</div></div><div class="pnum"><div class="n">11</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">38</div><div class="l">Total</div></div></div></div>
+        <div class="proto-row"><span class="proto-unit">Cabo Verde</span><div class="proto-nums"><div class="pnum"><div class="n">17</div><div class="l">Adm</div></div><div class="pnum"><div class="n">9</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">26</div><div class="l">Total</div></div></div></div>
+        <div class="proto-row"><span class="proto-unit">Poços de Caldas</span><div class="proto-nums"><div class="pnum"><div class="n">26</div><div class="l">Adm</div></div><div class="pnum"><div class="n">12</div><div class="l">Jud</div></div><div class="pnum total"><div class="n">38</div><div class="l">Total</div></div></div></div>
+        <div class="proto-row"><span class="proto-unit">Nova Resende</span><div class="proto-nums"><div class="pnum"><div class="n" style="color:var(--muted)">—</div><div class="l">Adm</div></div><div class="pnum"><div class="n" style="color:var(--muted)">—</div><div class="l">Jud</div></div><div class="pnum total"><div class="n" style="color:var(--muted)">0</div><div class="l">Total</div></div></div></div>
+        <div class="proto-alert">⚠ Nova Resende: zero protocolos em abril. Monitorar pipeline jurídico em maio.</div>
+        <div class="proto-foot"><span style="font-size:.72rem;color:var(--muted)">Total geral abril</span><span class="proto-foot-total">102</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AÇÕES -->
+<section id="s-acoes">
+  <div class="container">
+    <div class="sec-label rv">Comercial em Ação</div>
+    <h2 class="sec-title rv rv-d1">Ações <em>em Desenvolvimento</em></h2>
+    <p class="sec-body rv rv-d2">O comercial está trabalhando diretamente para apoiar cada unidade. Confira o que está em andamento e o que vem por aí.</p>
+
+    <div class="acoes-grid">
+      <div class="acao-card rv rv-d1">
+        <div class="acao-tag tag-andamento">Em andamento</div>
+        <div class="acao-icon">🗺️</div>
+        <div class="acao-titulo">Plano de Visitas Presenciais</div>
+        <div class="acao-desc">Mapeamento em cada cidade para identificar dores e oportunidades. Foco em benchmarking entre unidades e geração de novos negócios, em parceria com os coordenadores.</div>
+        <div class="visitas-strip">
+          <div class="visita"><div class="visita-data">12/05</div><div class="visita-cidade">Nova Resende</div></div>
+          <div class="visita"><div class="visita-data">13/05</div><div class="visita-cidade">Cabo Verde</div></div>
+          <div class="visita"><div class="visita-data">14/05</div><div class="visita-cidade">Poços de Caldas</div></div>
+          <div class="visita"><div class="visita-data">15/05</div><div class="visita-cidade">Botelhos</div></div>
+        </div>
+      </div>
+
+      <div class="acao-card rv rv-d2">
+        <div class="acao-tag tag-andamento">Em andamento</div>
+        <div class="acao-icon">🎁</div>
+        <div class="acao-titulo">Engajamento de Clientes</div>
+        <div class="acao-desc">Sorteio de uma TV para clientes com o objetivo de fortalecer o relacionamento com a base e aumentar a fidelização via indicação.</div>
+        <div class="acao-bullets">
+          <div class="acao-bullet">Estamos recebendo indicações da campanha?</div>
+          <div class="acao-bullet">Como está o engajamento em cada unidade?</div>
+          <div class="acao-bullet">Existem dúvidas ou dificuldades no processo?</div>
+        </div>
+      </div>
+
+      <div class="acao-card rv rv-d3">
+        <div class="acao-tag tag-andamento">Em andamento</div>
+        <div class="acao-icon">🤖</div>
+        <div class="acao-titulo">IA no Canal Digital</div>
+        <div class="acao-desc">Estruturação e ajustes contínuos na Inteligência Artificial do canal digital — maior assertividade no atendimento e qualificação de novos clientes para as unidades.</div>
+        <div class="acao-bullets">
+          <div class="acao-bullet">Qualificação mais precisa dos leads antes do contato</div>
+          <div class="acao-bullet">Redução de tempo de resposta no primeiro atendimento</div>
+          <div class="acao-bullet">Integração com o fluxo comercial das unidades</div>
+        </div>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border2)">
+          <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.25);border-radius:20px;padding:.25rem .75rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gd);font-weight:700;margin-bottom:.6rem">
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--amber2);animation:pulse 1.5s infinite;display:inline-block"></span>Finalizando
+          </div>
+          <div style="font-weight:700;font-size:.92rem;color:var(--gd2);margin-bottom:.35rem">Skill Hub — WhatsApp IA</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.55">Automação inteligente de atendimento via WhatsApp. Em fase de finalização — a Skill Hub vai qualificar e responder clientes automaticamente, liberando a equipe para os atendimentos de maior valor.</div>
+        </div>
+      </div>
+
+      <div class="acao-card rv rv-d4">
+        <div class="acao-tag tag-andamento">Em andamento</div>
+        <div class="acao-icon">🚀</div>
+        <div class="acao-titulo">Desenvolvimento de Lideranças</div>
+        <div class="acao-desc">Canal aberto para ideias dos líderes, incentivando o desenvolvimento contínuo e a construção colaborativa para alcance dos resultados de cada unidade.</div>
+        <div class="acao-bullets">
+          <div class="acao-bullet">Sua ideia pode virar uma ação comercial da rede</div>
+          <div class="acao-bullet">Troca de experiências entre unidades</div>
+          <div class="acao-bullet">Apoio direto da diretoria na implementação</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-label rv" style="margin-top:3rem">Próximas Etapas</div>
+    <h3 class="rv rv-d1" style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.6rem;color:var(--wh)">O que vem <em style="color:var(--gd)">por aí</em></h3>
+    <div class="proximas-grid">
+      <div class="prox-card rv rv-d1">
+        <div class="prox-num">01</div>
+        <div class="prox-titulo">Indicou, Ganhou</div>
+        <div class="prox-desc">Programa de indicações voltado para funcionários. Cada indicação convertida gera recompensa direta para quem indicou.</div>
+      </div>
+      <div class="prox-card rv rv-d2">
+        <div class="prox-num">02</div>
+        <div class="prox-titulo">Roleta Comercial</div>
+        <div class="prox-desc">Atingiu a meta diária, gira a roleta e ganha prêmios. Piloto iniciando em Nova Resende e Poços de Caldas — gamificação da meta.</div>
+      </div>
+      <div class="prox-card rv rv-d3">
+        <div class="prox-num">03</div>
+        <div class="prox-titulo">Kit Embaixador da Marca</div>
+        <div class="prox-desc">Identificação de pessoas-chave dentro e fora das unidades para fortalecer o posicionamento da Maximiano em cada cidade.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DASHBOARD -->
+<section id="s-dashboard">
+  <div class="container">
+    <div class="sec-label rv">Inovação Comercial</div>
+    <h2 class="sec-title rv rv-d1">Dashboard <em>Comercial</em></h2>
+    <div class="dash-card rv rv-d2">
+      <div>
+        <div class="dash-badge"><span class="dash-badge-dot"></span>Piloto em teste</div>
+        <div class="dash-title">Dashboard<br/><em>Comercial &amp; Operacional</em></div>
+        <div class="dash-desc">Uma visão em tempo real de toda a operação comercial da Maximiano — vendas, protocolos, concessões, cancelamentos e performance por vendedor. Tudo em um só lugar.</div>
+        <div class="dash-features">
+          <div class="dash-feature">Acompanhamento de vendas por escritório e responsável</div>
+          <div class="dash-feature">Controle de protocolos, concessões e cancelamentos</div>
+          <div class="dash-feature">Ticket médio e faturamento integrados ao Bitrix</div>
+          <div class="dash-feature">Filtros por período, pipeline, estágio e natureza</div>
+        </div>
+        <a href="https://maximiano-comercial.wevix.com.br/" target="_blank" class="dash-btn">
+          Clique aqui para conhecer <span class="dash-btn-arrow">↗</span>
+        </a>
+        <div class="dash-coming">⏳ Versão completa em desenvolvimento · Período de testes</div>
+      </div>
+      <div class="dash-visual">
+        <div style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem">Preview — Jan a Abr 2026</div>
+        <div class="dash-kpi-row">
+          <div class="dash-kpi"><div class="dash-kpi-v">552</div><div class="dash-kpi-l">Vendas</div></div>
+          <div class="dash-kpi"><div class="dash-kpi-v">417</div><div class="dash-kpi-l">Protocolos</div></div>
+          <div class="dash-kpi"><div class="dash-kpi-v">R$5,5k</div><div class="dash-kpi-l">Ticket médio</div></div>
+        </div>
+        <div style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:.9rem 0 .5rem">Performance por unidade</div>
+        <div class="dash-bar-row">
+          <div class="dash-bar-item"><span>Botelhos</span><div class="dash-bar-bg"><div class="dash-bar-fg" style="width:100%"></div></div><span class="dash-bar-pct">117%</span></div>
+          <div class="dash-bar-item"><span>Poços</span><div class="dash-bar-bg"><div class="dash-bar-fg" style="width:100%"></div></div><span class="dash-bar-pct">107%</span></div>
+          <div class="dash-bar-item"><span>Cabo Verde</span><div class="dash-bar-bg"><div class="dash-bar-fg" style="width:100%"></div></div><span class="dash-bar-pct">147%</span></div>
+          <div class="dash-bar-item"><span>Nova Resende</span><div class="dash-bar-bg"><div class="dash-bar-fg" style="width:66%"></div></div><span class="dash-bar-pct">109%</span></div>
+          <div class="dash-bar-item"><span>Digital</span><div class="dash-bar-bg"><div class="dash-bar-fg" style="width:100%"></div></div><span class="dash-bar-pct">267%</span></div>
+        </div>
+        <div style="font-size:.68rem;color:var(--muted);margin-top:1rem;text-align:right">Abril 2026 — encerramento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONCLUSAO -->
+<section id="s-conclusao">
+  <div class="container">
+    <div class="sec-label rv">Diretoria Executiva</div>
+    <h2 class="sec-title rv rv-d1">Conclusão e <em>Próximos Passos</em></h2>
+    <p class="sec-body rv rv-d2">Síntese estratégica do quadrimestre para deliberação dos líderes de unidade.</p>
+    <div class="conc-grid">
+      <div class="conc-card rv rv-d1">
+        <h3>Destaques do Quadrimestre</h3>
+        <div class="conc-item"><div class="cdot"></div><span><strong style="color:var(--gd2)">Cabo Verde</strong> — melhor desempenho relativo da rede. Março (185%) e abril (147%) foram os meses mais expressivos. Projeção de fechamento: R$ 2,75M — meta necessária de R$ 262k/mês para os 8 meses restantes.</span></div>
+        <div class="conc-item"><div class="cdot"></div><span><strong style="color:var(--gd2)">Poços de Caldas</strong> — performance consistente ao longo do quadrimestre. Maior volume de protocolos em abril (38). Projeção de R$ 3,33M — meta necessária de R$ 387k/mês para fechar o ano.</span></div>
+        <div class="conc-item"><div class="cdot"></div><span><strong style="color:var(--gd2)">Abril histórico</strong> — 100% das unidades acima da meta em vendas pela primeira vez. R$ 1,05M de contratos assinados, +12% sobre o target. Marco relevante para a rede.</span></div>
+      </div>
+      <div class="conc-card rv rv-d2" style="border-color:rgba(255,112,112,.15)">
+        <h3 style="color:var(--red2)">Pontos de Atenção</h3>
+        <div class="conc-item"><div class="cdot cdot-red"></div><span><strong style="color:#FF9090">Botelhos</strong> — maior volume de vendas absoluto da rede (R$ 1,13M acumulado), com meta anual de R$ 4,5M. O ritmo médio atual (R$ 283k/mês) está abaixo do necessário para o fechamento anual (R$ 421k/mês). Fevereiro registrou 55% de atingimento — contexto do mês a ser considerado no planejamento de maio em diante.</span></div>
+        <div class="conc-item"><div class="cdot cdot-red"></div><span><strong style="color:#FF9090">Nova Resende</strong> — ritmo médio atual de R$ 21k/mês ante a necessidade de R$ 35k/mês para o fechamento da meta anual. Abril sem protocolos lançados — dado relevante para o acompanhamento da operação jurídica da unidade no 2º semestre.</span></div>
+        <div class="conc-item"><div class="cdot cdot-red"></div><span><strong style="color:#FF9090">Canal Digital</strong> — variação expressiva ao longo do quadrimestre: 0% em janeiro, 71% em fevereiro, 44% em março e 267% em abril. O canal confirma potencial de crescimento, com necessidade de R$ 203k/mês de maio a dezembro para atingir a meta anual (ritmo atual: R$ 38k/mês). Canal em fase de maturação do algoritmo.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<footer>
+  <p>Maximiano Advogados · Grupo Pilar · Relatório Comercial Jan–Abr 2026 · Jean Barbosa, CEO · Documento Interno · Maio 2026</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const D={
+  uns:["Poços de Caldas","Botelhos","Cabo Verde","Nova Resende","Canal Digital"],
+  metas:{
+    "Poços de Caldas":[203523,191563,142325,297352,263609,414920,396962,390641,370399,497552,536027,501697],
+    "Botelhos":[199093,379833,195648,331403,389830,290031,395734,313880,570280,477758,550566,405400],
+    "Cabo Verde":[176619,212473,203017,174444,314051,352236,326764,247957,413734,165673,294117,133836],
+    "Nova Resende":[26384,26384,26384,26384,26384,26384,34299,34299,34299,34299,34299,34293],
+    "Canal Digital":[0,27326,58291,21859,163820,247009,165401,176331,190357,330545,269597,123869]
+  },
+  real:{
+    "Poços de Caldas":[327587,278309,186268,316632],
+    "Botelhos":[298519,207579,237761,388385],
+    "Cabo Verde":[134016,150286,375182,256398],
+    "Nova Resende":[1300,5932,49066,28692],
+    "Canal Digital":[50148,19526,25936,58356]
+  },
+  metaAn:{
+    "Poços de Caldas":4206570,"Botelhos":4499456,
+    "Cabo Verde":3014921,"Nova Resende":364092,"Canal Digital":1774405
+  }
+};
+const MESES_CURTO=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+function fK(v){
+  if(v>=1e6)return'R$ '+(v/1e6).toFixed(2).replace('.',',')+'M';
+  if(v>=1000)return'R$ '+Math.round(v/1000)+'k';
+  return'R$ '+Math.round(v);
+}
+function r4(u){return D.real[u].reduce((a,b)=>a+b,0)}
+function proj(u){const r=r4(u);return r+r/4*8}
+function gap(u){return D.metaAn[u]-proj(u)}
+function neces(u){return(D.metaAn[u]-r4(u))/8}
+function goto(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+window.addEventListener('scroll',()=>{
+  document.querySelectorAll('section[id]').forEach(s=>{
+    const el=document.getElementById('nl-'+s.id);if(!el)return;
+    const r=s.getBoundingClientRect();
+    el.classList.toggle('active',r.top<=80&&r.bottom>80);
+  });
+},{passive:true});
+
+const rObs=new IntersectionObserver(e=>e.forEach(e2=>{if(e2.isIntersecting)e2.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>rObs.observe(el));
+
+function counter(el,target){
+  const start=Date.now(),dur=1800;
+  function tick(){
+    const t=Math.min((Date.now()-start)/dur,1);
+    const ease=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+    const v=Math.round(ease*target);
+    el.textContent=v>=1e6?'R$ '+(v/1e6).toFixed(2).replace('.',',')+'M':'R$ '+v.toLocaleString('pt-BR');
+    if(t<1)requestAnimationFrame(tick);
+  }
+  tick();
+}
+setTimeout(()=>counter(document.getElementById('cnt-total'),3395878),500);
+
+// CARDS
+let activeMes=3;
+document.getElementById('mes-toggle').addEventListener('click',e=>{
+  const b=e.target.closest('.tbtn');if(!b)return;
+  document.querySelectorAll('.tbtn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  activeMes=b.dataset.m==='acc'?'acc':+b.dataset.m;
+  buildCards();
+});
+function buildCards(){
+  const c=document.getElementById('ucards');c.innerHTML='';
+  const MN=['Janeiro','Fevereiro','Março','Abril'];
+  D.uns.forEach(u=>{
+    let rv,mv,lbl;
+    if(activeMes==='acc'){rv=r4(u);mv=D.metas[u].slice(0,4).reduce((a,b)=>a+b,0);lbl='Acumulado Jan–Abr';}
+    else{rv=D.real[u][activeMes];mv=D.metas[u][activeMes];lbl=MN[activeMes]}
+    const p=mv===0?null:Math.round((rv/mv)*100);
+    const ok=p===null||p>=100;const warn=p!==null&&p>=80&&p<100;
+    const bc=ok?'b-green':warn?'b-warn':'b-red';
+    const fc=ok?'#1E7A42':warn?'#C97A1A':'#B5303A';
+    const g=gap(u),pc=proj(u);
+    const card=document.createElement('div');
+    card.className='ucard rv';
+    card.innerHTML=`<div class="ucard-top"><span class="ucard-name">${u}</span><span class="badge ${bc}">${p===null?'—':p+'%'}</span></div><div class="ucard-body"><div class="ucard-real">${fK(rv)}</div><div class="ucard-meta">Meta ${lbl}: ${mv===0?'—':fK(mv)}</div><div class="pbar"><div class="pbar-fill" style="width:0%;background:${fc}" data-w="${Math.min(p||0,100)}%"></div></div><div class="pbar-labels"><span>0%</span><span>Meta</span></div><div class="ucard-proj"><span class="lbl">Projeção anual</span><span style="font-weight:700;color:${g<=0?'var(--green2)':'var(--red2)'}">${fK(pc)} ${g<=0?'✓':'⚠'}</span></div></div>`;
+    c.appendChild(card);
+    setTimeout(()=>{rObs.observe(card);const f=card.querySelector('.pbar-fill');setTimeout(()=>{f.style.width=f.dataset.w},150);},40);
+  });
+}
+buildCards();
+
+// CHARTS
+Chart.defaults.color='rgba(255,255,255,.42)';
+Chart.defaults.font.family="'Segoe UI',system-ui,sans-serif";
+Chart.defaults.font.size=11;
+function mkLeg(elId,items){
+  const el=document.getElementById(elId);if(!el)return;
+  el.innerHTML=items.map(([c,l])=>`<span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:${c};display:inline-block"></span>${l}</span>`).join('');
+}
+
+setTimeout(()=>{
+  new Chart(document.getElementById('c-evolucao').getContext('2d'),{
+    type:'bar',
+    data:{labels:['Jan','Fev','Mar','Abr'],datasets:[
+      {label:'Realizado',data:[811570,661632,874213,1048463],backgroundColor:'rgba(245,166,35,.8)',borderColor:'rgba(245,166,35,1)',borderWidth:1.5,borderRadius:4},
+      {label:'Meta',data:[688952,920912,708998,934775],backgroundColor:'rgba(255,255,255,.08)',borderColor:'rgba(255,255,255,.18)',borderWidth:1.5,borderRadius:4}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+fK(c.raw)}}},scales:{y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>fK(v)}},x:{grid:{display:false}}}}
+  });
+  mkLeg('leg-evolucao',[['rgba(245,166,35,.8)','Realizado'],['rgba(255,255,255,.1)','Meta']]);
+},300);
+
+setTimeout(() => {
+  const cols = ['#F5A623', '#FFD080', '#4A90D9', '#7A8FB5', '#2B8FFF'];
+
+  new Chart(
+    document.getElementById('c-ating').getContext('2d'),
+    {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr'],
+        datasets: D.uns.map((u, i) => ({
+          label: u,
+          data: D.metas[u].map((m, j) =>
+            m === 0 ? null : Math.round((D.real[u][j] / m) * 100)
+          ),
+          borderColor: cols[i],
+          backgroundColor: cols[i] + '22',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: cols[i],
+          tension: 0.3,
+          borderDash:
+            i === 0
+              ? []
+              : i === 1
+              ? [6, 3]
+              : i === 2
+              ? [3, 3]
+              : i === 3
+              ? [6, 3, 2, 3]
+              : [],
+        })),
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (c) => c.dataset.label + ': ' + c.raw + '%',
+            },
+          },
+        },
+        scales: {
+          y: {
+            grid: { color: 'rgba(255,255,255,.05)' },
+            ticks: {
+              callback: (v) => v + '%',
+            },
+            min: 0,
+          },
+          x: {
+            grid: { display: false },
+          },
+        },
+      },
+    }
+  );
+
+  mkLeg(
+    'leg-ating',
+    D.uns.map((u, i) => [cols[i], u])
+  );
+}, 400);
+
+setTimeout(()=>{
+  const vals=D.uns.map(u=>r4(u)),total=vals.reduce((a,b)=>a+b,0);
+  const cols=['#F5A623','#FFD080','#1A3060','#4A90D9','#7A8FB5'];
+  new Chart(document.getElementById('c-pie').getContext('2d'),{
+    type:'doughnut',
+    data:{labels:D.uns,datasets:[{data:vals,backgroundColor:cols,borderColor:'rgba(6,16,30,.8)',borderWidth:3,hoverOffset:8}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+': '+fK(c.raw)+' ('+Math.round((c.raw/total)*100)+'%)'}}}}
+  });
+  mkLeg('leg-pie',D.uns.map((u,i)=>[cols[i],u+' '+Math.round((vals[i]/total)*100)+'%']));
+},500);
+
+setTimeout(()=>{
+  const wrap=document.getElementById('hbar-wrap');
+  wrap.style.height=(D.uns.length*68+60)+'px';wrap.style.position='relative';
+  new Chart(document.getElementById('c-neces').getContext('2d'),{
+    type:'bar',
+    data:{labels:D.uns,datasets:[
+      {label:'Ritmo atual/mês',data:D.uns.map(u=>Math.round(r4(u)/4/1000)),backgroundColor:'rgba(255,255,255,.14)',borderColor:'rgba(255,255,255,.25)',borderWidth:1,borderRadius:3},
+      {label:'Meta necessária/mês',data:D.uns.map(u=>Math.round(neces(u)/1000)),backgroundColor:'rgba(245,166,35,.75)',borderColor:'rgba(245,166,35,1)',borderWidth:1,borderRadius:3}
+    ]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' R$ '+c.raw+'k'}}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'R$ '+v+'k'}},y:{grid:{display:false}}}}
+  });
+  mkLeg('leg-neces',[['rgba(255,255,255,.16)','Ritmo atual/mês'],['rgba(245,166,35,.75)','Meta necessária/mês']]);
+},600);
+
+setTimeout(()=>{
+  new Chart(document.getElementById('c-proj').getContext('2d'),{
+    type:'bar',
+    data:{labels:D.uns.map(u=>u.split(' ')),datasets:[
+      {label:'Meta Anual',data:D.uns.map(u=>+(D.metaAn[u]/1e6).toFixed(2)),backgroundColor:'rgba(255,255,255,.09)',borderColor:'rgba(255,255,255,.18)',borderWidth:1,borderRadius:3},
+      {label:'Realizado Jan–Abr',data:D.uns.map(u=>+(r4(u)/1e6).toFixed(2)),backgroundColor:'rgba(74,144,217,.7)',borderColor:'rgba(74,144,217,1)',borderWidth:1,borderRadius:3},
+      {label:'Projeção',data:D.uns.map(u=>+(proj(u)/1e6).toFixed(2)),backgroundColor:'rgba(245,166,35,.75)',borderColor:'rgba(245,166,35,1)',borderWidth:1,borderRadius:3}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' R$ '+c.raw.toFixed(2).replace('.',',')+'M'}}},scales:{y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{callback:v=>'R$ '+v+'M'}},x:{grid:{display:false},ticks:{maxRotation:20,autoSkip:false}}}}
+  });
+  mkLeg('leg-proj',[['rgba(255,255,255,.1)','Meta Anual'],['rgba(74,144,217,.7)','Realizado Jan–Abr'],['rgba(245,166,35,.75)','Projeção']]);
+},700);
+
+// PROJECAO TABLE
+const tbody=document.getElementById('ptbody');
+D.uns.forEach(u=>{
+  const r=r4(u),p=proj(u),g=gap(u),n=neces(u),avg=r/4,ok=g<=0;
+  const tr=document.createElement('tr');
+  const necColor=avg>=n?'var(--green2)':'var(--red2)';
+  tr.innerHTML=`<td style="font-weight:600">${u}</td><td>${fK(D.metaAn[u])}</td><td>${fK(r)}</td><td style="font-weight:700;color:${ok?'var(--green2)':'var(--amber2)'}">${fK(p)}</td><td style="color:${ok?'var(--green2)':'var(--red2)'}">${ok?'+ '+fK(Math.abs(g))+' excedente':fK(g)+' gap'}</td><td style="color:${necColor};font-weight:600">${fK(n)}/mês</td><td><span class="${ok?'st-ok':'st-al'}">${ok?'✓ No trilho':'⚠ Atenção'}</span></td>`;
+  tbody.appendChild(tr);
+});
+const tR=D.uns.reduce((a,u)=>a+r4(u),0),tM=Object.values(D.metaAn).reduce((a,b)=>a+b,0),tP=D.uns.reduce((a,u)=>a+proj(u),0),tG=tM-tP;
+const ttr=document.createElement('tr');
+ttr.innerHTML=`<td>TOTAL GERAL</td><td>${fK(tM)}</td><td>${fK(tR)}</td><td>${fK(tP)}</td><td style="color:${tG<=0?'var(--green2)':'var(--red2)'}">${tG<=0?'+ '+fK(Math.abs(tG))+' excedente':fK(tG)+' gap'}</td><td>—</td><td><span class="${tG<=0?'st-ok':'st-al'}">${tG<=0?'✓':'⚠'}</span></td>`;
+tbody.appendChild(ttr);
+
+// META ANUAL TABLE
+const mtbody=document.getElementById('mtbody');
+D.uns.forEach(u=>{
+  const r=r4(u),saldo=D.metaAn[u]-r;
+  const tr=document.createElement('tr');
+  let cells=`<td>${u}</td>`;
+  D.metas[u].forEach((m,i)=>{
+    if(i<4){
+      const pct=m===0?null:Math.round((D.real[u][i]/m)*100);
+      const col=pct===null?'var(--muted)':(pct>=100?'var(--green2)':'var(--red2)');
+      cells+=`<td><div style="color:${col};font-weight:700">${D.real[u][i]===undefined||m===0?'—':fK(D.real[u][i])}</div><div style="font-size:.65rem;color:var(--muted)">${m===0?'—':fK(m)}</div></td>`;
+    } else {
+      cells+=`<td style="color:var(--muted)">${fK(m)}</td>`;
+    }
+  });
+  cells+=`<td class="real">${fK(r)}</td><td class="saldo">${fK(saldo)}</td><td style="font-weight:700">${fK(D.metaAn[u])}</td>`;
+  tr.innerHTML=cells;
+  mtbody.appendChild(tr);
+});
+const totalMR=D.uns.reduce((a,u)=>a+r4(u),0);
+const totalSaldo=Object.values(D.metaAn).reduce((a,b)=>a+b,0)-totalMR;
+const ttrM=document.createElement('tr');
+let tcells=`<td>TOTAL GERAL</td>`;
+for(let i=0;i<4;i++){
+  const rT=D.uns.reduce((a,u)=>a+(D.real[u][i]||0),0);
+  const mT=D.uns.reduce((a,u)=>a+(D.metas[u][i]||0),0);
+  const pct=mT===0?null:Math.round((rT/mT)*100);
+  const col=pct===null?'var(--muted)':(pct>=100?'var(--green2)':'var(--red2)');
+  tcells+=`<td><div style="color:${col};font-weight:700">${fK(rT)}</div><div style="font-size:.65rem;color:var(--muted)">${fK(mT)}</div></td>`;
+}
+for(let i=4;i<12;i++){
+  const mT=D.uns.reduce((a,u)=>a+(D.metas[u][i]||0),0);
+  tcells+=`<td style="color:var(--muted)">${fK(mT)}</td>`;
+}
+tcells+=`<td class="real">${fK(totalMR)}</td><td class="saldo">${fK(totalSaldo)}</td><td style="font-weight:700">${fK(Object.values(D.metaAn).reduce((a,b)=>a+b,0))}</td>`;
+ttrM.innerHTML=tcells;
+mtbody.appendChild(ttrM);
+</script>
+</body>
+</html>
