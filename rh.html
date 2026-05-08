@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maximiano Advogados — RH 2026</title>
+<style>
+:root{
+  --dk:#06101E;
+  --nv:#0D1B3E;
+  --nv2:#112252;
+  --nv3:#1A3060;
+  --gd:#F5A623;
+  --gd2:#FFD080;
+  --gd3:rgba(245,166,35,.12);
+  --wh:#FFFFFF;
+  --muted:#7A8FB5;
+  --card:#0F1F45;
+  --border:rgba(245,166,35,.18);
+  --border2:rgba(255,255,255,.07);
+  --green:#1E7A42;
+  --green2:#5FCF8A;
+  --red:#B5303A;
+  --red2:#FF7070;
+  --amber:#C97A1A;
+  --amber2:#FFB84A;
+  --r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dk);color:var(--wh);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden;}
+.f-cond{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;letter-spacing:.02em}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2.5rem;background:rgba(6,16,30,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-brand{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:.12em;color:var(--gd);text-transform:uppercase;}
+.nav-brand span{color:rgba(255,255,255,.4);margin:0 .5rem}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{padding:.45rem 1rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;border-radius:6px;transition:all .2s;cursor:pointer;font-weight:600;}
+.nav-links a:hover,.nav-links a.active{color:var(--gd);background:rgba(245,166,35,.08)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* HERO */
+#hero{min-height:60vh;display:flex;align-items:center;padding-top:60px;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(43,92,175,.3) 0%,transparent 70%),radial-gradient(ellipse 35% 35% at 90% 70%,rgba(245,166,35,.1) 0%,transparent 60%),var(--dk);position:relative;overflow:hidden;}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(245,166,35,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.04) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{max-width:1140px;margin:0 auto;padding:4rem 2rem;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);border-radius:20px;padding:.35rem 1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gd);margin-bottom:1.5rem;font-weight:700;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gd);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.hero-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(3rem,6vw,5rem);line-height:.9;letter-spacing:-.01em;color:var(--wh);}
+.hero-title em{color:var(--gd);font-style:normal}
+.hero-sub{margin-top:1.5rem;font-size:1rem;font-weight:300;color:rgba(255,255,255,.6);max-width:560px;line-height:1.7}
+.hero-pills{display:flex;gap:.75rem;margin-top:2rem;flex-wrap:wrap}
+.hpill{background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:20px;padding:.4rem 1rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;cursor:pointer;transition:all .2s;}
+.hpill:hover{border-color:var(--border);color:var(--gd);background:rgba(245,166,35,.08)}
+
+/* SECTIONS */
+section{position:relative;padding:6rem 0}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.sec-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);font-weight:700;margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem;}
+.sec-label::before{content:'';width:20px;height:2px;background:var(--gd);border-radius:1px}
+.sec-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);line-height:1;}
+.sec-title em{color:var(--gd);font-style:normal}
+.sec-body{margin-top:.85rem;color:rgba(255,255,255,.55);max-width:600px;font-size:.95rem;line-height:1.75}
+
+/* ============ ORGANOGRAMA ============ */
+#s-org{background:var(--nv)}
+.org-wrap{overflow-x:auto;padding:2rem 0}
+.org-tree{display:flex;flex-direction:column;align-items:center;gap:0;min-width:900px}
+.org-level{display:flex;justify-content:center;gap:12px;position:relative;width:100%}
+.org-node{background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.6rem 1rem;min-width:120px;max-width:150px;text-align:center;position:relative;transition:all .25s;cursor:default;}
+.org-node:hover{border-color:var(--border);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.org-node.ceo{background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(26,48,96,.8));border-color:rgba(245,166,35,.5);min-width:160px}
+.org-node.conselho{background:linear-gradient(135deg,rgba(245,166,35,.15),rgba(26,48,96,.7));border-color:rgba(245,166,35,.4);min-width:160px}
+.org-node.head{background:rgba(17,34,82,.8);border-color:rgba(255,255,255,.12);}
+.org-node.head:hover{border-color:rgba(245,166,35,.4)}
+.org-node.coord{background:rgba(13,27,62,.9);border-color:rgba(255,255,255,.08)}
+.org-node.staff{background:rgba(8,18,45,.9);border-color:rgba(255,255,255,.05);min-width:100px;max-width:130px;padding:.45rem .7rem}
+.org-node.new-area{background:linear-gradient(135deg,rgba(95,207,138,.15),rgba(13,27,62,.8));border-color:rgba(95,207,138,.35);}
+.on-name{font-size:.75rem;font-weight:700;color:var(--wh);line-height:1.2}
+.on-role{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.on-badge{display:inline-block;font-size:.55rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(245,166,35,.15);color:var(--gd);border:0.5px solid rgba(245,166,35,.3);padding:1px 6px;border-radius:8px;margin-top:3px}
+.on-badge.green{background:rgba(95,207,138,.15);color:var(--green2);border-color:rgba(95,207,138,.3)}
+.on-badge.blue{background:rgba(74,144,217,.15);color:#4A90D9;border-color:rgba(74,144,217,.3)}
+
+/* SVG connector lines */
+.org-connector{position:relative;width:100%;display:flex;justify-content:center}
+.org-connector svg{overflow:visible}
+
+/* Unidades row */
+.unidades-box{background:rgba(13,27,62,.5);border:1px dashed rgba(245,166,35,.2);border-radius:10px;padding:1.25rem;margin-top:8px}
+.unidades-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,166,35,.5);font-weight:700;margin-bottom:12px;text-align:center}
+.unidades-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.unit-col{display:flex;flex-direction:column;align-items:center;gap:6px}
+.unit-label-badge{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:2px 12px;border-radius:20px;margin-bottom:4px}
+.ulb-own{background:rgba(245,166,35,.1);color:var(--gd);border:0.5px solid rgba(245,166,35,.25)}
+.ulb-soc{background:rgba(74,144,217,.1);color:#4A90D9;border:0.5px solid rgba(74,144,217,.25)}
+.unit-section{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%}
+.unit-header{background:var(--nv3);border:1px solid var(--border);border-radius:7px;padding:.5rem 1.2rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gd);text-align:center;width:100%;max-width:200px}
+.unit-staff-grid{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;max-width:260px}
+.staff-chip{background:rgba(8,18,45,.9);border:1px solid rgba(255,255,255,.06);border-radius:5px;padding:.35rem .65rem;font-size:.6rem;font-weight:600;color:rgba(255,255,255,.7);text-align:center;line-height:1.3}
+.staff-chip .role{font-size:.52rem;color:var(--muted);display:block}
+.vert-line{width:1px;height:20px;background:rgba(245,166,35,.2);margin:0 auto}
+.horiz-conn{width:2px;height:16px;background:rgba(245,166,35,.2);margin:0 auto}
+
+/* ============ PESQUISA ============ */
+#s-pesquisa{background:var(--dk)}
+.clima-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:3rem}
+.cs-item{background:rgba(13,27,62,.7);padding:1.5rem;text-align:center}
+.cs-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2.2rem;line-height:1}
+.cs-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+@media(max-width:700px){.clima-summary{grid-template-columns:repeat(2,1fr)}}
+
+.temas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-bottom:2rem}
+.tema-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;transition:all .25s;}
+.tema-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.4);border-color:var(--border)}
+.tc-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between}
+.tc-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--wh)}
+.status-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem;border-radius:20px}
+.sb-done{background:rgba(95,207,138,.15);color:var(--green2);border:0.5px solid rgba(95,207,138,.3)}
+.sb-wip{background:rgba(255,184,74,.12);color:var(--amber2);border:0.5px solid rgba(255,184,74,.25)}
+.sb-open{background:rgba(74,144,217,.12);color:#7BBBFF;border:0.5px solid rgba(74,144,217,.3)}
+.tc-body{padding:1.25rem 1.5rem}
+.tc-bar-wrap{margin-bottom:1rem}
+.tc-bar-label{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-bottom:.4rem}
+.tc-bar{height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.tc-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gd),var(--gd2));transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.tc-actions{list-style:none}
+.tc-actions li{display:flex;align-items:flex-start;gap:.65rem;font-size:.8rem;color:rgba(255,255,255,.7);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.4}
+.tc-actions li:last-child{border-bottom:none}
+.act-ico{width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;margin-top:1px}
+.act-done{background:rgba(95,207,138,.2);color:var(--green2)}
+.act-wip{background:rgba(255,184,74,.15);color:var(--amber2)}
+.act-todo{background:rgba(74,144,217,.15);color:#7BBBFF}
+
+/* Diagnóstico block dentro do card */
+.tc-diag{background:rgba(255,255,255,.03);border-left:2px solid rgba(245,166,35,.3);padding:.75rem 1rem;margin-bottom:1rem;border-radius:0 6px 6px 0}
+.tc-diag-label{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,166,35,.7);margin-bottom:.4rem}
+.tc-diag-text{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.55}
+.tc-impact{background:rgba(181,48,58,.05);border-left:2px solid rgba(181,48,58,.25);padding:.75rem 1rem;margin-bottom:1rem;border-radius:0 6px 6px 0}
+.tc-impact-label{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,112,112,.6);margin-bottom:.4rem}
+.tc-impact-text{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.55}
+.tc-section-label{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:.85rem 0 .5rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.05)}
+.roda-section{background:rgba(26,48,96,.3);border:1px solid rgba(245,166,35,.2);border-radius:var(--r);padding:2rem;margin-top:2rem}
+.roda-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.roda-icon{width:48px;height:48px;border-radius:50%;background:rgba(245,166,35,.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.roda-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.5rem;color:var(--wh)}
+.roda-sub{font-size:.8rem;color:var(--muted);margin-top:.15rem}
+.roda-topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem}
+.rt-item{background:rgba(13,27,62,.6);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1rem;display:flex;align-items:flex-start;gap:.75rem}
+.rt-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem;color:var(--gd);line-height:1;flex-shrink:0}
+.rt-text{font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.45}
+.rt-text strong{color:var(--wh);display:block;margin-bottom:2px}
+
+/* ============ PDI ============ */
+#s-pdi{background:var(--nv)}
+
+/* Antes x Depois */
+.av-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+@media(max-width:700px){.av-grid{grid-template-columns:1fr}}
+.av-card{border-radius:var(--r);padding:1.75rem;border:1px solid}
+.av-before{background:rgba(181,48,58,.07);border-color:rgba(181,48,58,.2)}
+.av-after{background:rgba(30,122,66,.07);border-color:rgba(30,122,66,.2)}
+.av-label{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.av-before .av-label{color:var(--red2)}
+.av-after .av-label{color:var(--green2)}
+.av-item{display:flex;align-items:flex-start;gap:.65rem;font-size:.85rem;line-height:1.5;margin-bottom:.65rem;color:rgba(255,255,255,.75)}
+.av-dot{width:5px;height:5px;border-radius:50%;margin-top:.4rem;flex-shrink:0}
+.av-before .av-dot{background:var(--red2)}
+.av-after .av-dot{background:var(--green2)}
+
+/* Pesos */
+.pesos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:2rem 0}
+@media(max-width:700px){.pesos-grid{grid-template-columns:1fr}}
+.peso-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.75rem;text-align:center;position:relative;overflow:hidden;transition:all .25s}
+.peso-card:hover{transform:translateY(-3px);border-color:var(--border);box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.peso-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pc1::before{background:linear-gradient(90deg,var(--gd),var(--gd2))}
+.pc2::before{background:linear-gradient(90deg,#4A90D9,#7BBBFF)}
+.pc3::before{background:linear-gradient(90deg,var(--green2),#a0ffcc)}
+.peso-pct{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:3.5rem;line-height:1;color:var(--gd)}
+.pc2 .peso-pct{color:#4A90D9}
+.pc3 .peso-pct{color:var(--green2)}
+.peso-name{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.1rem;color:var(--wh);margin:.4rem 0 .3rem}
+.peso-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.peso-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.2rem}
+.pi1{background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.25)}
+.pi2{background:rgba(74,144,217,.12);border:1px solid rgba(74,144,217,.25)}
+.pi3{background:rgba(95,207,138,.12);border:1px solid rgba(95,207,138,.25)}
+
+/* Tabela de conversão */
+.conv-table{width:100%;border-collapse:collapse;margin:2rem 0}
+.conv-table th{background:rgba(13,27,62,.9);color:var(--gd);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 1.25rem;text-align:left;font-weight:700;border-bottom:1px solid var(--border)}
+.conv-table td{padding:.85rem 1.25rem;font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.conv-table tr:hover td{background:rgba(245,166,35,.03)}
+.nota-badge{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem}
+.n5{color:#FFD700}.n4{color:var(--green2)}.n3{color:var(--gd)}.n2{color:var(--amber2)}.n1{color:var(--red2)}
+
+/* Ritual */
+.ritual-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:2rem 0}
+@media(max-width:700px){.ritual-steps{grid-template-columns:1fr}}
+.rs-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.5rem;transition:all .25s}
+.rs-card:hover{transform:translateY(-2px);border-color:var(--border)}
+.rs-freq{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);margin-bottom:.75rem}
+.rs-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--wh);margin-bottom:.5rem}
+.rs-time{font-size:.75rem;color:var(--amber2);margin-bottom.75rem;display:flex;align-items:center;gap:.4rem}
+.rs-items{list-style:none;margin-top:.75rem}
+.rs-items li{font-size:.8rem;color:rgba(255,255,255,.7);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4}
+.rs-items li::before{content:'—';color:rgba(245,166,35,.4);flex-shrink:0}
+
+/* SIMULAÇÃO LUCAS */
+.lucas-header{background:linear-gradient(135deg,rgba(26,48,96,.9),rgba(13,27,62,.9));border:1px solid rgba(245,166,35,.25);border-radius:var(--r);padding:2rem;margin:2rem 0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+@media(max-width:600px){.lucas-header{grid-template-columns:1fr}}
+.lh-info{display:flex;align-items:center;gap:1.5rem}
+.lh-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gd),var(--amber));display:flex;align-items:center;justify-content:center;font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.6rem;color:var(--dk);flex-shrink:0}
+.lh-name{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.5rem;color:var(--wh)}
+.lh-meta{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+.lh-nota{text-align:center}
+.lh-nota-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:4rem;color:var(--green2);line-height:1}
+.lh-nota-label{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lh-nota-desc{font-size:.8rem;color:var(--green2);font-weight:600}
+
+/* Dimensões avaliação */
+.dim-section{margin:2rem 0}
+.dim-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border2)}
+.dim-num{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:.85rem;color:var(--gd)}
+.dim-title{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--wh)}
+.dim-peso{font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;background:rgba(245,166,35,.12);color:var(--gd);border:0.5px solid rgba(245,166,35,.25)}
+.dim-score{margin-left:auto;text-align:right}
+.ds-val{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.6rem;color:var(--gd);line-height:1}
+.ds-label{font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+/* KPI table */
+.kpi-table{width:100%;border-collapse:collapse}
+.kpi-table th{background:rgba(13,27,62,.6);color:var(--muted);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1rem;text-align:left;font-weight:700;border-bottom:1px solid rgba(255,255,255,.06)}
+.kpi-table td{padding:.75rem 1rem;font-size:.83rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.kpi-table tr:hover td{background:rgba(245,166,35,.02)}
+.kpi-pbar-wrap{display:flex;align-items:center;gap:.65rem}
+.kpi-pbar{flex:1;height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.kpi-pbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gd),var(--gd2))}
+.kpi-pct{font-size:.78rem;font-weight:700;color:var(--green2);min-width:42px;text-align:right}
+
+/* Ações dev */
+.acoes-list{display:flex;flex-direction:column;gap:.75rem}
+.acao-item{background:rgba(13,27,62,.5);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:1rem 1.25rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;transition:all .2s}
+.acao-item:hover{border-color:var(--border2);background:rgba(17,34,82,.5)}
+.acao-name{font-size:.85rem;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:.25rem}
+.acao-prazo{font-size:.72rem;color:var(--muted)}
+.acao-status{text-align:right}
+.status-chip{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem;border-radius:20px;white-space:nowrap}
+.sc-done{background:rgba(95,207,138,.15);color:var(--green2);border:0.5px solid rgba(95,207,138,.3)}
+.sc-wip{background:rgba(255,184,74,.12);color:var(--amber2);border:0.5px solid rgba(255,184,74,.25)}
+.sc-nd{background:rgba(181,48,58,.1);color:var(--red2);border:0.5px solid rgba(181,48,58,.25)}
+.acao-prog{margin-top:.5rem}
+.ap-bar{height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.ap-fill{height:100%;border-radius:2px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+
+/* Comportamentais */
+.comp-list{display:flex;flex-direction:column;gap:.65rem}
+.comp-item{background:rgba(13,27,62,.4);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:.9rem 1.25rem;display:flex;gap:.85rem;align-items:flex-start}
+.comp-type{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px}
+.ct-pos{background:rgba(95,207,138,.2);color:var(--green2)}
+.ct-neg{background:rgba(255,112,112,.15);color:var(--red2)}
+.comp-text{font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.55}
+.comp-date{font-size:.68rem;color:var(--muted);display:block;margin-bottom:.25rem;font-weight:600;letter-spacing:.06em}
+
+/* Score final */
+.score-final{background:linear-gradient(135deg,rgba(26,48,96,.9),rgba(13,27,62,.95));border:1px solid rgba(245,166,35,.3);border-radius:var(--r);padding:2rem;margin:2rem 0}
+.sf-grid{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:1.5rem;align-items:center}
+@media(max-width:700px){.sf-grid{grid-template-columns:1fr}}
+.sf-dim{text-align:center;padding:1.25rem;background:rgba(255,255,255,.03);border-radius:8px}
+.sf-dim-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.sf-dim-score{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2rem;color:var(--gd);line-height:1}
+.sf-dim-peso{font-size:.7rem;color:var(--muted);margin-top:.2rem}
+.sf-result{text-align:center;padding:1.5rem;background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.2);border-radius:8px}
+.sf-total{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:3rem;color:var(--green2);line-height:1}
+.sf-nota-row{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.3rem}
+.sf-nota-n{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:2rem;color:var(--green2)}
+.sf-nota-text{font-size:.8rem;color:var(--green2);font-weight:600;line-height:1.3;text-align:left}
+
+/* Mockup CTA */
+.mockup-cta{background:linear-gradient(135deg,rgba(26,48,96,.6),rgba(13,27,62,.8));border:1px solid rgba(245,166,35,.2);border-radius:var(--r);padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:3rem;flex-wrap:wrap}
+.mc-text h3{font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem;color:var(--wh);margin-bottom:.4rem}
+.mc-text p{font-size:.85rem;color:var(--muted);max-width:460px;line-height:1.6}
+.mc-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gd);color:var(--dk);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 1.75rem;border-radius:8px;text-decoration:none;transition:all .2s;white-space:nowrap}
+.mc-btn:hover{background:var(--gd2);transform:translateY(-1px)}
+.mc-btn svg{width:16px;height:16px}
+
+/* FOOTER */
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border2)}
+footer p{font-size:.75rem;color:var(--muted);letter-spacing:.08em}
+
+/* ANIMATIONS */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv2{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv2.vis{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">MAXIMIANO<span>|</span>RH 2026</div>
+  <ul class="nav-links">
+    <li><a onclick="scrollTo('s-org')">Organograma</a></li>
+    <li><a onclick="scrollTo('s-pesquisa')">Pesquisa de Clima</a></li>
+    <li><a onclick="scrollTo('s-pdi')">PDI 2026</a></li>
+    <li><a onclick="scrollTo('s-ferramentas')">Ferramentas</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-badge rv"><span class="badge-dot"></span>RH — Elisa Sementile</div>
+    <h1 class="hero-title rv" style="transition-delay:.1s">GESTÃO DE<br><em>PESSOAS 2026</em></h1>
+    <p class="hero-sub rv" style="transition-delay:.2s">Organograma atualizado, resultados da pesquisa de clima e lançamento oficial do Sistema PDI 2026 — avaliação baseada em dados, não em percepções.</p>
+    <div class="hero-pills rv" style="transition-delay:.3s">
+      <div class="hpill" onclick="document.getElementById('s-org').scrollIntoView({behavior:'smooth'})">↓ Organograma</div>
+      <div class="hpill" onclick="document.getElementById('s-pesquisa').scrollIntoView({behavior:'smooth'})">↓ Pesquisa de Clima</div>
+      <div class="hpill" onclick="document.getElementById('s-pdi').scrollIntoView({behavior:'smooth'})">↓ PDI 2026</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== ORGANOGRAMA ===== -->
+<section id="s-org">
+  <div class="container">
+    <div class="rv">
+      <div class="sec-label">01 — ESTRUTURA</div>
+      <h2 class="sec-title">ORGANOGRAMA <em>ATUALIZADO</em></h2>
+      <p class="sec-body">Estrutura formal da Maximiano Advogados — Maio 2026. Nova área de Sucesso do Cliente e reorganização das unidades sob liderança direta do CEO.</p>
+    </div>
+
+    <div class="org-wrap rv" style="transition-delay:.15s">
+      <!-- SVG-based interactive org chart — redrawn v2, zero overlaps -->
+      <div style="overflow-x:auto;padding:1rem 0">
+        <svg id="org-svg" viewBox="0 0 1700 980" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:1200px;height:auto;font-family:'Segoe UI',system-ui,sans-serif">
+          <defs>
+            <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+
+          <!--
+            LAYOUT PLAN (box width=150, gap=30 between boxes)
+            L2 centers (7 nodes, step=180):
+              Elisa       cx=85   box x=10
+              Consultores cx=265  box x=190
+              Rodrigo     cx=445  box x=370
+              Unidades    cx=625  box x=550   ← subtree hangs here
+              Geovani     cx=925  box x=850   ← pushed right, gap=300 from Unidades
+              Renato      cx=1105 box x=1030
+              Débora      cx=1285 box x=1210
+
+            Unidades subtree max-right = Nova Resende staff right edge
+              Nova Resende x=410, staff right = 492+130 = 622
+              Cabo Verde   x=560, staff right = 559+142 = 701
+              → all inside 0–750 safe zone, well left of Geovani=850
+          -->
+
+          <!-- ===== LEVEL 0: CONSELHO ===== -->
+          <line x1="700" y1="56" x2="700" y2="84" stroke="rgba(245,166,35,.4)" stroke-width="1.5"/>
+          <g transform="translate(570,8)">
+            <rect width="260" height="48" rx="8" fill="rgba(245,166,35,.16)" stroke="rgba(245,166,35,.5)" stroke-width="1.2" filter="url(#glow)"/>
+            <text x="130" y="20" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">RAPHAELA ALMEIDA</text>
+            <text x="130" y="36" text-anchor="middle" fill="rgba(245,166,35,.85)" font-size="8.5" letter-spacing="2">CONSELHO &amp; CVO</text>
+          </g>
+
+          <!-- ===== LEVEL 1: CEO ===== -->
+          <line x1="700" y1="136" x2="700" y2="162" stroke="rgba(245,166,35,.35)" stroke-width="1.5"/>
+          <!-- Bus line spans all L2 centers: 85 → 1285 -->
+          <line x1="85" y1="162" x2="1140" y2="162" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+          <g transform="translate(570,84)">
+            <rect width="260" height="52" rx="8" fill="rgba(245,166,35,.22)" stroke="rgba(245,166,35,.65)" stroke-width="1.5" filter="url(#glow)"/>
+            <text x="130" y="23" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">JEAN BARBOSA</text>
+            <text x="130" y="40" text-anchor="middle" fill="rgba(245,166,35,.9)" font-size="9" letter-spacing="2.5">CEO</text>
+          </g>
+
+          <!-- ===== LEVEL 2 DROP LINES ===== -->
+          <line x1="85"   y1="162" x2="85"   y2="188" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+          <line x1="265"  y1="162" x2="265"  y2="188" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+          <line x1="445"  y1="162" x2="445"  y2="188" stroke="rgba(245,166,35,.22)" stroke-width="1.5"/>
+          <line x1="625"  y1="162" x2="625"  y2="188" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+          <line x1="820"  y1="162" x2="820"  y2="188" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+          <line x1="985" y1="162" x2="985"  y2="188" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+          <line x1="1140" y1="162" x2="1140" y2="188" stroke="rgba(245,166,35,.18)" stroke-width="1"/>
+
+          <!-- ELISA cx=85 -->
+          <g transform="translate(10,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(17,34,82,.9)" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <text x="75" y="20" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">ELISA SEMENTILE</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(245,166,35,.7)" font-size="8" letter-spacing="1">HEAD RH</text>
+          </g>
+
+          <!-- CONSULTORES cx=265 -->
+          <g transform="translate(190,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(17,34,82,.6)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+            <text x="75" y="20" text-anchor="middle" fill="rgba(255,255,255,.6)" font-size="9.5" font-weight="700">CONSULTORES</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(245,166,35,.45)" font-size="8" letter-spacing="1">EXTERNOS</text>
+          </g>
+
+          <!-- UNIDADES cx=445 (trocado com Rodrigo) -->
+          <g transform="translate(370,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(245,166,35,.13)" stroke="rgba(245,166,35,.35)" stroke-width="1.2"/>
+            <text x="75" y="20" text-anchor="middle" fill="rgba(245,166,35,.95)" font-size="9" font-weight="700" letter-spacing="2">UNIDADES</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="7.5" letter-spacing="1">Jean Barbosa · CEO</text>
+          </g>
+
+          <!-- RODRIGO cx=625 (trocado com Unidades) -->
+          <g transform="translate(550,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(17,34,82,.9)" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <text x="75" y="20" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">RODRIGO NOGUEIRA</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(245,166,35,.7)" font-size="8" letter-spacing="1">ANALISTA TI</text>
+          </g>
+
+          <!-- GEOVANI cx=925 -->
+          <g transform="translate(745,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(17,34,82,.9)" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <text x="75" y="20" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">GEOVANI BARBOSA</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(245,166,35,.7)" font-size="8" letter-spacing="1">HEAD COMERCIAL</text>
+          </g>
+
+          <!-- RENATO cx=1105 -->
+          <g transform="translate(910,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(17,34,82,.9)" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <text x="75" y="20" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">RENATO GENTIL</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(245,166,35,.7)" font-size="8" letter-spacing="1">HEAD FINANCEIRO</text>
+          </g>
+
+          <!-- DÉBORA cx=1285 -->
+          <g transform="translate(1065,188)">
+            <rect width="150" height="48" rx="7" fill="rgba(17,34,82,.9)" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <text x="75" y="20" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">DÉBORA SOUZA</text>
+            <text x="75" y="35" text-anchor="middle" fill="rgba(245,166,35,.7)" font-size="8" letter-spacing="1">HEAD MARKETING</text>
+          </g>
+
+          <!-- ===== LEVEL 3 ===== -->
+
+          <!-- GEOVANI → Kathury + Silvio -->
+          <line x1="820" y1="236" x2="820" y2="260" stroke="rgba(245,166,35,.15)" stroke-width="1"/>
+          <line x1="773" y1="260" x2="867" y2="260" stroke="rgba(245,166,35,.12)" stroke-width="1"/>
+          <line x1="773" y1="260" x2="773" y2="276" stroke="rgba(245,166,35,.12)" stroke-width="1"/>
+          <line x1="867" y1="260" x2="867" y2="276" stroke="rgba(245,166,35,.12)" stroke-width="1"/>
+          <!-- Kathury cx=878+66=944, box x=812 -->
+          <g transform="translate(707,276)">
+            <rect width="132" height="40" rx="6" fill="rgba(8,18,45,.9)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+            <text x="66" y="16" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="8.5" font-weight="600">KATHURY PINHEIRO</text>
+            <text x="66" y="30" text-anchor="middle" fill="rgba(245,166,35,.55)" font-size="7" letter-spacing="1">VENDEDORA</text>
+          </g>
+          <!-- Silvio box x=906 -->
+          <g transform="translate(801,276)">
+            <rect width="132" height="40" rx="6" fill="rgba(8,18,45,.9)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+            <text x="66" y="16" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="8.5" font-weight="600">SILVIO FRANCO</text>
+            <text x="66" y="30" text-anchor="middle" fill="rgba(245,166,35,.55)" font-size="7" letter-spacing="1">CONS. COMERCIAL</text>
+          </g>
+
+          <!-- RENATO → Glauco → Ivana -->
+          <line x1="985" y1="236" x2="985" y2="276" stroke="rgba(245,166,35,.15)" stroke-width="1"/>
+          <g transform="translate(919,276)">
+            <rect width="132" height="40" rx="6" fill="rgba(8,18,45,.9)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+            <text x="66" y="16" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="8.5" font-weight="600">GLAUCO RODRIGUES</text>
+            <text x="66" y="30" text-anchor="middle" fill="rgba(245,166,35,.55)" font-size="7" letter-spacing="1">GESTOR FINANCEIRO</text>
+          </g>
+          <line x1="985" y1="316" x2="985" y2="336" stroke="rgba(245,166,35,.12)" stroke-width="1"/>
+          <g transform="translate(919,336)">
+            <rect width="132" height="40" rx="6" fill="rgba(8,18,45,.85)" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <text x="66" y="16" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="8.5" font-weight="600">IVANA COSTA</text>
+            <text x="66" y="30" text-anchor="middle" fill="rgba(245,166,35,.45)" font-size="7" letter-spacing="1">ASSIST. FINANCEIRO</text>
+          </g>
+
+          <!-- DÉBORA → Fábio -->
+          <line x1="1140" y1="236" x2="1140" y2="276" stroke="rgba(245,166,35,.15)" stroke-width="1"/>
+          <g transform="translate(1074,276)">
+            <rect width="132" height="40" rx="6" fill="rgba(8,18,45,.9)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+            <text x="66" y="16" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="8.5" font-weight="600">FÁBIO SANTOS</text>
+            <text x="66" y="30" text-anchor="middle" fill="rgba(245,166,35,.55)" font-size="7" letter-spacing="1">ASSIST. MARKETING</text>
+          </g>
+
+          <!-- ===== NATÁLIA — mesma distância do Fábio que Glauco tem (155px gap) ===== -->
+          <path d="M830,110 Q1230,110 1230,256" fill="none" stroke="rgba(95,207,138,.35)" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <line x1="1230" y1="256" x2="1229" y2="256" stroke="rgba(95,207,138,.35)" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <g transform="translate(1229,256)">
+            <rect width="170" height="56" rx="7" fill="rgba(95,207,138,.1)" stroke="rgba(95,207,138,.4)" stroke-width="1.3"/>
+            <text x="85" y="18" text-anchor="middle" fill="rgba(95,207,138,.85)" font-size="7.5" font-weight="700" letter-spacing="1.5">SUCESSO DO CLIENTE</text>
+            <text x="85" y="33" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">NATÁLIA GARCIA</text>
+            <text x="85" y="48" text-anchor="middle" fill="rgba(95,207,138,.7)" font-size="7.5" letter-spacing="1">ASSIST. SUC. CLIENTE</text>
+          </g>
+
+          <!-- ===== UNIDADES subtree (desce de cx=445) ===== -->
+          <line x1="445" y1="236" x2="445" y2="270" stroke="rgba(245,166,35,.2)" stroke-width="1.5"/>
+          <!-- Bus PRÓPRIAS / SÓCIOS — centrado em 445, vai de x=100 a x=640 -->
+          <line x1="100" y1="270" x2="640" y2="270" stroke="rgba(245,166,35,.14)" stroke-width="1"/>
+          <line x1="260" y1="270" x2="260" y2="288" stroke="rgba(245,166,35,.14)" stroke-width="1"/>
+          <line x1="550" y1="270" x2="550" y2="288" stroke="rgba(74,144,217,.2)" stroke-width="1"/>
+
+          <!-- PRÓPRIAS badge cx=260 -->
+          <g transform="translate(150,288)">
+            <rect width="220" height="26" rx="13" fill="rgba(245,166,35,.07)" stroke="rgba(245,166,35,.2)" stroke-width="1"/>
+            <text x="110" y="17" text-anchor="middle" fill="rgba(245,166,35,.75)" font-size="7.5" font-weight="700" letter-spacing="2">UNIDADES PRÓPRIAS</text>
+          </g>
+          <!-- COM SÓCIOS badge cx=550 -->
+          <g transform="translate(450,288)">
+            <rect width="200" height="26" rx="13" fill="rgba(74,144,217,.07)" stroke="rgba(74,144,217,.2)" stroke-width="1"/>
+            <text x="100" y="17" text-anchor="middle" fill="rgba(74,144,217,.8)" font-size="7.5" font-weight="700" letter-spacing="2">UNIDADE COM SÓCIOS</text>
+          </g>
+
+          <!-- PRÓPRIAS → 3 units connectors (Botelhos=60, Poços=200, Nova Resende=340) -->
+          <line x1="260" y1="314" x2="260" y2="330" stroke="rgba(245,166,35,.12)" stroke-width="1"/>
+          <line x1="60"  y1="330" x2="410" y2="330" stroke="rgba(245,166,35,.1)"  stroke-width="1"/>
+          <line x1="60"  y1="330" x2="60"  y2="346" stroke="rgba(245,166,35,.1)"  stroke-width="1"/>
+          <line x1="200" y1="330" x2="200" y2="346" stroke="rgba(245,166,35,.1)"  stroke-width="1"/>
+          <line x1="360" y1="330" x2="360" y2="346" stroke="rgba(245,166,35,.1)"  stroke-width="1"/>
+
+          <!-- BOTELHOS x=(-10) → center=60 -->
+          <g transform="translate(-10,346)">
+            <rect width="140" height="44" rx="7" fill="rgba(17,34,82,.8)" stroke="rgba(245,166,35,.22)" stroke-width="1"/>
+            <text x="70" y="18" text-anchor="middle" fill="rgba(245,166,35,.9)" font-size="8.5" font-weight="700" letter-spacing="1.5">BOTELHOS</text>
+            <text x="70" y="34" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="8.5" font-weight="600">Paulo Barreiro</text>
+          </g>
+          <line x1="60" y1="390" x2="60" y2="408" stroke="rgba(245,166,35,.1)" stroke-width="1"/>
+          <g transform="translate(-20,408)">
+            <rect width="160" height="74" rx="5" fill="rgba(8,18,45,.88)" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <text x="80" y="15" text-anchor="middle" fill="rgba(255,255,255,.65)" font-size="8" font-weight="600">João Victor · Ulianny</text>
+            <text x="80" y="28" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="7">Fernanda Souza</text>
+            <text x="80" y="40" text-anchor="middle" fill="rgba(245,166,35,.4)" font-size="7" letter-spacing="0.5">Advogados</text>
+            <text x="80" y="56" text-anchor="middle" fill="rgba(255,255,255,.55)" font-size="8" font-weight="600">José Gabriel · Jaqueline</text>
+            <text x="80" y="68" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">Estagiários</text>
+          </g>
+
+          <!-- POÇOS DE CALDAS x=130 → center=200 -->
+          <g transform="translate(130,346)">
+            <rect width="140" height="44" rx="7" fill="rgba(17,34,82,.8)" stroke="rgba(245,166,35,.22)" stroke-width="1"/>
+            <text x="70" y="18" text-anchor="middle" fill="rgba(245,166,35,.9)" font-size="8" font-weight="700" letter-spacing="1">POÇOS DE CALDAS</text>
+            <text x="70" y="34" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="8.5" font-weight="600">João Gabriel</text>
+          </g>
+          <line x1="200" y1="390" x2="200" y2="408" stroke="rgba(245,166,35,.1)" stroke-width="1"/>
+          <g transform="translate(128,408)">
+            <rect width="144" height="88" rx="5" fill="rgba(8,18,45,.88)" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <text x="72" y="14" text-anchor="middle" fill="rgba(255,255,255,.65)" font-size="7.5" font-weight="600">Rafael · Augusto · Iago</text>
+            <text x="72" y="26" text-anchor="middle" fill="rgba(255,255,255,.45)" font-size="7">Gabriela · Marcelo</text>
+            <text x="72" y="38" text-anchor="middle" fill="rgba(245,166,35,.4)" font-size="7" letter-spacing="0.5">Advogados</text>
+            <text x="72" y="54" text-anchor="middle" fill="rgba(255,255,255,.55)" font-size="7.5" font-weight="600">Isadora Rampazo</text>
+            <text x="72" y="66" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">Recepcionista</text>
+          </g>
+
+          <!-- NOVA RESENDE x=290 → center=360 -->
+          <g transform="translate(290,346)">
+            <rect width="140" height="44" rx="7" fill="rgba(17,34,82,.8)" stroke="rgba(245,166,35,.22)" stroke-width="1"/>
+            <text x="70" y="18" text-anchor="middle" fill="rgba(245,166,35,.9)" font-size="8.5" font-weight="700" letter-spacing="1.5">NOVA RESENDE</text>
+          </g>
+          <!-- Nova Resende staff — apenas Maisa (Silvio está sob Geovani) -->
+          <line x1="360" y1="390" x2="360" y2="408" stroke="rgba(245,166,35,.1)" stroke-width="1"/>
+          <g transform="translate(295,408)">
+            <rect width="130" height="40" rx="5" fill="rgba(8,18,45,.88)" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <text x="65" y="15" text-anchor="middle" fill="rgba(255,255,255,.65)" font-size="7.5" font-weight="600">Maisa Silva</text>
+            <text x="65" y="29" text-anchor="middle" fill="rgba(245,166,35,.45)" font-size="7">Assist. Jur. / Recepção</text>
+          </g>
+
+          <!-- CABO VERDE cx=550, x=480 → right edge=620 (well left of Geovani cx=925) -->
+          <line x1="550" y1="314" x2="550" y2="346" stroke="rgba(74,144,217,.15)" stroke-width="1"/>
+          <g transform="translate(480,346)">
+            <rect width="140" height="44" rx="7" fill="rgba(13,27,62,.9)" stroke="rgba(74,144,217,.3)" stroke-width="1"/>
+            <text x="70" y="18" text-anchor="middle" fill="rgba(74,144,217,.9)" font-size="8.5" font-weight="700" letter-spacing="1.5">CABO VERDE</text>
+            <text x="70" y="34" text-anchor="middle" fill="rgba(255,255,255,.65)" font-size="7.5">Raphaela · Tayná · Jackeline</text>
+          </g>
+          <line x1="550" y1="390" x2="550" y2="408" stroke="rgba(74,144,217,.15)" stroke-width="1"/>
+          <g transform="translate(479,408)">
+            <rect width="142" height="100" rx="5" fill="rgba(8,18,45,.88)" stroke="rgba(74,144,217,.08)" stroke-width="1"/>
+            <text x="71" y="16" text-anchor="middle" fill="rgba(255,255,255,.65)" font-size="7.5" font-weight="600">Giovane Lopes</text>
+            <text x="71" y="28" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">Assistente Jurídico</text>
+            <text x="71" y="44" text-anchor="middle" fill="rgba(255,255,255,.6)" font-size="7.5" font-weight="600">Pedro Boldrin</text>
+            <text x="71" y="56" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">Estagiário</text>
+            <text x="71" y="72" text-anchor="middle" fill="rgba(255,255,255,.6)" font-size="7.5" font-weight="600">Fernanda Lima</text>
+            <text x="71" y="84" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="7">Recepcionista</text>
+          </g>
+
+          <!-- ===== LEGEND ===== -->
+          <g transform="translate(20,900)">
+            <rect width="13" height="13" rx="2" fill="rgba(245,166,35,.2)" stroke="rgba(245,166,35,.5)" stroke-width="1"/>
+            <text x="20" y="12" fill="rgba(255,255,255,.55)" font-size="13">Executivo</text>
+            <rect x="130" width="13" height="13" rx="2" fill="rgba(17,34,82,.9)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+            <text x="150" y="12" fill="rgba(255,255,255,.55)" font-size="13">Heads / Líderes</text>
+            <rect x="310" width="13" height="13" rx="2" fill="rgba(95,207,138,.1)" stroke="rgba(95,207,138,.5)" stroke-width="1"/>
+            <text x="330" y="12" fill="rgba(255,255,255,.55)" font-size="13">Nova Área</text>
+            <line x1="460" y1="6" x2="490" y2="6" stroke="rgba(95,207,138,.5)" stroke-width="2" stroke-dasharray="5,3"/>
+            <text x="498" y="12" fill="rgba(255,255,255,.55)" font-size="13">Subordinação direta CEO</text>
+            <rect x="740" width="13" height="13" rx="2" fill="rgba(74,144,217,.1)" stroke="rgba(74,144,217,.45)" stroke-width="1"/>
+            <text x="760" y="12" fill="rgba(255,255,255,.55)" font-size="13">Unidade com Sócios</text>
+          </g>
+
+        </svg>
+      </div>
+
+      <!-- NOVOS INTEGRANTES -->
+      <div style="margin-top:2rem">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gd);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem">
+          <span style="width:16px;height:2px;background:var(--gd);display:inline-block;border-radius:1px"></span>
+          NOVOS INTEGRANTES — BEM-VINDOS À EQUIPE
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem">
+
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.5rem;border-top:2px solid var(--gd);transition:all .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(245,166,35,.35)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.85rem">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(245,166,35,.25),rgba(17,34,82,.8));border:1px solid rgba(245,166,35,.35);display:flex;align-items:center;justify-content:center;font-family:'Arial Narrow',sans-serif;font-weight:900;font-size:1.1rem;color:var(--gd);flex-shrink:0">R</div>
+              <div>
+                <div style="font-family:'Arial Narrow',sans-serif;font-weight:900;font-size:1rem;color:var(--wh)">Rodrigo Nogueira</div>
+                <div style="font-size:.7rem;color:var(--gd);letter-spacing:.08em;font-weight:700;text-transform:uppercase;margin-top:1px">Analista de TI</div>
+              </div>
+            </div>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.6">Responsável pela infraestrutura tecnológica da firma. Conduzirá a construção do sistema PDI digital e a evolução do Bitrix nas unidades.</p>
+          </div>
+
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.5rem;border-top:2px solid #4A90D9;transition:all .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(74,144,217,.35)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.85rem">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(74,144,217,.25),rgba(17,34,82,.8));border:1px solid rgba(74,144,217,.35);display:flex;align-items:center;justify-content:center;font-family:'Arial Narrow',sans-serif;font-weight:900;font-size:1.1rem;color:#4A90D9;flex-shrink:0">F</div>
+              <div>
+                <div style="font-family:'Arial Narrow',sans-serif;font-weight:900;font-size:1rem;color:var(--wh)">Fábio Santos</div>
+                <div style="font-size:.7rem;color:#4A90D9;letter-spacing:.08em;font-weight:700;text-transform:uppercase;margin-top:1px">Assistente de Marketing</div>
+              </div>
+            </div>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.6">Apoia Débora Souza na operação de tráfego pago, redes sociais e produção de conteúdo. Parte central do projeto MAXDRIVE.</p>
+          </div>
+
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.5rem;border-top:2px solid var(--green2);transition:all .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(95,207,138,.35)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.85rem">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,rgba(95,207,138,.25),rgba(17,34,82,.8));border:1px solid rgba(95,207,138,.35);display:flex;align-items:center;justify-content:center;font-family:'Arial Narrow',sans-serif;font-weight:900;font-size:1.1rem;color:var(--green2);flex-shrink:0">G</div>
+              <div>
+                <div style="font-family:'Arial Narrow',sans-serif;font-weight:900;font-size:1rem;color:var(--wh)">Glauco Rodrigues</div>
+                <div style="font-size:.7rem;color:var(--green2);letter-spacing:.08em;font-weight:700;text-transform:uppercase;margin-top:1px">Gestor Financeiro</div>
+              </div>
+            </div>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.6">Integra a equipe financeira sob liderança de Renato Gentil. Responsável pela gestão operacional das finanças e pela implantação do sistema Omie.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PESQUISA DE CLIMA ===== -->
+<section id="s-pesquisa">
+  <div class="container">
+    <div class="rv">
+      <div class="sec-label">02 — PESQUISA DE CLIMA</div>
+      <h2 class="sec-title">RESULTADOS & <em>PLANO DE AÇÃO</em></h2>
+      <p class="sec-body">Consolidação de 15 respondentes — Abril 2026. Os temas identificados já estão em diferentes estágios de resolução.</p>
+    </div>
+
+    <div class="clima-summary rv" style="transition-delay:.1s">
+      <div class="cs-item"><div class="cs-num" style="color:var(--gd)">15</div><div class="cs-label">Respondentes</div></div>
+      <div class="cs-item"><div class="cs-num" style="color:var(--red2)">5</div><div class="cs-label">Temas Críticos</div></div>
+      <div class="cs-item"><div class="cs-num" style="color:var(--amber2)">87%</div><div class="cs-label">Citaram Comunicação</div></div>
+      <div class="cs-item"><div class="cs-num" style="color:var(--amber2)">73%</div><div class="cs-label">Citaram Remuneração</div></div>
+    </div>
+
+    <div class="temas-grid">
+
+      <!-- Comunicação Interna -->
+      <div class="tema-card rv" style="transition-delay:.05s">
+        <div class="tc-head">
+          <div class="tc-title">Comunicação Interna</div>
+          <span class="status-badge sb-wip">Em Andamento</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bar-wrap">
+            <div class="tc-bar-label"><span>Citações</span><span>13 / 15 respondentes — 87%</span></div>
+            <div class="tc-bar"><div class="tc-bar-fill" style="width:0%" data-w="87%"></div></div>
+          </div>
+          <div class="tc-diag">
+            <div class="tc-diag-label">Problema Identificado</div>
+            <div class="tc-diag-text">Ruídos frequentes, cancelamentos de última hora, informações divergentes entre líderes, ausência de devolutivas claras após reuniões.</div>
+          </div>
+          <div class="tc-impact">
+            <div class="tc-impact-label">Impacto no Dia a Dia</div>
+            <div class="tc-impact-text">Produtividade comprometida, retrabalho, equipe desalinhada e sensação constante de "apagar incêndio".</div>
+          </div>
+          <div class="tc-section-label">Plano de Ação</div>
+          <ul class="tc-actions">
+            <li><span class="act-ico act-wip">→</span>Criar ritual semanal de alinhamento (15 min) com pauta fixa</li>
+            <li><span class="act-ico act-wip">→</span>Implantar canal oficial único para comunicados no Bitrix</li>
+            <li><span class="act-ico act-wip">→</span>Estabelecer protocolo de cancelamentos: aviso mínimo de 24h com justificativa</li>
+            <li><span class="act-ico act-wip">→</span>Treinar líderes em comunicação assertiva e devolutiva estruturada</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Remuneração -->
+      <div class="tema-card rv" style="transition-delay:.1s">
+        <div class="tc-head">
+          <div class="tc-title">Remuneração & Reconhecimento</div>
+          <span class="status-badge sb-done">Parcialmente Resolvido</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bar-wrap">
+            <div class="tc-bar-label"><span>Citações</span><span>11 / 15 respondentes — 73%</span></div>
+            <div class="tc-bar"><div class="tc-bar-fill" style="width:0%" data-w="73%"></div></div>
+          </div>
+          <div class="tc-diag">
+            <div class="tc-diag-label">Problema Identificado</div>
+            <div class="tc-diag-text">Salários percebidos como incompatíveis com a demanda. Colaboradores sentem que o esforço não é proporcional ao retorno financeiro recebido.</div>
+          </div>
+          <div class="tc-impact">
+            <div class="tc-impact-label">Impacto no Dia a Dia</div>
+            <div class="tc-impact-text">Desânimo generalizado e risco real de turnover — colaboradores relatam que não há diferencial suficiente para permanecer.</div>
+          </div>
+          <div class="tc-section-label">Plano de Ação</div>
+          <ul class="tc-actions">
+            <li><span class="act-ico act-done">✓</span>Pesquisa salarial de mercado local realizada e apresentada à diretoria</li>
+            <li><span class="act-ico act-done">✓</span>Ajustes salariais aplicados para colaboradores com nota 4 — folha de abril</li>
+            <li><span class="act-ico act-wip">→</span>Revisão ampla com base na pesquisa de mercado — no 2º semestre será analisada a viabilidade mediante disponibilidade de caixa</li>
+            <li><span class="act-ico act-wip">→</span>Política de remuneração variável vinculada ao PDI em desenvolvimento</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PDI -->
+      <div class="tema-card rv" style="transition-delay:.15s">
+        <div class="tc-head">
+          <div class="tc-title">Plano de Carreira (PDI)</div>
+          <span class="status-badge sb-done">✓ Lançado</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bar-wrap">
+            <div class="tc-bar-label"><span>Citações</span><span>9 / 15 respondentes — 60%</span></div>
+            <div class="tc-bar"><div class="tc-bar-fill" style="width:0%" data-w="60%"></div></div>
+          </div>
+          <div class="tc-diag">
+            <div class="tc-diag-label">Problema Identificado</div>
+            <div class="tc-diag-text">Colaboradores conhecem o PDI mas o percebem como promessa não cumprida. Ausência de critérios de progressão claros, especialmente para quem tem mais tempo de casa.</div>
+          </div>
+          <div class="tc-impact">
+            <div class="tc-impact-label">Impacto no Dia a Dia</div>
+            <div class="tc-impact-text">Falta de perspectiva de crescimento reduz motivação e aumenta intenção de saída, mesmo em quem gosta da empresa.</div>
+          </div>
+          <div class="tc-section-label">Plano de Ação</div>
+          <ul class="tc-actions">
+            <li><span class="act-ico act-done">✓</span>PDI formal lançado com cronograma e marcos — apresentação oficial nesta reunião</li>
+            <li><span class="act-ico act-done">✓</span>Avaliadores definidos por área com acompanhamento por líder direto</li>
+            <li><span class="act-ico act-wip">→</span>Reuniões individuais com líderes para orientação de uso com suas equipes</li>
+            <li><span class="act-ico act-wip">→</span>Sistema digital em desenvolvimento pelo TI (Rodrigo)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sistemas e Ferramentas -->
+      <div class="tema-card rv" style="transition-delay:.2s">
+        <div class="tc-head">
+          <div class="tc-title">Sistemas & Ferramentas</div>
+          <span class="status-badge sb-done">Em Execução</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bar-wrap">
+            <div class="tc-bar-label"><span>Citações</span><span>8 / 15 respondentes — 53%</span></div>
+            <div class="tc-bar"><div class="tc-bar-fill" style="width:0%" data-w="53%"></div></div>
+          </div>
+          <div class="tc-diag">
+            <div class="tc-diag-label">Problema Identificado</div>
+            <div class="tc-diag-text">Instabilidade do Bitrix gera gargalos na operação. Migração de sistemas causou transtornos. Ausência de suporte técnico dedicado citada como urgente.</div>
+          </div>
+          <div class="tc-impact">
+            <div class="tc-impact-label">Impacto no Dia a Dia</div>
+            <div class="tc-impact-text">Interrupções frequentes no fluxo de trabalho, retrabalho e frustração generalizada da equipe operacional.</div>
+          </div>
+          <div class="tc-section-label">Plano de Ação</div>
+          <ul class="tc-actions">
+            <li><span class="act-ico act-done">✓</span>TI dedicado em tempo integral contratado (Rodrigo Nogueira)</li>
+            <li><span class="act-ico act-done">✓</span>Natália Garcia alocada para apoio em processos/TI nos próximos 60 dias</li>
+            <li><span class="act-ico act-wip">→</span>Novas ferramentas sendo desenhadas e estruturadas</li>
+            <li><span class="act-ico act-wip">→</span>Revisão e documentação de POPs operacionais no Bitrix</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feedbacks e Infraestrutura -->
+      <div class="tema-card rv" style="transition-delay:.25s">
+        <div class="tc-head">
+          <div class="tc-title">Feedbacks & Infraestrutura</div>
+          <span class="status-badge sb-done">Parcialmente Resolvido</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bar-wrap">
+            <div class="tc-bar-label"><span>Citações</span><span>Feedbacks 6/15 · Infra 4/15</span></div>
+            <div class="tc-bar"><div class="tc-bar-fill" style="width:0%" data-w="40%"></div></div>
+          </div>
+          <div class="tc-diag">
+            <div class="tc-diag-label">Problema Identificado</div>
+            <div class="tc-diag-text">Feedbacks são raros e sem estrutura. Critérios subjetivos de avaliação geram insegurança. Nos escritórios (especialmente Botelhos), limpeza e manutenção estavam inadequadas.</div>
+          </div>
+          <div class="tc-impact">
+            <div class="tc-impact-label">Impacto no Dia a Dia</div>
+            <div class="tc-impact-text">Falta de direção para o desenvolvimento individual. Ambiente físico inadequado afeta bem-estar e a imagem perante clientes.</div>
+          </div>
+          <div class="tc-section-label">Plano de Ação</div>
+          <ul class="tc-actions">
+            <li><span class="act-ico act-done">✓</span>Limpeza do escritório de Botelhos normalizada</li>
+            <li><span class="act-ico act-done">✓</span>Escritório de Poços de Caldas — correções finalizadas</li>
+            <li><span class="act-ico act-wip">→</span>Ciclo de feedback mensal estruturado via PDI em implantação</li>
+            <li><span class="act-ico act-wip">→</span>Canal anônimo de sugestões e elogios em análise</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Excesso de Iniciativas -->
+      <div class="tema-card rv" style="transition-delay:.3s">
+        <div class="tc-head">
+          <div class="tc-title">Excesso de Iniciativas</div>
+          <span class="status-badge sb-wip">Em Andamento</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-bar-wrap">
+            <div class="tc-bar-label"><span>Citações</span><span>7 / 15 respondentes — 47%</span></div>
+            <div class="tc-bar"><div class="tc-bar-fill" style="width:0%" data-w="47%"></div></div>
+          </div>
+          <div class="tc-diag">
+            <div class="tc-diag-label">Problema Identificado</div>
+            <div class="tc-diag-text">Percepção de muitas frentes abertas sem conclusão, projetos "engavetados" e dificuldade de execução. A equipe sente que as ideias não saem do papel.</div>
+          </div>
+          <div class="tc-impact">
+            <div class="tc-impact-label">Impacto no Dia a Dia</div>
+            <div class="tc-impact-text">Sensação constante de "apagar incêndio", sobrecarga, redução de produtividade e perda de confiança na liderança.</div>
+          </div>
+          <div class="tc-section-label">Plano de Ação</div>
+          <ul class="tc-actions">
+            <li><span class="act-ico act-wip">→</span>Adotar gestão com backlog priorizado (Kanban no Bitrix)</li>
+            <li><span class="act-ico act-wip">→</span>Limitar a 3 projetos simultâneos por equipe por trimestre</li>
+            <li><span class="act-ico act-wip">→</span>Criar ritual formal de fechamento de projetos com registro de aprendizados</li>
+            <li><span class="act-ico act-todo">○</span>Consolidar o que está em andamento antes de lançar novas iniciativas</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /temas-grid -->
+
+    <!-- PONTOS POSITIVOS -->
+    <div class="rv" style="transition-delay:.32s;margin-top:2rem">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(95,207,138,.12);border:1px solid rgba(95,207,138,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg viewBox="0 0 20 20" width="16" height="16" fill="none"><path d="M7 10l2 2 4-4" stroke="var(--green2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="8" stroke="var(--green2)" stroke-width="1.3"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.15rem;color:var(--wh)">O QUE A EMPRESA JÁ FAZ BEM</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.1rem">Pontos reconhecidos pela equipe que não devem ser perdidos</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.75rem">
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Cultura cristã e ambiente acolhedor são reconhecidos como diferencial único</span>
+        </div>
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Investimento contínuo em treinamentos e desenvolvimento dos colaboradores</span>
+        </div>
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Estrutura física e tecnológica de qualidade</span>
+        </div>
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Abertura da liderança para ouvir ideias — especialmente o RH</span>
+        </div>
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Eventos de engajamento bem avaliados pela equipe</span>
+        </div>
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Equipes unidas, colaborativas e sem competição interna</span>
+        </div>
+        <div style="background:rgba(95,207,138,.06);border:1px solid rgba(95,207,138,.15);border-left:3px solid var(--green2);border-radius:8px;padding:.9rem 1.1rem;display:flex;align-items:flex-start;gap:.75rem;transition:all .2s" onmouseover="this.style.background='rgba(95,207,138,.1)'" onmouseout="this.style.background='rgba(95,207,138,.06)'">
+          <span style="color:var(--green2);font-size:.85rem;flex-shrink:0;margin-top:1px">✓</span>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5">Espírito de crescimento e ambição por alta performance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RODA DE CONVERSA -->
+    <div class="roda-section rv" style="transition-delay:.35s">
+      <div class="roda-header">
+        <div class="roda-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><circle cx="12" cy="12" r="9" stroke="rgba(245,166,35,.8)" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="rgba(245,166,35,.7)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="roda-title">ESPAÇO DOS LÍDERES — RODA DE CONVERSA</div>
+          <div class="roda-sub">Momento aberto para opiniões, sugestões e contribuições que serão levadas à diretoria</div>
+        </div>
+      </div>
+      <div class="roda-topics">
+        <div class="rt-item">
+          <div class="rt-num">1</div>
+          <div class="rt-text"><strong>Comunicação Interna</strong>O que está funcionando? O que ainda precisa melhorar no dia a dia das unidades?</div>
+        </div>
+        <div class="rt-item">
+          <div class="rt-num">2</div>
+          <div class="rt-text"><strong>Remuneração & Carreira</strong>Como o PDI pode ser percebido como real caminho de crescimento?</div>
+        </div>
+        <div class="rt-item">
+          <div class="rt-num">3</div>
+          <div class="rt-text"><strong>Sistemas & Processos</strong>Quais gargalos operacionais continuam travando a equipe no dia a dia?</div>
+        </div>
+        <div class="rt-item">
+          <div class="rt-num">4</div>
+          <div class="rt-text"><strong>Cultura & Engajamento</strong>O que não podemos perder? O que deve mudar?</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== PDI 2026 ===== -->
+<section id="s-pdi">
+  <div class="container">
+    <div class="rv">
+      <div class="sec-label">03 — PDI 2026</div>
+      <h2 class="sec-title">PLANO DE DESENVOLVIMENTO <em>INDIVIDUAL</em></h2>
+      <p class="sec-body">O novo PDI transforma a avaliação de percepção em evidência. A nota final é calculada automaticamente a partir de dados registrados ao longo do ano.</p>
+    </div>
+
+    <!-- Antes x Depois -->
+    <div class="av-grid rv" style="transition-delay:.1s">
+      <div class="av-card av-before">
+        <div class="av-label">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--red2)" stroke-width="1.2"/><path d="M4.5 4.5l5 5M9.5 4.5l-5 5" stroke="var(--red2)" stroke-width="1.3" stroke-linecap="round"/></svg>
+          ANTES — 2025
+        </div>
+        <div class="av-item"><div class="av-dot"></div>Nota do PDI definida na avaliação anual subjetiva</div>
+        <div class="av-item"><div class="av-dot"></div>Dependia da percepção do avaliador</div>
+        <div class="av-item"><div class="av-dot"></div>Sem acompanhamento estruturado durante o ano</div>
+        <div class="av-item"><div class="av-dot"></div>Colaborador não sabia como estava progredindo</div>
+        <div class="av-item"><div class="av-dot"></div>Difícil contestar ou entender a nota recebida</div>
+      </div>
+      <div class="av-card av-after">
+        <div class="av-label">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--green2)" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="var(--green2)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          DEPOIS — 2026+
+        </div>
+        <div class="av-item"><div class="av-dot"></div>Nota calculada automaticamente mês a mês</div>
+        <div class="av-item"><div class="av-dot"></div>Baseada em KPIs numéricos e evidências concretas</div>
+        <div class="av-item"><div class="av-dot"></div>Líder faz check-in mensal de 20 minutos por pessoa</div>
+        <div class="av-item"><div class="av-dot"></div>Colaborador acompanha seu progresso em tempo real</div>
+        <div class="av-item"><div class="av-dot"></div>Nota final sem surpresas — construída ao longo do ano</div>
+      </div>
+    </div>
+
+    <!-- Pesos -->
+    <h3 style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem;color:var(--wh);margin-bottom:.25rem" class="rv" style="transition-delay:.15s">A FÓRMULA DE AVALIAÇÃO</h3>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:0" class="rv" style="transition-delay:.17s">Três dimensões, pesos definidos, cálculo automático.</p>
+    <div class="pesos-grid rv" style="transition-delay:.2s">
+      <div class="peso-card pc1">
+        <div class="peso-icon pi1">📊</div>
+        <div class="peso-pct">50%</div>
+        <div class="peso-name">KPIs TÉCNICOS</div>
+        <div class="peso-desc">Indicadores numéricos do cargo: Conversão, Prazo, CSAT, Protocolos. Média do % atingido vs. meta de cada KPI.</div>
+      </div>
+      <div class="peso-card pc2">
+        <div class="peso-icon pi2">🎯</div>
+        <div class="peso-pct">20%</div>
+        <div class="peso-name">AÇÕES DE DESENVOLVIMENTO</div>
+        <div class="peso-desc">As 3 ações definidas no PDI. Status: 0 = não iniciada · 50 = em andamento · 100 = concluída.</div>
+      </div>
+      <div class="peso-card pc3">
+        <div class="peso-icon pi3">💡</div>
+        <div class="peso-pct">30%</div>
+        <div class="peso-name">COMPORTAMENTAIS</div>
+        <div class="peso-desc">Evidências concretas registradas pelo líder. % de situações positivas. Sem registro = 50 neutro (não penaliza).</div>
+      </div>
+    </div>
+
+    <!-- Tabela de conversão -->
+    <div class="rv" style="transition-delay:.25s">
+      <h3 style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem;color:var(--wh);margin-bottom:1rem">TABELA DE CONVERSÃO — SCORE → NOTA</h3>
+      <div style="overflow-x:auto">
+        <table class="conv-table">
+          <thead><tr><th>Score Total</th><th>Nota</th><th>Significado</th><th>O que representa</th></tr></thead>
+          <tbody>
+            <tr><td>≥ 95%</td><td><span class="nota-badge n5">5</span></td><td style="color:#FFD700;font-weight:600">Superou as Expectativas</td><td style="color:rgba(255,255,255,.65)">Entrega acima do exigido em praticamente todas as dimensões</td></tr>
+            <tr><td>80% – 94%</td><td><span class="nota-badge n4">4</span></td><td style="color:var(--green2);font-weight:600">Acima do Esperado</td><td style="color:rgba(255,255,255,.65)">Entrega consistente acima da meta — candidato a progressão</td></tr>
+            <tr><td>60% – 79%</td><td><span class="nota-badge n3">3</span></td><td style="color:var(--gd);font-weight:600">Atendeu as Expectativas</td><td style="color:rgba(255,255,255,.65)">Nota base — atingiu o que foi acordado. É a nota esperada</td></tr>
+            <tr><td>40% – 59%</td><td><span class="nota-badge n2">2</span></td><td style="color:var(--amber2);font-weight:600">Abaixo do Esperado</td><td style="color:rgba(255,255,255,.65)">Entregas parciais. Plano de melhoria necessário</td></tr>
+            <tr><td>&lt; 40%</td><td><span class="nota-badge n1">1</span></td><td style="color:var(--red2);font-weight:600">Crítico / Não Atendeu</td><td style="color:rgba(255,255,255,.65)">Situação grave. Discussão com liderança e direção</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:.75rem;padding:.75rem;background:rgba(13,27,62,.4);border-left:3px solid rgba(245,166,35,.3);border-radius:0 6px 6px 0;line-height:1.6">
+        <strong style="color:var(--gd)">Exemplo:</strong> Colaborador com KPIs em 100%, ações em 0% e comportamental neutro (50%) → Score: 100×0,5 + 0×0,2 + 50×0,3 = <strong style="color:var(--wh)">65% → Nota 3.</strong> Ou seja: fazer apenas os KPIs garante a nota base, não é punitivo.
+      </p>
+    </div>
+
+    <!-- Ritual -->
+    <div class="rv" style="transition-delay:.3s;margin-top:3rem">
+      <h3 style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.4rem;color:var(--wh);margin-bottom:1rem">O RITUAL DO LÍDER</h3>
+      <div class="ritual-steps">
+        <div class="rs-card">
+          <div class="rs-freq">MENSAL — até dia 10</div>
+          <div class="rs-title">Check-in de Dados</div>
+          <div style="font-size:.78rem;color:var(--amber2);margin-bottom:.5rem">~20 min por colaborador</div>
+          <ul class="rs-items">
+            <li>Atualizar valores dos KPIs de cada colaborador</li>
+            <li>Registrar status das ações (0 / 50 / 100)</li>
+            <li>Registrar evidências comportamentais concretas</li>
+          </ul>
+        </div>
+        <div class="rs-card">
+          <div class="rs-freq">TRIMESTRAL</div>
+          <div class="rs-title">Conversa Estruturada</div>
+          <div style="font-size:.78rem;color:var(--amber2);margin-bottom:.5rem">45–60 min por pessoa</div>
+          <ul class="rs-items">
+            <li>Mostrar score parcial atual ao colaborador</li>
+            <li>O que está bem? O que está travando?</li>
+            <li>Ajustes para o próximo trimestre</li>
+            <li>Feedback do colaborador sobre o acompanhamento</li>
+          </ul>
+        </div>
+        <div class="rs-card">
+          <div class="rs-freq">ANUAL — Jun/2027</div>
+          <div class="rs-title">Avaliação Final</div>
+          <div style="font-size:.78rem;color:var(--amber2);margin-bottom:.5rem">30 min por pessoa</div>
+          <ul class="rs-items">
+            <li>Nota já calculada automaticamente pelos dados</li>
+            <li>Devolutiva estruturada com base em evidências</li>
+            <li>Definição do próximo ciclo de PDI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIMULAÇÃO LUCAS -->
+    <div style="margin-top:4rem" class="rv" style="transition-delay:.35s">
+      <div class="sec-label">SIMULAÇÃO PRÁTICA</div>
+      <h3 style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.8rem;color:var(--wh);margin-bottom:.25rem">COMO SERIA A AVALIAÇÃO DE <em style="color:var(--gd)">LUCAS</em></h3>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:0">Exemplo aplicado — Advogado Jr., Poços de Caldas. Dados fictícios para fins didáticos.</p>
+    </div>
+
+    <!-- Lucas header -->
+    <div class="lucas-header rv" style="transition-delay:.4s">
+      <div class="lh-info">
+        <div class="lh-avatar">L</div>
+        <div>
+          <div class="lh-name">Lucas Mendonça</div>
+          <div class="lh-meta">Advogado Jr. &nbsp;·&nbsp; Poços de Caldas &nbsp;·&nbsp; Líder: João Gabriel &nbsp;·&nbsp; Ciclo Jun/26 → Mai/27</div>
+        </div>
+      </div>
+      <div class="lh-nota">
+        <div class="lh-nota-num">4</div>
+        <div class="lh-nota-desc">Acima do Esperado</div>
+        <div class="lh-nota-label">Nota Projetada</div>
+      </div>
+    </div>
+
+    <!-- Dimensão 1 — KPIs -->
+    <div class="dim-section rv" style="transition-delay:.42s">
+      <div class="dim-header">
+        <div>
+          <div class="dim-num">DIMENSÃO 1</div>
+          <div class="dim-title">KPIs TÉCNICOS DO CARGO</div>
+        </div>
+        <div class="dim-peso">Peso 50%</div>
+        <div class="dim-score">
+          <div class="ds-val">94,3%</div>
+          <div class="ds-label">Score da Dimensão</div>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="kpi-table">
+          <thead><tr><th>KPI / Indicador</th><th>Meta</th><th>Realizado</th><th style="min-width:160px">% Atingido</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600">Conversão (contratos / 1º atend.)</td>
+              <td>80%</td>
+              <td>74%</td>
+              <td><div class="kpi-pbar-wrap"><div class="kpi-pbar"><div class="kpi-pbar-fill" style="width:0%" data-w="92.5%"></div></div><span class="kpi-pct">92,5%</span></div></td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">Prazo — Cumprimento Processual</td>
+              <td>95%</td>
+              <td>93%</td>
+              <td><div class="kpi-pbar-wrap"><div class="kpi-pbar"><div class="kpi-pbar-fill" style="width:0%" data-w="97.9%"></div></div><span class="kpi-pct">97,9%</span></div></td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">CSAT — Pesquisa de Satisfação</td>
+              <td>85%</td>
+              <td>83%</td>
+              <td><div class="kpi-pbar-wrap"><div class="kpi-pbar"><div class="kpi-pbar-fill" style="width:0%" data-w="97.6%"></div></div><span class="kpi-pct">97,6%</span></div></td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">Nº Protocolos / Vendas</td>
+              <td>30%</td>
+              <td>26%</td>
+              <td><div class="kpi-pbar-wrap"><div class="kpi-pbar"><div class="kpi-pbar-fill" style="width:0%" data-w="86.7%"></div></div><span class="kpi-pct">86,7%</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Dimensão 2 — Ações -->
+    <div class="dim-section rv" style="transition-delay:.44s">
+      <div class="dim-header">
+        <div>
+          <div class="dim-num">DIMENSÃO 2</div>
+          <div class="dim-title">AÇÕES DE DESENVOLVIMENTO</div>
+        </div>
+        <div class="dim-peso">Peso 20%</div>
+        <div class="dim-score">
+          <div class="ds-val" style="color:#4A90D9">83,3%</div>
+          <div class="ds-label">Score da Dimensão</div>
+        </div>
+      </div>
+      <div class="acoes-list">
+        <div class="acao-item">
+          <div>
+            <div class="acao-name">Curso de prática previdenciária (online + certificado)</div>
+            <div class="acao-prazo">Prazo: 3 meses &nbsp;·&nbsp; Responsável: Lucas</div>
+            <div class="acao-prog"><div class="ap-bar"><div class="ap-fill" style="width:0%;background:var(--green2)" data-w="100%"></div></div></div>
+          </div>
+          <div class="acao-status"><span class="status-chip sc-done">✓ Concluída</span></div>
+        </div>
+        <div class="acao-item">
+          <div>
+            <div class="acao-name">Shadowing em audiências com advogado sênior (mínimo 4 sessões)</div>
+            <div class="acao-prazo">Prazo: 6 meses &nbsp;·&nbsp; Responsável: João Gabriel + Lucas</div>
+            <div class="acao-prog"><div class="ap-bar"><div class="ap-fill" style="width:0%;background:var(--green2)" data-w="100%"></div></div></div>
+          </div>
+          <div class="acao-status"><span class="status-chip sc-done">✓ Concluída</span></div>
+        </div>
+        <div class="acao-item">
+          <div>
+            <div class="acao-name">Padronização de peças processuais no sistema interno (modelo BSC)</div>
+            <div class="acao-prazo">Prazo: 9 meses &nbsp;·&nbsp; Responsável: Lucas + Coord. Jurídico</div>
+            <div class="acao-prog"><div class="ap-bar"><div class="ap-fill" style="width:0%;background:var(--amber2)" data-w="50%"></div></div></div>
+          </div>
+          <div class="acao-status"><span class="status-chip sc-wip">Em Andamento</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dimensão 3 — Comportamentais -->
+    <div class="dim-section rv" style="transition-delay:.46s">
+      <div class="dim-header">
+        <div>
+          <div class="dim-num">DIMENSÃO 3</div>
+          <div class="dim-title">COMPORTAMENTAIS</div>
+        </div>
+        <div class="dim-peso">Peso 30%</div>
+        <div class="dim-score">
+          <div class="ds-val" style="color:var(--green2)">80%</div>
+          <div class="ds-label">Score da Dimensão</div>
+        </div>
+      </div>
+      <p style="font-size:.8rem;color:var(--muted);margin-bottom:1rem">Evidências concretas registradas pelo líder — data + situação + impacto nos KPIs. 4 positivos, 1 negativo → Score 80%.</p>
+      <div class="comp-list">
+        <div class="comp-item">
+          <div class="comp-type ct-pos">+</div>
+          <div class="comp-text">
+            <span class="comp-date">12/06/2026 — Positivo</span>
+            Lucas identificou inconsistência em protocolo antes do prazo e comunicou ao coordenador sem que fosse solicitado. O KPI de prazo da semana foi 100% sem retrabalho.
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-type ct-pos">+</div>
+          <div class="comp-text">
+            <span class="comp-date">03/07/2026 — Positivo</span>
+            Ao assumir audiência com prazo curto por ausência de colega, organizou o processo em 2h e entregou sem pendências. CSAT do cliente naquele atendimento foi 5.
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-type ct-pos">+</div>
+          <div class="comp-text">
+            <span class="comp-date">18/07/2026 — Positivo</span>
+            Compartilhou template de petição com a equipe de forma espontânea após concluir curso previdenciário. Redução de 30min no tempo médio de elaboração de peças similares.
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-type ct-neg">−</div>
+          <div class="comp-text">
+            <span class="comp-date">28/07/2026 — Negativo</span>
+            Em reunião de alinhamento, interrompeu colega durante apresentação de resultado sem aguardar o espaço de perguntas. Registrado para desenvolvimento de escuta ativa.
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-type ct-pos">+</div>
+          <div class="comp-text">
+            <span class="comp-date">15/08/2026 — Positivo</span>
+            Proativamente abordou o líder para revisar evolução da ação de padronização de peças antes da reunião trimestral. Demonstrou comprometimento com o próprio PDI.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score Final -->
+    <div class="score-final rv" style="transition-delay:.5s">
+      <div style="text-align:center;margin-bottom:1.5rem">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">CÁLCULO DO RESULTADO FINAL</div>
+        <div style="font-size:.85rem;color:rgba(255,255,255,.6);margin-top:.3rem">Score Total = KPIs×50% + Ações×20% + Comportamentais×30%</div>
+      </div>
+      <div class="sf-grid">
+        <div class="sf-dim">
+          <div class="sf-dim-label">KPIs Técnicos</div>
+          <div class="sf-dim-score">94,3%</div>
+          <div class="sf-dim-peso">× 50% = 47,2 pts</div>
+        </div>
+        <div class="sf-dim">
+          <div class="sf-dim-label">Ações de Desenvolvimento</div>
+          <div class="sf-dim-score" style="color:#4A90D9">83,3%</div>
+          <div class="sf-dim-peso">× 20% = 16,7 pts</div>
+        </div>
+        <div class="sf-dim">
+          <div class="sf-dim-label">Comportamentais</div>
+          <div class="sf-dim-score" style="color:var(--green2)">80,0%</div>
+          <div class="sf-dim-peso">× 30% = 24,0 pts</div>
+        </div>
+        <div class="sf-result">
+          <div style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(95,207,138,.6);margin-bottom:.3rem">Score Total</div>
+          <div class="sf-total">87,9%</div>
+          <div class="sf-nota-row">
+            <div class="sf-nota-n">4</div>
+            <div class="sf-nota-text">Acima do<br>Esperado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup CTA -->
+    <div class="mockup-cta rv" style="transition-delay:.55s">
+      <div class="mc-text">
+        <h3>COMO SERÁ O SISTEMA DIGITAL</h3>
+        <p>O TI (Rodrigo) está construindo a plataforma de acompanhamento. Veja como será a interface — dashboards, registros mensais e visão do colaborador já desenhados.</p>
+      </div>
+      <a href="pdi-sistema.html" class="mc-btn" target="_blank">
+        <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 7h6M5 10h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Ver Mockup do Sistema
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== FERRAMENTAS RH ===== -->
+<section id="s-ferramentas" style="background:var(--dk);padding:5rem 0">
+  <div class="container">
+    <div class="rv">
+      <div class="sec-label">RECURSOS DE APOIO</div>
+      <h2 class="sec-title">FERRAMENTAS <em>RH 2026</em></h2>
+      <p class="sec-body">Acesse os materiais de apoio desenvolvidos para este ciclo. Cada ferramenta tem um propósito específico e se complementam.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2.5rem">
+
+      <a href="https://brevis-newsletter.github.io/MAXIMIANO_NEGOCIOS/pdi-sistema.html" target="_blank" style="text-decoration:none;display:block;background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.75rem;transition:all .25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(245,166,35,.35)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.4)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,.07)';this.style.boxShadow='none'" class="rv" style="transition-delay:.1s">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gd),var(--gd2))"></div>
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1rem">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none"><rect x="3" y="2" width="14" height="16" rx="2" stroke="rgba(245,166,35,.8)" stroke-width="1.3"/><path d="M7 7h6M7 10h6M7 13h4" stroke="rgba(245,166,35,.7)" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--wh);margin-bottom:.3rem">SISTEMA PDI</div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gd);margin-bottom:.75rem">Mockup da Plataforma Digital</div>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:1.25rem">Veja como será a interface do sistema de acompanhamento — dashboards, registros mensais, visão do colaborador e cálculo automático de notas.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:700;color:var(--gd);letter-spacing:.06em;text-transform:uppercase">Acessar mockup <svg viewBox="0 0 12 12" fill="none" width="12" height="12"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="var(--gd)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+
+      <a href="https://brevis-newsletter.github.io/MAXIMIANO_NEGOCIOS/bars.html" target="_blank" style="text-decoration:none;display:block;background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:1.75rem;transition:all .25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(95,207,138,.35)';this.style.boxShadow='0 12px 36px rgba(0,0,0,.4)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,.07)';this.style.boxShadow='none'" class="rv" style="transition-delay:.2s">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green2),#a0ffcc)"></div>
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(95,207,138,.12);border:1px solid rgba(95,207,138,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1rem">
+          <svg viewBox="0 0 20 20" width="20" height="20" fill="none"><path d="M4 15l3-4 3 2 3-5 3 3" stroke="rgba(95,207,138,.8)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="16" height="16" rx="2" stroke="rgba(95,207,138,.6)" stroke-width="1.2"/></svg>
+        </div>
+        <div style="font-family:'Arial Narrow','Arial',sans-serif;font-weight:900;font-size:1.2rem;color:var(--wh);margin-bottom:.3rem">GUIA BARS</div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);margin-bottom:.75rem">Escalas Comportamentais Ancoradas</div>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:1.25rem">Como avaliar os 5 indicadores comportamentais com critério e evidência. Descrições concretas para cada nota, exemplos de calibração e rituais do líder.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:700;color:var(--green2);letter-spacing:.06em;text-transform:uppercase">Acessar guia BARS <svg viewBox="0 0 12 12" fill="none" width="12" height="12"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="var(--green2)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© MAXIMIANO ADVOGADOS &nbsp;·&nbsp; REUNIÃO ESTRATÉGICA DE LÍDERES &nbsp;·&nbsp; MAIO 2026</p>
+  <p style="margin-top:.3rem">Desenvolvimento individual é responsabilidade compartilhada entre líder e liderado.</p>
+</footer>
+
+<script>
+// Scroll navigation
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+// Nav active on scroll
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});
+  navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('onclick')&&a.getAttribute('onclick').includes(cur))});
+});
+
+// Intersection Observer — reveal animations + bar animations
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      // animate progress bars inside
+      e.target.querySelectorAll('[data-w]').forEach(bar=>{
+        setTimeout(()=>{bar.style.width=bar.dataset.w},200);
+      });
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+
+document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
+
+// Also trigger bars that may already be visible
+window.addEventListener('load',()=>{
+  document.querySelectorAll('[data-w]').forEach(bar=>{
+    const rect=bar.getBoundingClientRect();
+    if(rect.top<window.innerHeight){setTimeout(()=>{bar.style.width=bar.dataset.w},400)}
+  });
+});
+</script>
+</body>
+</html>
